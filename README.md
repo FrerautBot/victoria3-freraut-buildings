@@ -43,7 +43,7 @@ Mod para Victoria 3 que agrega **16 edificios custom** con métodos de producci�
 2. Verificá que el juego no reporte errores del mod en:
 
    ```
-   C:\Users\lucas\Documents\Paradox Interactive\Victoria 3\logs\error.log
+   <Usuario>\Documents\Paradox Interactive\Victoria 3\logs\error.log
    ```
 
 3. En una partida, buscá los edificios del mod (por ejemplo, el Mining Center) y confirmá que sus métodos de producción aparecen correctamente.
