@@ -16,7 +16,7 @@ freraut_path_socialist = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.1 }
+		trigger_event = { id = freraut_path.4 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -33,7 +33,7 @@ freraut_path_communist = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.2 }
+		trigger_event = { id = freraut_path.3 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -50,7 +50,7 @@ freraut_path_presidential = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.3 }
+		trigger_event = { id = freraut_path.6 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -67,7 +67,7 @@ freraut_path_parliamentary = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.4 }
+		trigger_event = { id = freraut_path.7 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -84,7 +84,7 @@ freraut_path_ancap = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.5 }
+		trigger_event = { id = freraut_path.8 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -101,7 +101,7 @@ freraut_path_ancocom = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.6 }
+		trigger_event = { id = freraut_path.5 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -118,7 +118,7 @@ freraut_path_monarcho_fascist = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.7 }
+		trigger_event = { id = freraut_path.1 }
 	}
 	ai_chance = { value = 0 }
 }
@@ -135,7 +135,7 @@ freraut_path_fascist = {
 	}
 	when_taken = {
 		set_variable = freraut_ideology_chosen
-		trigger_event = { id = freraut_path.8 }
+		trigger_event = { id = freraut_path.2 }
 	}
 	ai_chance = { value = 0 }
 }
