@@ -3,7 +3,7 @@
     "id" : "com.freraut.buildings",
     "version" : "1.1.0",
     "game_id" : "victoria3",
-    "supported_game_version" : "1.*",
+    "supported_game_version" : "1.15.*",
     "short_description" : "Adds 16 custom buildings with tuned production methods, including copper output in the Mining Center and a construction bonus in Public Works. Features confederate countries with decisions and ideological paths, power blocs, and events. Introduces the corporate_financial_services custom good.",
     "tags" : ["gameplay", "economy", "buildings"],
     "relationships" : [],
