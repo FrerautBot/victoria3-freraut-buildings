@@ -139,6 +139,7 @@ pm_mining_center_base = {
 			goods_output_lead_add = 50
 			goods_output_gold_add = 10
 			goods_output_coal_add = 50
+			goods_output_copper_add = 50
 		}
 
 		level_scaled = {
@@ -219,8 +220,8 @@ pm_public_works_base = {
 	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
 
 	state_modifiers = {
-		workforce_scaled = {
-			state_construction_add = 500
+		level_scaled = {
+			state_construction_add = 10
 		}
 	}
 
