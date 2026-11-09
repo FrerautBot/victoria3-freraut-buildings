@@ -1,0 +1,30 @@
+﻿############################################################
+# Freraut - Dynamic country names for confederate TAGs
+############################################################
+
+FEU = {
+	dynamic_country_name = {
+		name = "FEU_NAME_EUROPA"
+		adjective = "FEU_ADJ_EUROPA"
+		is_main_tag_only = yes
+		priority = 0
+	}
+}
+
+FAM = {
+	dynamic_country_name = {
+		name = "FAM_NAME_AMERICA"
+		adjective = "FAM_ADJ_AMERICA"
+		is_main_tag_only = yes
+		priority = 0
+	}
+}
+
+FRE = {
+	dynamic_country_name = {
+		name = "FRE_NAME_DEFAULT"
+		adjective = "FRE_ADJ_DEFAULT"
+		is_main_tag_only = yes
+		priority = 0
+	}
+}

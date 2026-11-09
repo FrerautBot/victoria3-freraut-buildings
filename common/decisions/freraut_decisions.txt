@@ -1,0 +1,38 @@
+﻿# Decision: Fundar el Banco Nacional
+freraut_establish_national_bank_decision = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_bank_established }
+	}
+
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_bank_established }
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_stock_exchange
+				level >= 1
+			}
+		}
+	}
+
+	when_taken = {
+		set_variable = freraut_bank_established
+
+		add_modifier = {
+			name = freraut_national_industry_modifier
+		}
+
+		capital = {
+			create_building = {
+				building = building_grand_company_bank
+				level = 5
+				reserves = 1
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}

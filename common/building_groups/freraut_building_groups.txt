@@ -1,0 +1,199 @@
+﻿############################################
+# Freraut Custom Building Groups
+# Parent: bg_government (development category, always_possible, no land_usage)
+# is_government_funded = no -> los edificios LUCRAN como industria privada
+# can_build_private bloqueado: privados NO construyen ni expanden
+############################################
+
+bg_central_bank = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_public_health = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_mining_center = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 10
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_manufacturing_center = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_public_works = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_sovereign_palace = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_tech_university = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_national_trade = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_logistics_center = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_national_academy = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = military
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_stock_exchange = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_dissident_agency = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_fertilization_center = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = agriculture
+	urbanization = 5
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_industrial_trains = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_breeding_center = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = agriculture
+	urbanization = 5
+	infrastructure_usage_per_level = 2
+	cash_reserves_max = 25000
+	can_build_private = {
+		always = no
+	}
+}
+
+bg_grand_company_bank = {
+	parent_group = bg_government
+	is_government_funded = no
+	lens = government
+	economy_of_scale = yes
+	cash_reserves_max = 50000
+	urbanization = 20
+	infrastructure_usage_per_level = 2
+	can_build_private = {
+		always = no
+	}
+}

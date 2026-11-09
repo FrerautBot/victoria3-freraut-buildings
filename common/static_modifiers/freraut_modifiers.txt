@@ -1,0 +1,12 @@
+﻿# Modificador permanente: Industria Nacional Armada
+freraut_national_industry_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_max_companies_add = 20
+}
+
+
+# Momentum durante el proceso de Gran Unificacion
+freraut_unification_momentum = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	country_authority_add = 100
+}

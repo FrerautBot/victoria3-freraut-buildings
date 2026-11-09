@@ -1,0 +1,7 @@
+# Servicios Financieros Corporativos - bien de lujo producido por el Banco de la Gran Compañía
+corporate_financial_services = {
+	texture = "gfx/interface/icons/goods_icons/corporate_financial_services.png"
+	cost = 50
+	category = luxury
+	prestige_factor = 10
+}

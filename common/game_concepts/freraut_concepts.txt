@@ -1,0 +1,8 @@
+﻿############################################
+# Conceptos del mod Freraut Buildings
+# Concepto para Estado Confederado
+############################################
+
+concept_confederated_state = {
+	texture = "gfx/interface/icons/subject_type_icons/subject_type_confederated_state.dds"
+}

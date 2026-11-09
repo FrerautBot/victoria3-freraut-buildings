@@ -1,0 +1,55 @@
+﻿l_spanish:
+ # -------------------------------------------------------
+ # Nombres y adjetivos de países
+ # -------------------------------------------------------
+ FEU_NAME_EUROPA:0 "Estados Unidos de Europa"
+ FEU_ADJ_EUROPA:0 "Confederal Europeo"
+ FAM_NAME_AMERICA:0 "Estados Unidos de las Américas"
+ FAM_ADJ_AMERICA:0 "Confederal Americano"
+ FRE_NAME_DEFAULT:0 "Estados Unidos Confederales"
+ FRE_ADJ_DEFAULT:0 "Confederal"
+
+ # -------------------------------------------------------
+ # Títulos y descripciones de decisiones
+ # -------------------------------------------------------
+ freraut_propose_great_unification:0 "Proponer la Gran Unificación Confederal"
+ freraut_propose_great_unification_desc:0 "Ha llegado el momento de transformar nuestra confederación en una nación unificada. Enviaremos una propuesta a todos los estados confederados, quienes podrán aceptarla o rechazarla. Si al menos tres miembros aceptan, el nuevo estado se formará. Los que se nieguen arriesgan la guerra."
+ freraut_forced_unification:0 "Imponer la Unificación Confederal"
+ freraut_forced_unification_desc:0 "Los miembros leales serán absorbidos de inmediato. Quienes resistan enfrentarán una acción militar para imponer la unificación."
+
+ # -------------------------------------------------------
+ # Tooltips de decisiones
+ # -------------------------------------------------------
+ freraut_need_4_confederate_members_tt:0 "Requiere al menos 4 sujetos confederados"
+
+ # -------------------------------------------------------
+ # Títulos, descripciones y opciones de eventos
+ # -------------------------------------------------------
+ freraut_unification.1.t:0 "Un Llamado a la Unidad"
+ freraut_unification.1.d:0 "[scope:confederate_member.overlord.GetName] ha propuesto la formación de un gran estado confederal. Como miembro de la confederación de [scope:confederate_member.overlord.GetName], debemos decidir: ¿nos unimos a esta nueva nación o permanecemos separados?"
+ freraut_unification.1.a:0 "¡Estamos juntos! ¡Por la Confederación!"
+ freraut_unification.1.b:0 "Nuestra soberanía no puede ser entregada."
+
+ freraut_unification.10.t:0 "El Día de la Decisión"
+ freraut_unification.10.d:0 "Los votos están contados. [ROOT.GetName] debe actuar sobre la voluntad de los miembros de la confederación."
+ freraut_unification.10.a:0 "La suerte está echada."
+
+ freraut_unification.20.t:0 "Absorbido por la Confederación"
+ freraut_unification.20.d:0 "Nuestra nación se une a la unión confederal. Comienza un nuevo capítulo."
+ freraut_unification.20.a:0 "¡Larga vida a la Confederación!"
+
+ freraut_unification.21.t:0 "La Confederación Exige Cumplimiento"
+ freraut_unification.21.d:0 "A pesar de nuestra negativa, la confederación actúa contra nosotros por la fuerza. Nuestra resistencia debe mantenerse."
+ freraut_unification.21.a:0 "¡No cederemos!"
+
+ # -------------------------------------------------------
+ # Objetivo de guerra
+ # -------------------------------------------------------
+ wg_freraut_confederalize:0 "Forzar a la Confederación"
+ wg_freraut_confederalize_desc:0 "Obligar a la nación objetivo a unirse a la confederación como estado sujeto."
+
+ # -------------------------------------------------------
+ # Modificador
+ # -------------------------------------------------------
+ freraut_unification_momentum:0 "Ímpetu de Unificación"
+ freraut_unification_momentum_desc:0 "Esta nación ha votado unirse a la confederación y aguarda la unificación formal."

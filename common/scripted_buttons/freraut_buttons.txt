@@ -1,0 +1,45 @@
+# Botón para fundar el Banco Nacional
+freraut_establish_national_bank = {
+	name = "freraut_establish_national_bank_name"
+	desc = "freraut_establish_national_bank_desc"
+
+	visible = {
+		NOT = { has_variable = freraut_bank_established }
+	}
+
+	possible = {
+		NOT = { has_variable = freraut_bank_established }
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_stock_exchange
+				level >= 1
+			}
+		}
+	}
+
+	ai_chance = {
+		value = 100
+	}
+
+	effect = {
+		# Marcar que el banco fue establecido
+		set_variable = freraut_bank_established
+
+		# +20 max compañías
+		add_modifier = {
+			name = freraut_national_industry_modifier
+		}
+
+		# Crear 5 niveles del Banco de la Gran Compañía en la capital
+		capital = {
+			create_building = {
+				building = building_grand_company_bank
+				level = 5
+				reserves = 1
+			}
+		}
+
+		# Registrar la compañía
+		add_company = company_type:company_freraut_national_bank
+	}
+}

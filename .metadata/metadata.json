@@ -1,0 +1,13 @@
+{
+    "name" : "Freraut Buildings - Banco Central & Salud",
+    "id" : "com.freraut.buildings",
+    "version" : "1.0.0",
+    "game_id" : "victoria3",
+    "supported_game_version" : "1.*",
+    "short_description" : "Adds two new government buildings: Central Bank (minting & gold) and Public Health (birth rate & mortality).",
+    "tags" : ["gameplay", "economy", "buildings"],
+    "relationships" : [],
+    "game_custom_data" : {
+        "multiplayer_synchronized" : true
+    }
+}

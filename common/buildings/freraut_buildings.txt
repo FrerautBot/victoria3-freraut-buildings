@@ -1,0 +1,414 @@
+﻿############################################
+# Freraut Custom Buildings
+############################################
+
+building_central_bank = {
+	building_group = bg_central_bank
+
+	texture = "gfx/interface/icons/building_icons/building_financial_district.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		central_banking
+	}
+
+	production_method_groups = {
+		pmg_central_bank_operations
+		pmg_bank_financial_services
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_public_health = {
+	building_group = bg_public_health
+
+	texture = "gfx/interface/icons/building_icons/building_university.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		modern_sewerage
+	}
+
+	production_method_groups = {
+		pmg_public_health_operations
+		pmg_public_health_medical_techniques
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_mining_center = {
+	building_group = bg_mining_center
+
+	texture = "gfx/interface/icons/building_icons/building_coal_mine.dds"
+
+	city_type = mine
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_mining_center_operations
+		pmg_mining_center_automation
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_manufacturing_center = {
+	building_group = bg_manufacturing_center
+
+	texture = "gfx/interface/icons/building_icons/building_tooling_workshops.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_manufacturing_center_operations
+		pmg_manufacturing_center_automation
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_public_works = {
+	building_group = bg_public_works
+
+	texture = "gfx/interface/icons/building_icons/building_construction_sector.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_public_works_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_sovereign_palace = {
+	building_group = bg_sovereign_palace
+
+	texture = "gfx/interface/icons/building_icons/building_palace.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_sovereign_palace_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_tech_university = {
+	building_group = bg_tech_university
+
+	texture = "gfx/interface/icons/building_icons/building_university.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_tech_university_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_national_trade = {
+	building_group = bg_national_trade
+
+	texture = "gfx/interface/icons/building_icons/building_trade_center.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_national_trade_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_logistics_center = {
+	building_group = bg_logistics_center
+
+	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_logistics_center_operations
+		pmg_logistics_transport
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_national_academy = {
+	building_group = bg_national_academy
+
+	texture = "gfx/interface/icons/building_icons/building_barracks.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_national_academy_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_stock_exchange = {
+	building_group = bg_stock_exchange
+
+	texture = "gfx/interface/icons/building_icons/building_financial_district.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_stock_exchange_model
+		pmg_stock_exchange_foreign_policy
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_dissident_agency = {
+	building_group = bg_dissident_agency
+
+	texture = "gfx/interface/icons/building_icons/building_secret_police.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_dissident_agency_base
+		pmg_dissident_armed_forces
+		pmg_dissident_industrialists
+		pmg_dissident_landowners
+		pmg_dissident_intelligentsia
+		pmg_dissident_trade_unions
+		pmg_dissident_rural_folk
+		pmg_dissident_devout
+		pmg_dissident_petite_bourgeoisie
+	}
+
+	required_construction = 1
+
+	possible = {
+		owner = {
+			OR = {
+				has_law = law_type:law_censorship
+				has_law = law_type:law_outlawed_dissent
+				has_law = law_type:law_oligarchy
+				has_law = law_type:law_autocracy
+				has_law = law_type:law_technocracy
+				has_law = law_type:law_single_party_state
+				has_law = law_type:law_secret_police
+			}
+		}
+	}
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_fertilization_center = {
+	building_group = bg_fertilization_center
+
+	texture = "gfx/interface/icons/building_icons/building_food_industry.dds"
+
+	city_type = farm
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_fertilization_base
+		pmg_fertilization_chemicals
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_industrial_trains = {
+	building_group = bg_industrial_trains
+
+	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	unlocking_technologies = {
+		railways
+	}
+
+	production_method_groups = {
+		pmg_industrial_trains_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_breeding_center = {
+	building_group = bg_breeding_center
+
+	texture = "gfx/interface/icons/building_icons/building_livestock_ranch.dds"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_breeding_center_operations
+	}
+
+	required_construction = 1
+
+	can_build_private = {
+		always = no
+	}
+
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+}
+
+building_grand_company_bank = {
+	building_group = bg_grand_company_bank
+
+	texture = "gfx/interface/icons/building_icons/building_grand_company_bank.png"
+
+	city_type = city
+	levels_per_mesh = 5
+
+	production_method_groups = {
+		pmg_grand_company_bank_operations
+	}
+
+	required_construction = 1
+
+	# Solo el jugador puede construir manualmente
+	can_build_government = {
+		owner = { is_player = yes }
+	}
+	# Privados NO pueden construir (solo la compañía invierte aquí)
+	can_build_private = {
+		always = no
+	}
+	ownership_type = self
+}

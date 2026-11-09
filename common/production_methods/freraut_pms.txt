@@ -1,0 +1,1132 @@
+﻿############################################
+# Freraut Production Methods
+############################################
+
+pm_central_bank_base = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_minting_mult = 0.05
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_gold_add = 100
+		}
+
+		level_scaled = {
+			building_employment_capitalists_add = 500
+			building_employment_laborers_add = 1000
+			building_employment_bureaucrats_add = 2000
+		}
+	}
+}
+
+# Columna 2: Servicios Financieros
+
+# Sin Servicios Financieros (base)
+pm_bank_no_financial_services = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+
+	# Sin consumo de servicios ni producción extra de oro
+}
+
+# Servicios Financieros (consume servicios, genera oro extra)
+pm_bank_financial_services = {
+	texture = "gfx/interface/icons/production_method_icons/central_banking.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_services_add = 30
+			goods_output_gold_add = 60
+		}
+	}
+}
+
+pm_public_health_base = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# Mitad de efectos sin quinina
+			state_birth_rate_mult = 0.2
+			state_mortality_mult = -0.2
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_services_add = 20
+		}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 2000
+			building_employment_laborers_add = 3000
+		}
+	}
+}
+
+# Tratamiento de Malaria (requiere quinina) — efectos completos
+pm_public_health_quinine = {
+	texture = "gfx/interface/icons/production_method_icons/pharmaceuticals.dds"
+
+	unlocking_technologies = {
+		quinine
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			# Efectos completos con quinina
+			state_birth_rate_mult = 0.4
+			state_mortality_mult = -0.4
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_services_add = 20
+		}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 2000
+			building_employment_laborers_add = 3000
+		}
+	}
+}
+
+# Columna 2: Técnicas médicas
+# Base — sin efecto (tratamientos primitivos)
+pm_public_health_18th_century = {
+	texture = "gfx/interface/icons/production_method_icons/no_ownership.dds"
+}
+
+# Avanzado — desbloqueado por medical_degrees
+pm_public_health_victorian = {
+	texture = "gfx/interface/icons/production_method_icons/pharmaceuticals.dds"
+
+	unlocking_technologies = {
+		medical_degrees
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +30% natalidad, -30% mortalidad, +25% seguridad alimentaria
+			state_birth_rate_mult = 0.3
+			state_mortality_mult = -0.3
+			state_food_security_add = 0.25
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			# Contrata empleados adicionales
+			building_employment_bureaucrats_add = -1000
+			building_employment_laborers_add = -1500
+		}
+	}
+}
+
+pm_mining_center_base = {
+	texture = "gfx/interface/icons/production_method_icons/extraction.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_tools_add = 15
+			goods_output_sulfur_add = 50
+			goods_output_iron_add = 50
+			goods_output_lead_add = 50
+			goods_output_gold_add = 10
+			goods_output_coal_add = 50
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 3000
+		}
+	}
+}
+
+pm_manufacturing_center_base = {
+	texture = "gfx/interface/icons/production_method_icons/mechanized_workshops.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs - 15 de cada materia prima
+			goods_input_lead_add = 15
+			goods_input_iron_add = 15
+			goods_input_sulfur_add = 15
+			goods_input_coal_add = 15
+			goods_input_wood_add = 15
+
+			# Outputs - Herramientas y materiales
+			goods_output_tools_add = 50
+			goods_output_steel_add = 50
+			goods_output_glass_add = 50
+			goods_output_engines_add = 50
+			goods_output_hardwood_add = 100
+			goods_output_wood_add = 50
+
+			# Outputs - Ropa y textiles
+			goods_output_clothes_add = 50
+			goods_output_luxury_clothes_add = 50
+			goods_output_fabric_add = 50
+			goods_output_silk_add = 50
+
+			# Outputs - Muebles
+			goods_output_furniture_add = 50
+			goods_output_luxury_furniture_add = 50
+
+			# Outputs - Militar
+			goods_output_small_arms_add = 50
+			goods_output_artillery_add = 50
+			goods_output_ammunition_add = 50
+
+			# Outputs - Naval (todos los tipos de barcos)
+			goods_output_manowars_add = 50
+			goods_output_ironclads_add = 50
+			goods_output_clippers_add = 50
+			goods_output_steamers_add = 50
+			goods_output_aeroplanes_add = 50
+
+			# Outputs - Comercio naval
+			goods_output_merchant_marine_add = 100
+
+			# Outputs - Lujo y consumo
+			goods_output_porcelain_add = 50
+			goods_output_liquor_add = 50
+			goods_output_tobacco_add = 50
+			goods_output_wine_add = 100
+			goods_output_fish_add = 50
+
+			# Outputs - Papel
+			goods_output_paper_add = 50
+
+			# Outputs - Comida y Electricidad
+			goods_output_groceries_add = 50
+			goods_output_electricity_add = 50
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 5000
+			building_employment_machinists_add = 3000
+			building_employment_engineers_add = 2000
+		}
+	}
+}
+
+pm_public_works_base = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_construction_add = 500
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_weekly_innovation_add = 10
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs
+			goods_input_iron_add = 15
+			goods_input_coal_add = 15
+			goods_input_wood_add = 15
+			goods_input_fabric_add = 15
+			goods_input_glass_add = 15
+			goods_input_tools_add = 15
+			goods_input_hardwood_add = 15
+
+			# Outputs
+			goods_output_services_add = 50
+			goods_output_transportation_add = 50
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 500
+		}
+	}
+}
+
+pm_tech_university_base = {
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+
+	# +300% Cualificación
+	state_modifiers = {
+		workforce_scaled = {
+			state_pop_qualifications_mult = 3.0
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +500 Innovación semanal
+			country_weekly_innovation_add = 500
+			# +0.50 Impuesto a la renta
+			tax_income_add = 0.50
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Input
+			goods_input_paper_add = 15
+			# Output
+			goods_output_services_add = 35
+		}
+
+		level_scaled = {
+			# Pocos trabajadores: oficinistas y proletarios
+			building_employment_clerks_add = 250
+			building_employment_laborers_add = 250
+			# Produce académicos (como la universidad del juego)
+			building_employment_academics_add = 500
+		}
+	}
+}
+
+pm_sovereign_palace_base = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +200% Autoridad
+			country_authority_mult = 2.0
+			# +200% Burocracia
+			country_bureaucracy_mult = 2.0
+			# +500 Influencia diplomática
+			country_influence_add = 500
+			# +200 Maniobras por jugada diplomática
+			country_diplomatic_play_maneuvers_add = 200
+			# +200 Legitimidad base
+			country_legitimacy_base_add = 200
+			# +100% Rendimiento de todos los edificios
+			building_throughput_add = 1.0
+			# +1000% Capacidad de influir movimientos políticos (bolster/suppress)
+			country_bolster_attraction_factor = 10.0
+			country_suppression_attraction_factor = -10.0
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_bureaucrats_add = 3000
+			building_employment_aristocrats_add = 1000
+			building_employment_officers_add = 1000
+		}
+	}
+}
+
+############################################
+# Centro de Bienes Nacionales de Intercambio
+############################################
+
+pm_national_trade_base = {
+	texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +300 Capacidad de comercio (rutas de importación/exportación)
+			state_trade_capacity_add = 300
+			# +10 Rutas comerciales por semana
+			state_weekly_trades_add = 10
+			# +200% Cantidad de comercio
+			state_trade_quantity_mult = 2.0
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100 Influencia para gestionar relaciones comerciales
+			country_influence_add = 100
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clerks_add = 500
+			building_employment_shopkeepers_add = 500
+		}
+	}
+}
+
+############################################
+# Centro de Logística
+############################################
+
+pm_logistics_center_base = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +50% Seguridad alimentaria
+			state_food_security_add = 0.5
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +50% Ingresos de dependientes
+			state_dependent_wage_mult = 0.5
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs - Consume de todo (basado en Centro de Manufactura y Minas)
+			goods_input_tools_add = 20
+			goods_input_groceries_add = 20
+			goods_input_wood_add = 20
+			goods_input_hardwood_add = 20
+			goods_input_iron_add = 20
+			goods_input_sulfur_add = 20
+			goods_input_transportation_add = 20
+			goods_input_clothes_add = 20
+			goods_input_luxury_clothes_add = 20
+			goods_input_fabric_add = 20
+			goods_input_coal_add = 20
+			goods_input_lead_add = 20
+			goods_input_steel_add = 20
+			goods_input_glass_add = 20
+			goods_input_engines_add = 20
+			goods_input_furniture_add = 20
+			goods_input_paper_add = 20
+			goods_input_electricity_add = 20
+			goods_input_small_arms_add = 15
+			goods_input_artillery_add = 15
+			goods_input_ammunition_add = 15
+			goods_input_porcelain_add = 15
+			goods_input_liquor_add = 15
+			goods_input_wine_add = 15
+
+			# Outputs
+			goods_output_services_add = 50
+			goods_output_gold_add = 50
+		}
+
+		level_scaled = {
+			building_employment_clerks_add = 500
+			building_employment_laborers_add = 500
+		}
+	}
+}
+
+# Columna 2: Transporte
+
+# Uso de Caballos (base, sin requisito tecnológico)
+pm_logistics_horses = {
+	texture = "gfx/interface/icons/production_method_icons/horseback_riding.dds"
+
+	# Sin bonus de reducción de insumos — transporte básico con caballos
+}
+
+# Tecnología de Rieles (requiere railways)
+pm_logistics_railways = {
+	texture = "gfx/interface/icons/production_method_icons/railways.dds"
+
+	unlocking_technologies = {
+		railways
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# -50% Consumo de insumos — los rieles optimizan toda la cadena logística
+			building_goods_input_mult = -0.5
+
+			# Inputs del sistema de rieles
+			goods_input_engines_add = 10
+			goods_input_coal_add = 10
+			goods_input_transportation_add = 30
+		}
+	}
+}
+
+############################################
+# Academia Nacional
+############################################
+
+pm_national_academy_base = {
+	texture = "gfx/interface/icons/production_method_icons/standing_army.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +100 niveles máximos de cuarteles
+			state_building_barracks_max_level_add = 100
+			# +100 niveles máximos de centros de conscripción
+			state_building_conscription_center_max_level_add = 100
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +20% Ataque del ejército
+			unit_army_offense_mult = 0.2
+			# +20% Defensa del ejército
+			unit_army_defense_mult = 0.2
+			# +100% Bajas infligidas (kill rate)
+			unit_kill_rate_add = 1.0
+			# +100% Innovación militar
+			country_military_tech_research_speed_mult = 1.0
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs
+			goods_input_small_arms_add = 15
+			goods_input_artillery_add = 15
+		}
+
+		level_scaled = {
+			building_employment_officers_add = 1000
+			building_employment_soldiers_add = 2000
+			building_employment_academics_add = 500
+		}
+	}
+}
+
+############################################
+# Bolsa de Valores
+############################################
+
+# Columna 1, Opción 1: Bolsa de Valores Nacional
+pm_stock_exchange_national = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +500% Inversión de TODOS los grupos sociales
+			state_capitalists_investment_pool_efficiency_mult = 5.0
+			state_shopkeepers_investment_pool_efficiency_mult = 5.0
+			state_aristocrats_investment_pool_efficiency_mult = 5.0
+			state_farmers_investment_pool_efficiency_mult = 5.0
+			state_clergymen_investment_pool_efficiency_mult = 5.0
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# -25% Consumo de insumos
+			building_goods_input_mult = -0.25
+		}
+
+		level_scaled = {
+			building_employment_capitalists_add = 500
+			building_employment_clerks_add = 500
+			building_employment_shopkeepers_add = 500
+		}
+	}
+}
+
+# Columna 1, Opción 2: Modelo Internacional
+pm_stock_exchange_international = {
+	texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
+
+	state_modifiers = {
+		workforce_scaled = {
+			# +500% Inversión de TODOS los grupos sociales
+			state_capitalists_investment_pool_efficiency_mult = 5.0
+			state_shopkeepers_investment_pool_efficiency_mult = 5.0
+			state_aristocrats_investment_pool_efficiency_mult = 5.0
+			state_farmers_investment_pool_efficiency_mult = 5.0
+			state_clergymen_investment_pool_efficiency_mult = 5.0
+		}
+	}
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +500 Influencia para gestionar relaciones de inversión
+			country_influence_add = 500
+			# +200 Maniobras diplomáticas para negociar derechos de inversión
+			country_diplomatic_play_maneuvers_add = 200
+			# +100 Amenabilidad — otros países aceptan más fácilmente tus propuestas
+			country_amenability_add = 100
+			# +100 Reputación diplomática — mejora posición en negociaciones
+			country_diplomatic_reputation_add = 100
+			# +200% Velocidad de mejora de relaciones
+			country_improve_relations_speed_mult = 2.0
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# -25% Consumo de insumos
+			building_goods_input_mult = -0.25
+		}
+
+		level_scaled = {
+			building_employment_capitalists_add = 500
+			building_employment_clerks_add = 500
+			building_employment_shopkeepers_add = 500
+		}
+	}
+}
+
+# Columna 2, Opción 1: No Permitir Inversión Extranjera
+pm_stock_exchange_no_foreign = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	# No tiene modificadores especiales - bloquea la inversión extranjera por omisión
+	# Solo inversores nacionales con tratados vigentes pueden invertir
+}
+
+# Columna 2, Opción 2: Permitir Inversión Extranjera
+pm_stock_exchange_allow_foreign = {
+	texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# Aumenta contribución de todos los grupos para atraer más capital
+			state_capitalists_investment_pool_contribution_add = 0.5
+			state_shopkeepers_investment_pool_contribution_add = 0.5
+			state_aristocrats_investment_pool_contribution_add = 0.5
+			state_farmers_investment_pool_contribution_add = 0.5
+			state_clergymen_investment_pool_contribution_add = 0.5
+		}
+	}
+}
+############################################
+# Agencia de Disidentes
+############################################
+
+# PM Base: Autoridad, Burocracia, consume papel/armas/tabaco
+pm_dissident_agency_base = {
+	texture = "gfx/interface/icons/production_method_icons/secret_police.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100 Autoridad
+			country_authority_add = 100
+			# +100 Burocracia
+			country_bureaucracy_add = 100
+		}
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs: papel (informes), armas y tabaco (detectives)
+			goods_input_paper_add = 20
+			goods_input_small_arms_add = 20
+			goods_input_tobacco_add = 20
+		}
+
+		level_scaled = {
+			building_employment_bureaucrats_add = 2000
+			building_employment_officers_add = 1000
+		}
+	}
+}
+
+# Armed Forces: Neutral (sin efecto)
+pm_dissident_armed_forces_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Armed Forces
+}
+
+# Armed Forces: Potenciar (+100% Fuerza Política)
+pm_dissident_armed_forces_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Armed Forces
+			interest_group_ig_armed_forces_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Armed Forces: Suprimir (-100% Fuerza Política)
+pm_dissident_armed_forces_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Armed Forces
+			interest_group_ig_armed_forces_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Industrialists: Neutral (sin efecto)
+pm_dissident_industrialists_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Industrialists
+}
+
+# Industrialists: Potenciar (+100% Fuerza Política)
+pm_dissident_industrialists_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Industrialists
+			interest_group_ig_industrialists_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Industrialists: Suprimir (-100% Fuerza Política)
+pm_dissident_industrialists_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Industrialists
+			interest_group_ig_industrialists_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Landowners: Neutral (sin efecto)
+pm_dissident_landowners_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Landowners
+}
+
+# Landowners: Potenciar (+100% Fuerza Política)
+pm_dissident_landowners_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Landowners
+			interest_group_ig_landowners_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Landowners: Suprimir (-100% Fuerza Política)
+pm_dissident_landowners_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Landowners
+			interest_group_ig_landowners_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Intelligentsia: Neutral (sin efecto)
+pm_dissident_intelligentsia_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Intelligentsia
+}
+
+# Intelligentsia: Potenciar (+100% Fuerza Política)
+pm_dissident_intelligentsia_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Intelligentsia
+			interest_group_ig_intelligentsia_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Intelligentsia: Suprimir (-100% Fuerza Política)
+pm_dissident_intelligentsia_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Intelligentsia
+			interest_group_ig_intelligentsia_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Trade Unions: Neutral (sin efecto)
+pm_dissident_trade_unions_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Trade Unions
+}
+
+# Trade Unions: Potenciar (+100% Fuerza Política)
+pm_dissident_trade_unions_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Trade Unions
+			interest_group_ig_trade_unions_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Trade Unions: Suprimir (-100% Fuerza Política)
+pm_dissident_trade_unions_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Trade Unions
+			interest_group_ig_trade_unions_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Rural Folk: Neutral (sin efecto)
+pm_dissident_rural_folk_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Rural Folk
+}
+
+# Rural Folk: Potenciar (+100% Fuerza Política)
+pm_dissident_rural_folk_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Rural Folk
+			interest_group_ig_rural_folk_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Rural Folk: Suprimir (-100% Fuerza Política)
+pm_dissident_rural_folk_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Rural Folk
+			interest_group_ig_rural_folk_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Devout: Neutral (sin efecto)
+pm_dissident_devout_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Devout
+}
+
+# Devout: Potenciar (+100% Fuerza Política)
+pm_dissident_devout_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Devout
+			interest_group_ig_devout_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Devout: Suprimir (-100% Fuerza Política)
+pm_dissident_devout_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Devout
+			interest_group_ig_devout_pol_str_mult = -1.0
+		}
+	}
+}
+
+# Petite Bourgeoisie: Neutral (sin efecto)
+pm_dissident_petite_bourgeoisie_neutral = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+	# Sin modificadores - posición neutral sobre Petite Bourgeoisie
+}
+
+# Petite Bourgeoisie: Potenciar (+100% Fuerza Política)
+pm_dissident_petite_bourgeoisie_boost = {
+	texture = "gfx/interface/icons/production_method_icons/encouragement_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# +100% Fuerza Política de Petite Bourgeoisie
+			interest_group_ig_petty_bourgeoisie_pol_str_mult = 1.0
+		}
+	}
+}
+
+# Petite Bourgeoisie: Suprimir (-100% Fuerza Política)
+pm_dissident_petite_bourgeoisie_suppress = {
+	texture = "gfx/interface/icons/production_method_icons/suppression_of_dissent.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			# -100% Fuerza Política de Petite Bourgeoisie
+			interest_group_ig_petty_bourgeoisie_pol_str_mult = -1.0
+		}
+	}
+}
+############################################
+# Centro de Fertilización
+############################################
+
+# Columna 1: Producción base (100 de cada bien agrícola)
+pm_fertilization_base = {
+	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Produce 30 de cada bien agrícola/plantación
+			goods_output_opium_add = 30
+			goods_output_silk_add = 30
+			goods_output_liquor_add = 30
+			goods_output_grain_add = 30
+			goods_output_fruit_add = 30
+			goods_output_tobacco_add = 30
+			goods_output_sugar_add = 30
+			goods_output_tea_add = 30
+			goods_output_coffee_add = 30
+			goods_output_cotton_add = 30
+			goods_output_rubber_add = 30
+			goods_output_dye_add = 30
+
+			# Autosuficiente: produce fertilizante
+			goods_output_fertilizer_add = 30
+		}
+
+		level_scaled = {
+			building_employment_farmers_add = 3000
+			building_employment_laborers_add = 2000
+		}
+	}
+}
+
+# Columna 1: Uso de Rieles (150 de cada bien, consume 30 transporte)
+pm_fertilization_railways = {
+	texture = "gfx/interface/icons/production_method_icons/railways.dds"
+
+	unlocking_technologies = {
+		railways
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Input: transporte para distribución por rieles
+			goods_input_transportation_add = 30
+
+			# Autosuficiente: produce transporte
+			goods_output_transportation_add = 50
+
+			# Produce 50 de cada bien agrícola/plantación
+			goods_output_opium_add = 50
+			goods_output_silk_add = 50
+			goods_output_liquor_add = 50
+			goods_output_grain_add = 50
+			goods_output_fruit_add = 50
+			goods_output_tobacco_add = 50
+			goods_output_sugar_add = 50
+			goods_output_tea_add = 50
+			goods_output_coffee_add = 50
+			goods_output_cotton_add = 50
+			goods_output_rubber_add = 50
+			goods_output_dye_add = 50
+
+			# Autosuficiente: produce fertilizante
+			goods_output_fertilizer_add = 50
+		}
+
+		level_scaled = {
+			building_employment_farmers_add = 3000
+			building_employment_laborers_add = 2000
+		}
+	}
+}
+
+# Columna 2: Sin Fertilizante (sin efecto)
+pm_fertilization_no_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/no_home_affairs.dds"
+
+	# Sin efecto — aún no se ha descubierto el fertilizante
+}
+
+# Columna 2: Uso de Fertilizantes (+100 de cada bien, consume fertilizante/hierro/azufre/carbón)
+pm_fertilization_with_fertilizer = {
+	texture = "gfx/interface/icons/production_method_icons/fertilizer.dds"
+
+	unlocking_technologies = {
+		intensive_agriculture
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs: fertilizante, hierro, azufre y carbón
+			goods_input_fertilizer_add = 30
+			goods_input_iron_add = 30
+			goods_input_sulfur_add = 30
+			goods_input_coal_add = 30
+
+			# +30 adicional de cada bien (sin mano de obra extra)
+			goods_output_opium_add = 30
+			goods_output_silk_add = 30
+			goods_output_liquor_add = 30
+			goods_output_grain_add = 30
+			goods_output_fruit_add = 30
+			goods_output_tobacco_add = 30
+			goods_output_sugar_add = 30
+			goods_output_tea_add = 30
+			goods_output_coffee_add = 30
+			goods_output_cotton_add = 30
+			goods_output_rubber_add = 30
+			goods_output_dye_add = 30
+		}
+	}
+}
+
+############################################
+# Trenes Industriales
+############################################
+
+pm_industrial_trains_base = {
+	texture = "gfx/interface/icons/production_method_icons/railways.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs
+			goods_input_coal_add = 5
+			goods_input_iron_add = 5
+			goods_input_engines_add = 5
+
+			# Output
+			goods_output_transportation_add = 60
+		}
+
+		level_scaled = {
+			building_employment_machinists_add = 2000
+			building_employment_laborers_add = 2000
+			building_employment_engineers_add = 500
+		}
+	}
+}
+
+############################################
+# Centro de Criadero
+############################################
+
+pm_breeding_center_base = {
+	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Outputs (no consume nada)
+			goods_output_fertilizer_add = 60
+			goods_output_meat_add = 80
+			goods_output_fabric_add = 60
+			goods_output_oil_add = 50
+		}
+
+		level_scaled = {
+			building_employment_farmers_add = 3000
+			building_employment_laborers_add = 2000
+		}
+	}
+}
+
+############################################
+# Banco de la Gran Compañía
+############################################
+
+pm_grand_company_bank_base = {
+	texture = "gfx/interface/icons/production_method_icons/central_banking.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			# Inputs
+			goods_input_services_add = 20
+
+			# Outputs
+			goods_output_gold_add = 70
+			goods_output_corporate_financial_services_add = 40
+		}
+
+		level_scaled = {
+			building_employment_capitalists_add = 1000
+			building_employment_clerks_add = 2000
+			building_employment_shopkeepers_add = 1000
+		}
+	}
+}
+
+############################################
+# Centro Minero - Automatización
+############################################
+
+pm_mining_center_manual_workers = {
+	texture = "gfx/interface/icons/production_method_icons/labor_intensive.dds"
+	
+	building_modifiers = {
+		level_scaled = {
+		}
+	}
+}
+
+pm_mining_center_mechanized = {
+	texture = "gfx/interface/icons/production_method_icons/automation.dds"
+	
+	unlocking_technologies = {
+		urban_planning
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_engines_add = 5
+			building_output_transportation_add = 15
+		}
+		level_scaled = {
+			building_employment_laborers_add = -1500
+		}
+	}
+}
+
+############################################
+# Centro de Manufactura - Automatización
+############################################
+
+pm_manufacturing_center_manual_crafts = {
+	texture = "gfx/interface/icons/production_method_icons/labor_intensive.dds"
+	
+	building_modifiers = {
+		level_scaled = {
+		}
+	}
+}
+
+pm_manufacturing_center_specialized_tools = {
+	texture = "gfx/interface/icons/production_method_icons/mechanized_workshops.dds"
+	
+	unlocking_technologies = {
+		steelworking
+	}
+	
+	building_modifiers = {
+		workforce_scaled = {
+			building_input_tools_add = 30
+			building_input_iron_add = 10
+			building_input_coal_add = 10
+			building_input_wood_add = 5
+			building_output_engines_add = 25
+			building_output_clothing_add = 50
+			building_output_hardwood_add = 20
+			building_output_small_arms_add = 90
+			building_output_artillery_add = 75
+			building_output_groceries_add = 40
+			building_output_steel_add = 100
+			building_output_tools_add = 150
+			building_output_glass_add = 50
+			building_output_furniture_add = 70
+			building_output_paper_add = 40
+			building_output_wood_add = 300
+			building_output_fabric_add = 150
+			building_output_iron_add = 20
+			building_output_coal_add = 40
+		}
+		level_scaled = {
+			building_employment_engineers_add = -1500
+			building_employment_laborers_add = -2500
+			building_employment_machinists_add = -1500
+		}
+	}
+}

@@ -1,0 +1,109 @@
+﻿# Banco Nacional - creado por el journal entry "Armar Industria Nacional"
+# La compañía invierte en edificios privados vanilla (industria, minas, granjas, etc.)
+# La sede (Company HQ) es manipulable: se puede vender/expropiar/comprar/destruir
+# Al fundarse recibe automáticamente el edificio en la capital
+company_freraut_national_bank = {
+	icon = "gfx/interface/icons/company_icons/freraut_company_bank.png"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_manufacturing_light.dds"
+
+	flavored_company = yes
+
+	building_types = {
+		building_grand_company_bank
+		# Industria
+		building_arms_industry
+		building_artillery_foundries
+		building_automotive_industry
+		building_chemical_plants
+		building_electrics_industry
+		building_explosives_factory
+		building_food_industry
+		building_furniture_manufacturies
+		building_glassworks
+		building_military_shipyards
+		building_motor_industry
+		building_munition_plants
+		building_paper_mills
+		building_shipyards
+		building_steel_mills
+		building_synthetics_plants
+		building_textile_mills
+		building_tooling_workshops
+		# Minas
+		building_iron_mine
+		building_lead_mine
+		building_sulfur_mine
+		building_gold_mine
+		building_gold_fields
+		# Granjas
+		building_wheat_farm
+		building_rye_farm
+		building_rice_farm
+		building_maize_farm
+		building_millet_farm
+		building_livestock_ranch
+		# Plantaciones
+		building_coffee_plantation
+		building_cotton_plantation
+		building_dye_plantation
+		building_opium_plantation
+		building_silk_plantation
+		building_sugar_plantation
+		building_tea_plantation
+		building_tobacco_plantation
+		building_banana_plantation
+		building_vineyard_plantation
+		building_rubber_plantation
+		# Otros recursos
+		building_fishing_wharf
+		building_oil_rig
+		building_whaling_station
+	}
+
+	extension_building_types = {
+		building_trade_center
+		building_railway
+		building_port
+		building_financial_district
+	}
+
+	possible_prestige_goods = {
+	}
+
+	potential = {
+		always = yes
+	}
+
+	attainable = {
+		hidden_trigger = {
+			has_variable = freraut_bank_established
+		}
+	}
+
+	possible = {
+		has_variable = freraut_bank_established
+	}
+
+	prosperity_modifier = {
+		country_tax_income_add = 100000
+		country_max_companies_add = 5
+		state_infrastructure_from_population_max_add = 20
+	}
+
+	ai_will_do = {
+		has_variable = freraut_bank_established
+	}
+
+	ai_construction_targets = {
+		building_grand_company_bank = {
+			level = 5
+			state_trigger = {
+				is_incorporated = yes
+			}
+		}
+	}
+
+	ai_weight = {
+		value = 5
+	}
+}

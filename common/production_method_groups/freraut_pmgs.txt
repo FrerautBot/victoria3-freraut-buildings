@@ -1,0 +1,271 @@
+﻿############################################
+# Freraut Production Method Groups
+############################################
+
+pmg_central_bank_operations = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+	production_methods = {
+		pm_central_bank_base
+	}
+}
+
+pmg_bank_financial_services = {
+	texture = "gfx/interface/icons/production_method_icons/central_banking.dds"
+	production_methods = {
+		pm_bank_no_financial_services
+		pm_bank_financial_services
+	}
+}
+
+pmg_public_health_operations = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+	production_methods = {
+		pm_public_health_base
+		pm_public_health_quinine
+	}
+}
+
+# Columna 2: Técnicas médicas del Centro de Salud Pública
+pmg_public_health_medical_techniques = {
+	texture = "gfx/interface/icons/production_method_icons/pharmaceuticals.dds"
+	production_methods = {
+		pm_public_health_18th_century
+		pm_public_health_victorian
+	}
+}
+
+pmg_mining_center_operations = {
+	texture = "gfx/interface/icons/production_method_icons/extraction.dds"
+	production_methods = {
+		pm_mining_center_base
+	}
+}
+
+pmg_manufacturing_center_operations = {
+	texture = "gfx/interface/icons/production_method_icons/mechanized_workshops.dds"
+	production_methods = {
+		pm_manufacturing_center_base
+	}
+}
+
+pmg_public_works_operations = {
+	texture = "gfx/interface/icons/production_method_icons/construction.dds"
+	production_methods = {
+		pm_public_works_base
+	}
+}
+
+pmg_sovereign_palace_operations = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+	production_methods = {
+		pm_sovereign_palace_base
+	}
+}
+
+pmg_tech_university_operations = {
+	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
+	production_methods = {
+		pm_tech_university_base
+	}
+}
+
+pmg_national_trade_operations = {
+	texture = "gfx/interface/icons/production_method_icons/trade_center.dds"
+	production_methods = {
+		pm_national_trade_base
+	}
+}
+
+pmg_logistics_center_operations = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+	production_methods = {
+		pm_logistics_center_base
+	}
+}
+
+# Centro de Logística - Columna 2: Método de transporte
+pmg_logistics_transport = {
+	texture = "gfx/interface/icons/production_method_icons/railways.dds"
+	production_methods = {
+		pm_logistics_horses
+		pm_logistics_railways
+	}
+}
+
+pmg_national_academy_operations = {
+	texture = "gfx/interface/icons/production_method_icons/standing_army.dds"
+	production_methods = {
+		pm_national_academy_base
+	}
+}
+
+# Bolsa de Valores - Columna 1: Modelo de inversión
+pmg_stock_exchange_model = {
+	texture = "gfx/interface/icons/production_method_icons/publicly_traded.dds"
+	production_methods = {
+		pm_stock_exchange_national
+		pm_stock_exchange_international
+	}
+}
+
+# Bolsa de Valores - Columna 2: Política de inversión extranjera
+pmg_stock_exchange_foreign_policy = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+	production_methods = {
+		pm_stock_exchange_no_foreign
+		pm_stock_exchange_allow_foreign
+	}
+}
+############################################
+# Agencia de Disidentes
+############################################
+
+pmg_dissident_agency_base = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_agency_base
+	}
+}
+
+pmg_dissident_armed_forces = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_armed_forces_neutral
+		pm_dissident_armed_forces_boost
+		pm_dissident_armed_forces_suppress
+	}
+}
+
+pmg_dissident_industrialists = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_industrialists_neutral
+		pm_dissident_industrialists_boost
+		pm_dissident_industrialists_suppress
+	}
+}
+
+pmg_dissident_landowners = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_landowners_neutral
+		pm_dissident_landowners_boost
+		pm_dissident_landowners_suppress
+	}
+}
+
+pmg_dissident_intelligentsia = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_intelligentsia_neutral
+		pm_dissident_intelligentsia_boost
+		pm_dissident_intelligentsia_suppress
+	}
+}
+
+pmg_dissident_trade_unions = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_trade_unions_neutral
+		pm_dissident_trade_unions_boost
+		pm_dissident_trade_unions_suppress
+	}
+}
+
+pmg_dissident_rural_folk = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_rural_folk_neutral
+		pm_dissident_rural_folk_boost
+		pm_dissident_rural_folk_suppress
+	}
+}
+
+pmg_dissident_devout = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_devout_neutral
+		pm_dissident_devout_boost
+		pm_dissident_devout_suppress
+	}
+}
+
+pmg_dissident_petite_bourgeoisie = {
+	default_morph = yes
+	production_methods = {
+		pm_dissident_petite_bourgeoisie_neutral
+		pm_dissident_petite_bourgeoisie_boost
+		pm_dissident_petite_bourgeoisie_suppress
+	}
+}
+
+############################################
+# Centro de Fertilización
+############################################
+
+# Columna 1: Producción base / con rieles
+pmg_fertilization_base = {
+	default_morph = yes
+	production_methods = {
+		pm_fertilization_base
+		pm_fertilization_railways
+	}
+}
+
+# Columna 2: Fertilizantes
+pmg_fertilization_chemicals = {
+	default_morph = yes
+	production_methods = {
+		pm_fertilization_no_fertilizer
+		pm_fertilization_with_fertilizer
+	}
+}
+
+############################################
+# Trenes Industriales
+############################################
+
+pmg_industrial_trains_operations = {
+	texture = "gfx/interface/icons/production_method_icons/railways.dds"
+	production_methods = {
+		pm_industrial_trains_base
+	}
+}
+
+############################################
+# Centro de Criadero
+############################################
+
+pmg_breeding_center_operations = {
+	texture = "gfx/interface/icons/production_method_icons/subsistence_farming.dds"
+	production_methods = {
+		pm_breeding_center_base
+	}
+}
+
+############################################
+# Banco de la Gran Compañía
+############################################
+
+pmg_grand_company_bank_operations = {
+	default_morph = yes
+	production_methods = {
+		pm_grand_company_bank_base
+	}
+}
+
+pmg_mining_center_automation = {
+	texture = "gfx/interface/icons/production_method_icons/automation.dds"
+	production_methods = {
+		pm_mining_center_manual_workers
+		pm_mining_center_mechanized
+	}
+}
+
+pmg_manufacturing_center_automation = {
+	texture = "gfx/interface/icons/production_method_icons/automation.dds"
+	production_methods = {
+		pm_manufacturing_center_manual_crafts
+		pm_manufacturing_center_specialized_tools
+	}
+}

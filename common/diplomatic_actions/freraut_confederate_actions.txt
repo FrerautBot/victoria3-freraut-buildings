@@ -1,0 +1,135 @@
+﻿############################################
+# Acciones diplomaticas del Estado Confederado
+# - Modificar lengua de la administracion confederada
+# - Implementacion de regimen (copia todas las leyes)
+############################################
+
+# === 1) Modificar lengua de la administracion (sobre Estado Confederado) ===
+da_freraut_change_confederate_language = {
+	groups= { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/change_culture.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_confederated_state
+			NOT = { is_diplomatic_play_enemy_of = root }
+		}
+	}
+
+	possible = {
+		NOT = {
+			scope:target_country = {
+				any_primary_culture = {
+					OR = {
+						shares_language_trait_with_any_primary_culture = ROOT
+						is_primary_culture_of = ROOT
+					}
+				}
+			}
+		}
+		is_revolutionary = no
+		scope:target_country = {
+			is_revolutionary = no
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			capital = {
+				save_temporary_scope_as = confederate_capital_scope
+			}
+			every_primary_culture = {
+				prev = {
+					add_radicals = {
+						value = large_radicals
+						culture = prev
+					}
+					remove_primary_culture = prev
+				}
+			}
+		}
+		ordered_primary_culture = {
+			order_by = "root.culture_percent_country(this)"
+			save_scope_as = main_culture_scope
+		}
+		every_primary_culture = {
+			save_temporary_scope_as = temp_primary_culture
+			scope:target_country = {
+				add_primary_culture = scope:temp_primary_culture
+			}
+		}
+		scope:target_country = {
+			ordered_scope_pop = {
+				limit = {
+					is_pop_type = bureaucrats
+				}
+				order_by = total_size
+				position = 0
+				check_range_bounds = no
+				change_pop_culture = {
+					target = scope:main_culture_scope
+					value = 0.05
+				}
+			}
+			add_modifier = {
+				name = modifier_changed_administrative_language
+				days = normal_modifier_time
+				is_decaying = yes
+			}
+			capital = {
+				add_modifier = {
+					name = modifier_changed_administrative_language_state
+					days = normal_modifier_time
+					is_decaying = yes
+				}
+			}
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 5 }
+		will_propose = {
+			always = no
+		}
+	}
+}
+
+# === 2) Implementacion de regimen (copia TODAS las leyes al Estado Confederado) ===
+da_freraut_implement_regime = {
+	groups= { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/support_regime.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_confederated_state
+		}
+	}
+
+	# Siempre disponible
+	possible = {
+		always = yes
+	}
+
+	accept_effect = {
+		freraut_sync_all_laws_to_subject = yes
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}

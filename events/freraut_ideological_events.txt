@@ -1,0 +1,421 @@
+############################################
+# Freraut - Eventos de Caminos Ideológicos
+# Disparados por decisiones. Activan enactment de leyes.
+# Sintaxis: activate_law = law_type:law_name
+#
+# Leyes organizadas por grupo (24 lawgroups vanilla):
+# governance / distribution / citizenship / church / bureaucracy
+# army / security / economy / trade / taxation / land / colonization
+# policing / education / health / free_speech / labor_rights
+# childrens_rights / women_rights / welfare / migration / slavery / labour_associations
+############################################
+namespace = freraut_path
+
+# ════════════════════════════════════════════════════════════════
+# 1. FASCISTA MONARQUISTA (Italia/Japón Showa)
+# ════════════════════════════════════════════════════════════════
+freraut_path.1 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_ethnostate
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_per_capita_taxation
+		activate_law = law_type:law_collectivized_agriculture
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_regulatory_agencies
+		activate_law = law_type:law_compulsory_primary_school
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 2. FASCISTA (Alemania Nazi / Falange = Estado Corporativo)
+# Ídem fascista monarquista pero con estado corporativo en vez de monarquía
+# ════════════════════════════════════════════════════════════════
+freraut_path.2 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_ethnostate
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_per_capita_taxation
+		activate_law = law_type:law_collectivized_agriculture
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_regulatory_agencies
+		activate_law = law_type:law_compulsory_primary_school
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 3. COMUNISTA (URSS)
+# ════════════════════════════════════════════════════════════════
+freraut_path.3 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_council_republic
+		activate_law = law_type:law_universal_suffrage
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_state_atheism
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_secret_police
+		activate_law = law_type:law_command_economy
+		activate_law = law_type:law_protectionism
+		activate_law = law_type:law_graduated_taxation
+		activate_law = law_type:law_collectivized_agriculture
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_worker_protections
+		activate_law = law_type:law_compulsory_primary_school
+		activate_law = law_type:law_womens_suffrage
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_subsidized_unions
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 4. SOCIALISTA (Socialdemocracia nórdica)
+# ════════════════════════════════════════════════════════════════
+freraut_path.4 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_universal_suffrage
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_graduated_taxation
+		activate_law = law_type:law_commercial_agriculture
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_free_speech
+		activate_law = law_type:law_worker_protections
+		activate_law = law_type:law_compulsory_primary_school
+		activate_law = law_type:law_womens_suffrage
+		activate_law = law_type:law_old_age_pension
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_labor_movement
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 5. ANARCOCOMUNISTA (CNT/FAI)
+# ════════════════════════════════════════════════════════════════
+freraut_path.5 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_council_republic
+		activate_law = law_type:law_anarchy
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_no_police
+		activate_law = law_type:law_command_economy
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_graduated_taxation
+		activate_law = law_type:law_collectivized_agriculture
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_no_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_free_speech
+		activate_law = law_type:law_worker_protections
+		activate_law = law_type:law_protected_children
+		activate_law = law_type:law_womens_suffrage
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_labor_movement
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 6. LIBERAL REPUBLICANO PRESIDENCIAL (EE.UU.)
+# ════════════════════════════════════════════════════════════════
+freraut_path.6 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_census_suffrage
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_proportional_taxation
+		activate_law = law_type:law_commercial_agriculture
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_protected_speech
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 7. LIBERAL PARLAMENTARIO (Westminster)
+# ════════════════════════════════════════════════════════════════
+freraut_path.7 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_parliamentary_republic
+		activate_law = law_type:law_census_suffrage
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_proportional_taxation
+		activate_law = law_type:law_commercial_agriculture
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_protected_speech
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 8. ANARCOCAPITALISTA (Rothbard)
+# ════════════════════════════════════════════════════════════════
+freraut_path.8 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_presidential_republic
+		activate_law = law_type:law_anarchy
+		activate_law = law_type:law_multicultural
+		activate_law = law_type:law_total_separation
+		activate_law = law_type:law_elected_bureaucrats
+		activate_law = law_type:law_national_militia
+		activate_law = law_type:law_no_police
+		activate_law = law_type:law_laissez_faire
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_consumption_based_taxation
+		activate_law = law_type:law_homesteading
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_no_police
+		activate_law = law_type:law_private_schools
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_free_speech
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_womens_suffrage
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 9. TEOCRÁTICO (Estados Pontificios)
+# ════════════════════════════════════════════════════════════════
+freraut_path.9 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_theocracy
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_religious_health_system
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 10. MONÁRQUICO FEUDAL (Rusia zarista)
+# ════════════════════════════════════════════════════════════════
+freraut_path.10 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_landed_voting
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_hereditary_bureaucrats
+		activate_law = law_type:law_peasant_levies
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_traditionalism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_serfdom
+		activate_law = law_type:law_no_colonial_affairs
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_poor_laws
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 11. MONÁRQUICO ABSOLUTO (Luis XIV)
+# ════════════════════════════════════════════════════════════════
+freraut_path.11 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_autocracy
+		activate_law = law_type:law_national_supremacy
+		activate_law = law_type:law_state_religion
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_mercantilism
+		activate_law = law_type:law_land_based_taxation
+		activate_law = law_type:law_tenant_farmers
+		activate_law = law_type:law_colonial_resettlement
+		activate_law = law_type:law_dedicated_police
+		activate_law = law_type:law_religious_schools
+		activate_law = law_type:law_no_health_system
+		activate_law = law_type:law_censorship
+		activate_law = law_type:law_no_workplace_regulations
+		activate_law = law_type:law_child_labor_allowed
+		activate_law = law_type:law_legal_guardianship
+		activate_law = law_type:law_no_social_security
+		activate_law = law_type:law_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_no_labor_rights
+	}
+	option = { name = freraut_path.1.a }
+}
+
+# ════════════════════════════════════════════════════════════════
+# 12. MONARQUÍA DEMOCRÁTICA (España 1978)
+# ════════════════════════════════════════════════════════════════
+freraut_path.12 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		activate_law = law_type:law_monarchy
+		activate_law = law_type:law_universal_suffrage
+		activate_law = law_type:law_cultural_exclusion
+		activate_law = law_type:law_freedom_of_conscience
+		activate_law = law_type:law_appointed_bureaucrats
+		activate_law = law_type:law_professional_army
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_free_trade
+		activate_law = law_type:law_graduated_taxation
+		activate_law = law_type:law_commercial_agriculture
+		activate_law = law_type:law_colonial_exploitation
+		activate_law = law_type:law_local_police
+		activate_law = law_type:law_public_schools
+		activate_law = law_type:law_public_health_insurance
+		activate_law = law_type:law_protected_speech
+		activate_law = law_type:law_worker_protections
+		activate_law = law_type:law_compulsory_primary_school
+		activate_law = law_type:law_womens_suffrage
+		activate_law = law_type:law_old_age_pension
+		activate_law = law_type:law_no_migration_controls
+		activate_law = law_type:law_legacy_slavery
+		activate_law = law_type:law_labor_movement
+	}
+	option = { name = freraut_path.1.a }
+}

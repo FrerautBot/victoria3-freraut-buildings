@@ -1,0 +1,189 @@
+﻿############################################
+# Freraut - Scripted Effects
+############################################
+
+# Confederalizar a un país (hacerlo sujeto confederado)
+freraut_confederalize_country = {
+	# scope: el país que será confederalizado
+	# scope:overlord_country = el líder de la confederación
+	create_diplomatic_pact = {
+		country = scope:overlord_country
+		type = confederate
+	}
+	add_liberty_desire = -50
+}
+
+# Sincronizar gobierno: copiar IGs gobernantes del líder a los confederalizados
+freraut_sync_government = {
+	# scope: el país líder
+	every_subject_or_below = {
+		limit = {
+			is_subject_type = subject_type_confederated_state
+		}
+		# Copiar las leyes de governance del overlord
+		activate_law = root.active_law:lawgroup_governance_principles.type
+		activate_law = root.active_law:lawgroup_distribution_of_power.type
+	}
+}
+
+# Implementacion de regimen: copia TODAS las leyes del overlord (ROOT) al subdito (scope:target_country)
+# Se llama desde da_freraut_implement_regime accept_effect
+freraut_sync_all_laws_to_subject = {
+	scope:target_country = {
+		activate_law = root.active_law:lawgroup_governance_principles.type
+		activate_law = root.active_law:lawgroup_distribution_of_power.type
+		activate_law = root.active_law:lawgroup_citizenship.type
+		activate_law = root.active_law:lawgroup_caste_hegemony.type
+		activate_law = root.active_law:lawgroup_church_and_state.type
+		activate_law = root.active_law:lawgroup_bureaucracy.type
+		activate_law = root.active_law:lawgroup_army_model.type
+		activate_law = root.active_law:lawgroup_internal_security.type
+		activate_law = root.active_law:lawgroup_economic_system.type
+		activate_law = root.active_law:lawgroup_trade_policy.type
+		activate_law = root.active_law:lawgroup_taxation.type
+		activate_law = root.active_law:lawgroup_land_reform.type
+		activate_law = root.active_law:lawgroup_colonization.type
+		activate_law = root.active_law:lawgroup_policing.type
+		activate_law = root.active_law:lawgroup_education_system.type
+		activate_law = root.active_law:lawgroup_health_system.type
+		activate_law = root.active_law:lawgroup_free_speech.type
+		activate_law = root.active_law:lawgroup_labor_rights.type
+		activate_law = root.active_law:lawgroup_childrens_rights.type
+		activate_law = root.active_law:lawgroup_rights_of_women.type
+		activate_law = root.active_law:lawgroup_welfare.type
+		activate_law = root.active_law:lawgroup_migration.type
+		activate_law = root.active_law:lawgroup_slavery.type
+		activate_law = root.active_law:lawgroup_labour_associations.type
+	}
+}
+
+
+############################################################
+# Gran Unificación Confederal — scripted effects (v38)
+############################################################
+
+# Determine which confederate TAG to form based on primary culture
+# and form the confederation by changing tag + annexing accepted subjects
+freraut_form_confederate_country = {
+	# Annex all confederate subjects that accepted (regardless of which TAG we'll form)
+	# This must happen BEFORE change_tag so the states transfer to us, then to new TAG
+	set_variable = { name = freraut_confederate_member_count value = 1 }
+
+	every_subject_or_below = {
+		limit = {
+			is_subject_type = subject_type_confederated_state
+			has_country_flag = freraut_accepted_unification
+		}
+		save_scope_as = to_annex
+		ROOT = {
+			annex = scope:to_annex
+			change_variable = {
+				name = freraut_confederate_member_count
+				add = 1
+			}
+		}
+	}
+
+	# Clear accepted/rejected flags on any remaining subjects
+	every_subject_or_below = {
+		limit = {
+			OR = {
+				has_country_flag = freraut_accepted_unification
+				has_country_flag = freraut_rejected_unification
+			}
+		}
+		remove_country_flag = freraut_accepted_unification
+		remove_country_flag = freraut_rejected_unification
+	}
+
+	# Now change TAG based on primary culture
+	# FEU: European heritage
+	if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:north_german
+				country_has_primary_culture = cu:south_german
+				country_has_primary_culture = cu:french
+				country_has_primary_culture = cu:british
+				country_has_primary_culture = cu:north_italian
+				country_has_primary_culture = cu:south_italian
+				country_has_primary_culture = cu:dutch
+				country_has_primary_culture = cu:spanish
+				country_has_primary_culture = cu:portuguese
+				country_has_primary_culture = cu:swedish
+				country_has_primary_culture = cu:danish
+				country_has_primary_culture = cu:norwegian
+				country_has_primary_culture = cu:greek
+				country_has_primary_culture = cu:polish
+				country_has_primary_culture = cu:russian
+			}
+		}
+		set_variable = { name = freraut_already_unified value = 1 }
+		change_tag = FEU
+		trigger_event = { id = freraut_unification.20 }
+	}
+	# FAM: Latin American / North American cultures
+	else_if = {
+		limit = {
+			OR = {
+				country_has_primary_culture = cu:yankee
+				country_has_primary_culture = cu:dixie
+				country_has_primary_culture = cu:mexican
+				country_has_primary_culture = cu:colombian
+				country_has_primary_culture = cu:brazilian
+				country_has_primary_culture = cu:amazonic
+				country_has_primary_culture = cu:paulista
+				country_has_primary_culture = cu:sulista
+				country_has_primary_culture = cu:nordestino
+				country_has_primary_culture = cu:peruvian
+				country_has_primary_culture = cu:bolivian
+				country_has_primary_culture = cu:ecuadorian
+				country_has_primary_culture = cu:chilean
+				country_has_primary_culture = cu:rioplatense
+				country_has_primary_culture = cu:anglo_canadian
+				country_has_primary_culture = cu:cajun
+				country_has_primary_culture = cu:afro_american
+				country_has_primary_culture = cu:native_american
+				country_has_primary_culture = cu:cuban
+				country_has_primary_culture = cu:central_american
+				country_has_primary_culture = cu:venezuelan
+			}
+		}
+		set_variable = { name = freraut_already_unified value = 1 }
+		change_tag = FAM
+		trigger_event = { id = freraut_unification.20 }
+	}
+	# FRE: Default (anything else)
+	else = {
+		set_variable = { name = freraut_already_unified value = 1 }
+		change_tag = FRE
+		trigger_event = { id = freraut_unification.20 }
+	}
+}
+
+# Declare war on subjects that rejected unification
+# Called from freraut_unification.10 when majority rejected
+freraut_declare_rejection_war = {
+	every_subject_or_below = {
+		limit = {
+			is_subject_type = subject_type_confederated_state
+			has_country_flag = freraut_rejected_unification
+		}
+		save_scope_as = resistor
+		# Notify the resistor
+		scope:resistor = {
+			trigger_event = { id = freraut_unification.21 }
+		}
+		# Create diplomatic play to confederalize the resistor
+		ROOT = {
+			create_diplomatic_play = {
+				name = freraut_reject_war
+				initiate_war = yes
+				target_country = scope:resistor
+				war_goal = wg_freraut_confederalize
+				added_by = ROOT
+			}
+		}
+		remove_country_flag = freraut_rejected_unification
+	}
+}

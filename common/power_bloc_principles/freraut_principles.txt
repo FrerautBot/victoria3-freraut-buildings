@@ -1,0 +1,193 @@
+﻿############################################
+# Freraut - Principios de Confederación
+############################################
+
+### INTEGRACIÓN INDUSTRIAL ###
+
+principle_confederation_industry_1 = {
+	icon = "gfx/interface/icons/principles_icons/construction.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	member_modifier = {
+		state_construction_mult = 0.15
+		building_group_bg_manufacturing_throughput_add = 0.1
+	}
+
+	ai_weight = {
+		value = 200
+	}
+}
+
+principle_confederation_industry_2 = {
+	icon = "gfx/interface/icons/principles_icons/construction.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	member_modifier = {
+		state_construction_mult = 0.15
+		building_group_bg_manufacturing_throughput_add = 0.15
+		building_group_bg_mining_throughput_add = 0.1
+		building_group_bg_construction_infrastructure_usage_mult = -0.5
+	}
+
+	ai_weight = {
+		value = 1000
+	}
+}
+
+principle_confederation_industry_3 = {
+	icon = "gfx/interface/icons/principles_icons/construction.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	member_modifier = {
+		state_construction_mult = 0.15
+		building_group_bg_manufacturing_throughput_add = 0.2
+		building_group_bg_mining_throughput_add = 0.15
+		building_group_bg_construction_infrastructure_usage_mult = -0.5
+		country_max_companies_add = 1
+		country_company_throughput_bonus_add = 0.1
+	}
+
+	ai_weight = {
+		value = 1000
+	}
+}
+
+### BANCA CONFEDERADA ###
+
+principle_confederation_banking_1 = {
+	icon = "gfx/interface/icons/principles_icons/foreign_investment.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	leader_modifier = {
+		country_tax_income_add = 50000
+	}
+
+	member_modifier = {
+		building_financial_district_throughput_add = 0.15
+		state_infrastructure_mult = 0.1
+	}
+
+	ai_weight = {
+		value = 200
+	}
+}
+
+principle_confederation_banking_2 = {
+	icon = "gfx/interface/icons/principles_icons/foreign_investment.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	leader_modifier = {
+		country_tax_income_add = 100000
+	}
+
+	member_modifier = {
+		building_financial_district_throughput_add = 0.2
+		state_infrastructure_mult = 0.1
+		country_higher_leverage_from_economic_dependence_bool = yes
+		country_nationalization_cost_non_members_mult = -0.5
+	}
+
+	power_bloc_modifier = {
+		power_bloc_allow_foreign_investment_lower_rank_bool = yes
+	}
+
+	ai_weight = {
+		value = 1000
+	}
+}
+
+principle_confederation_banking_3 = {
+	icon = "gfx/interface/icons/principles_icons/foreign_investment.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	leader_modifier = {
+		country_tax_income_add = 200000
+	}
+
+	member_modifier = {
+		building_financial_district_throughput_add = 0.25
+		state_infrastructure_mult = 0.15
+		country_higher_leverage_from_economic_dependence_bool = yes
+		country_nationalization_cost_non_members_mult = -0.5
+		building_economy_of_scale_level_cap_add = 10
+	}
+
+	power_bloc_modifier = {
+		power_bloc_allow_foreign_investment_lower_rank_bool = yes
+		power_bloc_income_transfer_to_leader_factor = 0.05
+	}
+
+	ai_weight = {
+		value = 1000
+	}
+}
+
+### POLÍTICA COMPARTIDA ###
+
+principle_confederation_politics_1 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_1.dds"
+
+	member_modifier = {
+		country_law_enactment_stall_mult = -0.33
+		country_legitimacy_min_add = 10
+	}
+
+	leader_modifier = {
+		country_can_impose_same_lawgroup_governance_principles_in_power_bloc_bool = yes
+	}
+
+	ai_weight = {
+		value = 150
+	}
+}
+
+principle_confederation_politics_2 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_2.dds"
+
+	member_modifier = {
+		country_law_enactment_stall_mult = -0.33
+		country_legitimacy_min_add = 15
+		country_party_whip_impact_mult = 0.2
+	}
+
+	leader_modifier = {
+		country_can_impose_same_lawgroup_governance_principles_in_power_bloc_bool = yes
+		country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
+	}
+
+	# Nivel 2: sincronización de gobierno (via on_action/evento)
+
+	ai_weight = {
+		value = 1000
+	}
+}
+
+principle_confederation_politics_3 = {
+	icon = "gfx/interface/icons/principles_icons/creative_legislature.dds"
+	background = "gfx/interface/icons/principles_icons/principle_tier_3.dds"
+
+	member_modifier = {
+		country_law_enactment_stall_mult = -0.5
+		country_legitimacy_min_add = 25
+		country_party_whip_impact_mult = 0.3
+	}
+
+	leader_modifier = {
+		country_can_impose_same_lawgroup_governance_principles_in_power_bloc_bool = yes
+		country_can_impose_same_lawgroup_distribution_of_power_in_power_bloc_bool = yes
+		country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+		country_can_impose_same_lawgroup_education_system_in_power_bloc_bool = yes
+	}
+
+	power_bloc_modifier = {
+		power_bloc_disallow_war_bool = yes
+	}
+
+	# Nivel 3: sincronización completa de elecciones y gobierno (via on_action/evento)
+
+	ai_weight = {
+		value = 1000
+	}
+}

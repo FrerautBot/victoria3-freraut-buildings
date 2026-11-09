@@ -1,0 +1,187 @@
+﻿ï»¿############################################
+# Freraut - On Actions de Confederación
+############################################
+
+# Hook: Pulso mensual por país
+# Detecta nuevos miembros y disolución de confederación
+on_monthly_pulse_country = {
+	on_actions = {
+		freraut_confederation_monthly_check
+		freraut_confederation_dissolution_check
+	}
+}
+
+# Chequeo mensual: confederalizar nuevos miembros automáticamente
+# Si un país está en un power bloc de confederación, no es líder, y no es sujeto → confederalizar
+freraut_confederation_monthly_check = {
+	effect = {
+		if = {
+			limit = {
+				exists = power_bloc
+				power_bloc = {
+					has_identity = identity:identity_confederation
+				}
+				is_power_bloc_leader = no
+				NOT = { is_subject = yes }
+			}
+			power_bloc = {
+				power_bloc_leader = {
+					save_scope_as = overlord_country
+				}
+			}
+			create_diplomatic_pact = {
+				country = scope:overlord_country
+				type = confederate
+			}
+			add_liberty_desire = -50
+		}
+	}
+}
+
+# Chequeo de disolución: si el overlord ya no lidera una confederación,
+# degradar confederados a puppets normales
+freraut_confederation_dissolution_check = {
+	effect = {
+		if = {
+			limit = {
+				any_subject_or_below = {
+					is_subject_type = subject_type_confederated_state
+				}
+				OR = {
+					NOT = { exists = power_bloc }
+					AND = {
+						exists = power_bloc
+						power_bloc = {
+							NOT = { has_identity = identity:identity_confederation }
+						}
+					}
+					is_power_bloc_leader = no
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_subject_type = subject_type_confederated_state
+				}
+				change_subject_type = subject_type_puppet
+				add_liberty_desire = 25
+			}
+		}
+	}
+}
+
+# Hook: Cuando el jugador/AI reforma su gobierno
+# Sincroniza gobierno a los estados confederados (principio de política nivel 2+)
+on_government_reformed = {
+	on_actions = {
+		freraut_confederation_sync_government
+	}
+}
+
+freraut_confederation_sync_government = {
+	effect = {
+		if = {
+			limit = {
+				is_power_bloc_leader = yes
+				power_bloc = {
+					has_identity = identity:identity_confederation
+					OR = {
+						has_principle = principle:principle_confederation_politics_2
+						has_principle = principle:principle_confederation_politics_3
+					}
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_subject_type = subject_type_confederated_state
+				}
+				activate_law = root.active_law:lawgroup_governance_principles.type
+				activate_law = root.active_law:lawgroup_distribution_of_power.type
+			}
+		}
+	}
+}
+
+# Hook: Cuando termina una campaña electoral
+# Sincroniza elecciones a los confederados (principio de política nivel 3)
+on_election_campaign_end = {
+	on_actions = {
+		freraut_confederation_sync_elections
+	}
+}
+
+freraut_confederation_sync_elections = {
+	effect = {
+		if = {
+			limit = {
+				is_power_bloc_leader = yes
+				power_bloc = {
+					has_identity = identity:identity_confederation
+					has_principle = principle:principle_confederation_politics_3
+				}
+			}
+			every_subject_or_below = {
+				limit = {
+					is_subject_type = subject_type_confederated_state
+				}
+				activate_law = root.active_law:lawgroup_governance_principles.type
+				activate_law = root.active_law:lawgroup_distribution_of_power.type
+			}
+		}
+	}
+}
+
+############################################
+# Power Struggle: Traspaso de Confederación
+############################################
+# Root = Power Bloc
+# scope:successful_contender = nuevo líder (ganó el power struggle)
+# scope:failed_contender = ex-líder (perdió)
+#
+# Cuando cambia el liderazgo de una confederación:
+# 1. Liberar todos los confederados del ex-líder (make_independent)
+# 2. El ex-líder se convierte en confederado del nuevo líder
+# 3. Los ex-confederados (ahora libres y miembros del bloc)
+#    serán re-confederalizados por el monthly_check bajo el nuevo líder
+
+on_power_bloc_struggle_ended = {
+	on_actions = {
+		freraut_confederation_leadership_transfer
+	}
+}
+
+freraut_confederation_leadership_transfer = {
+	effect = {
+		# Solo actuar si este power bloc es una confederación
+		if = {
+			limit = {
+				has_identity = identity:identity_confederation
+			}
+
+			# Paso 1: Liberar todos los confederados del ex-líder
+			# make_independent los libera pero siguen en el power bloc como miembros
+			scope:failed_contender = {
+				every_subject_or_below = {
+					limit = {
+						is_subject_type = subject_type_confederated_state
+					}
+					make_independent = yes
+				}
+			}
+
+			# Paso 2: El ex-líder se convierte en confederado del nuevo líder
+			scope:successful_contender = {
+				create_diplomatic_pact = {
+					country = scope:failed_contender
+					type = confederate
+				}
+			}
+			scope:failed_contender = {
+				add_liberty_desire = -25
+			}
+
+			# Los ex-confederados ahora son independientes pero miembros del bloc.
+			# El monthly_check los detectará (en bloc confederación + no sujeto + no líder)
+			# y los re-confederalizará bajo el nuevo líder automáticamente.
+		}
+	}
+}

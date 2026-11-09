@@ -1,0 +1,53 @@
+﻿# Journal Entry: Armar Industria Nacional
+je_freraut_national_industry = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_freraut
+
+	is_shown_when_inactive = {
+		is_player = yes
+	}
+
+	possible = {
+		is_player = yes
+		any_scope_state = {
+			any_scope_building = {
+				is_building_type = building_stock_exchange
+				level >= 1
+			}
+		}
+	}
+
+	immediate = {
+	}
+
+	scripted_button = freraut_establish_national_bank
+
+	complete = {
+		has_variable = freraut_bank_established
+	}
+
+	on_complete = {
+	}
+
+	status_desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_variable = freraut_bank_established
+				}
+				desc = je_freraut_national_industry_complete_desc
+			}
+			triggered_desc = {
+				trigger = {
+					NOT = { has_variable = freraut_bank_established }
+				}
+				desc = je_freraut_national_industry_pending_desc
+			}
+		}
+	}
+
+	weight = 1000
+
+	should_be_pinned_by_default = yes
+}

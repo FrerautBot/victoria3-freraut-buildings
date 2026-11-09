@@ -1,0 +1,333 @@
+﻿############################################################
+# Freraut - Confederate TAG coat-of-arms flag definitions
+# FEU = Estados Unidos de Europa  (max 14 miembros)
+# FAM = Estados Unidos de las Américas (max 16 miembros)
+# FRE = Estados Unidos Confederales  (max 9 miembros)
+############################################################
+
+FEU = {
+	pattern = "pattern_solid.tga"
+	color1 = { 0 51 153 }
+	color2 = "yellow"
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = { 255 204 0 }
+		color2 = { 255 204 0 }
+		instance = { position = { 0.5000 0.5000 } scale = { 0.10 0.15 } }
+	}
+
+	flag_definition = {
+		coa = FEU_2
+		priority = 5
+		trigger = {
+			var:freraut_confederate_member_count >= 2
+		}
+	}
+	flag_definition = {
+		coa = FEU_3
+		priority = 10
+		trigger = {
+			var:freraut_confederate_member_count >= 3
+		}
+	}
+	flag_definition = {
+		coa = FEU_4
+		priority = 15
+		trigger = {
+			var:freraut_confederate_member_count >= 4
+		}
+	}
+	flag_definition = {
+		coa = FEU_5
+		priority = 20
+		trigger = {
+			var:freraut_confederate_member_count >= 5
+		}
+	}
+	flag_definition = {
+		coa = FEU_6
+		priority = 25
+		trigger = {
+			var:freraut_confederate_member_count >= 6
+		}
+	}
+	flag_definition = {
+		coa = FEU_7
+		priority = 30
+		trigger = {
+			var:freraut_confederate_member_count >= 7
+		}
+	}
+	flag_definition = {
+		coa = FEU_8
+		priority = 35
+		trigger = {
+			var:freraut_confederate_member_count >= 8
+		}
+	}
+	flag_definition = {
+		coa = FEU_9
+		priority = 40
+		trigger = {
+			var:freraut_confederate_member_count >= 9
+		}
+	}
+	flag_definition = {
+		coa = FEU_10
+		priority = 45
+		trigger = {
+			var:freraut_confederate_member_count >= 10
+		}
+	}
+	flag_definition = {
+		coa = FEU_11
+		priority = 50
+		trigger = {
+			var:freraut_confederate_member_count >= 11
+		}
+	}
+	flag_definition = {
+		coa = FEU_12
+		priority = 55
+		trigger = {
+			var:freraut_confederate_member_count >= 12
+		}
+	}
+	flag_definition = {
+		coa = FEU_13
+		priority = 60
+		trigger = {
+			var:freraut_confederate_member_count >= 13
+		}
+	}
+	flag_definition = {
+		coa = FEU_14
+		priority = 65
+		trigger = {
+			var:freraut_confederate_member_count >= 14
+		}
+	}
+}
+
+FAM = {
+	pattern = "pattern_rhombus.dds"
+	color1 = { 0 155 58 }
+	color2 = { 255 223 0 }
+	colored_emblem = {
+		texture = "ce_circle.dds"
+		color1 = { 0 30 90 }
+		color2 = { 0 30 90 }
+		instance = { position = { 0.5000 0.5000 } scale = { 0.38 0.55 } }
+	}
+	colored_emblem = {
+		texture = "ce_sun_of_may.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.4300 0.5000 } scale = { 0.13 0.19 } }
+	}
+	colored_emblem = {
+		texture = "ce_armillary_sphere.dds"
+		color1 = "yellow"
+		color2 = "yellow"
+		instance = { position = { 0.5700 0.5000 } scale = { 0.13 0.19 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = "white"
+		color2 = "white"
+		instance = { position = { 0.5000 0.2000 } scale = { 0.04 0.06 } }
+	}
+
+	flag_definition = {
+		coa = FAM_2
+		priority = 5
+		trigger = {
+			var:freraut_confederate_member_count >= 2
+		}
+	}
+	flag_definition = {
+		coa = FAM_3
+		priority = 10
+		trigger = {
+			var:freraut_confederate_member_count >= 3
+		}
+	}
+	flag_definition = {
+		coa = FAM_4
+		priority = 15
+		trigger = {
+			var:freraut_confederate_member_count >= 4
+		}
+	}
+	flag_definition = {
+		coa = FAM_5
+		priority = 20
+		trigger = {
+			var:freraut_confederate_member_count >= 5
+		}
+	}
+	flag_definition = {
+		coa = FAM_6
+		priority = 25
+		trigger = {
+			var:freraut_confederate_member_count >= 6
+		}
+	}
+	flag_definition = {
+		coa = FAM_7
+		priority = 30
+		trigger = {
+			var:freraut_confederate_member_count >= 7
+		}
+	}
+	flag_definition = {
+		coa = FAM_8
+		priority = 35
+		trigger = {
+			var:freraut_confederate_member_count >= 8
+		}
+	}
+	flag_definition = {
+		coa = FAM_9
+		priority = 40
+		trigger = {
+			var:freraut_confederate_member_count >= 9
+		}
+	}
+	flag_definition = {
+		coa = FAM_10
+		priority = 45
+		trigger = {
+			var:freraut_confederate_member_count >= 10
+		}
+	}
+	flag_definition = {
+		coa = FAM_11
+		priority = 50
+		trigger = {
+			var:freraut_confederate_member_count >= 11
+		}
+	}
+	flag_definition = {
+		coa = FAM_12
+		priority = 55
+		trigger = {
+			var:freraut_confederate_member_count >= 12
+		}
+	}
+	flag_definition = {
+		coa = FAM_13
+		priority = 60
+		trigger = {
+			var:freraut_confederate_member_count >= 13
+		}
+	}
+	flag_definition = {
+		coa = FAM_14
+		priority = 65
+		trigger = {
+			var:freraut_confederate_member_count >= 14
+		}
+	}
+	flag_definition = {
+		coa = FAM_15
+		priority = 70
+		trigger = {
+			var:freraut_confederate_member_count >= 15
+		}
+	}
+	flag_definition = {
+		coa = FAM_16
+		priority = 75
+		trigger = {
+			var:freraut_confederate_member_count >= 16
+		}
+	}
+}
+
+FRE = {
+	pattern = "pattern_solid.tga"
+	color1 = { 255 255 255 }
+	color2 = { 255 255 255 }
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = { 200 30 40 }
+		color2 = { 200 30 40 }
+		instance = { position = { 0.5000 0.1667 } scale = { 1.0 0.3334 } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = { 30 50 140 }
+		color2 = { 30 50 140 }
+		instance = { position = { 0.5000 0.8333 } scale = { 1.0 0.3334 } }
+	}
+	colored_emblem = {
+		texture = "ce_solid.dds"
+		color1 = { 20 35 100 }
+		color2 = { 20 35 100 }
+		instance = { position = { 0.2000 0.2750 } scale = { 0.40 0.55 } }
+	}
+	colored_emblem = {
+		texture = "ce_star_05.dds"
+		color1 = { 255 204 0 }
+		color2 = { 255 204 0 }
+		instance = { position = { 0.1000 0.1375 } scale = { 0.07 0.10 } }
+	}
+
+	flag_definition = {
+		coa = FRE_2
+		priority = 5
+		trigger = {
+			var:freraut_confederate_member_count >= 2
+		}
+	}
+	flag_definition = {
+		coa = FRE_3
+		priority = 10
+		trigger = {
+			var:freraut_confederate_member_count >= 3
+		}
+	}
+	flag_definition = {
+		coa = FRE_4
+		priority = 15
+		trigger = {
+			var:freraut_confederate_member_count >= 4
+		}
+	}
+	flag_definition = {
+		coa = FRE_5
+		priority = 20
+		trigger = {
+			var:freraut_confederate_member_count >= 5
+		}
+	}
+	flag_definition = {
+		coa = FRE_6
+		priority = 25
+		trigger = {
+			var:freraut_confederate_member_count >= 6
+		}
+	}
+	flag_definition = {
+		coa = FRE_7
+		priority = 30
+		trigger = {
+			var:freraut_confederate_member_count >= 7
+		}
+	}
+	flag_definition = {
+		coa = FRE_8
+		priority = 35
+		trigger = {
+			var:freraut_confederate_member_count >= 8
+		}
+	}
+	flag_definition = {
+		coa = FRE_9
+		priority = 40
+		trigger = {
+			var:freraut_confederate_member_count >= 9
+		}
+	}
+}

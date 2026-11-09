@@ -1,0 +1,119 @@
+﻿############################################################
+# Freraut - Gran Unificación Confederal events
+############################################################
+namespace = freraut_unification
+
+# Event 1 — sent to each confederate member to accept or reject unification
+freraut_unification.1 = {
+	type = country_event
+	placement = scope:confederate_member
+	title = freraut_unification.1.t
+	desc = freraut_unification.1.d
+	theme = diplomacy
+
+	immediate = {
+		save_scope_as = confederate_member
+	}
+
+	option = {
+		name = freraut_unification.1.a # Accept
+		default_option = yes
+		set_country_flag = freraut_accepted_unification
+		scope:confederate_member.overlord = {
+			change_variable = {
+				name = freraut_pending_accept
+				add = 1
+			}
+		}
+		add_modifier = {
+			name = freraut_unification_momentum
+			days = 30
+		}
+	}
+
+	option = {
+		name = freraut_unification.1.b # Reject
+		set_country_flag = freraut_rejected_unification
+		scope:confederate_member.overlord = {
+			change_variable = {
+				name = freraut_pending_reject
+				add = 1
+			}
+		}
+	}
+}
+
+# Event 10 — Resolution: fired 30 days after proposal (or 1 day for forced)
+freraut_unification.10 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_unification.10.t
+	desc = freraut_unification.10.d
+	theme = diplomacy
+
+	immediate = {
+		if = {
+			limit = {
+				var:freraut_pending_accept >= 3
+			}
+			# Sufficient members accepted — form the confederation
+			freraut_form_confederate_country = yes
+		}
+		else_if = {
+			limit = {
+				var:freraut_pending_reject >= var:freraut_pending_accept
+			}
+			# Majority rejected — declare war
+			freraut_declare_rejection_war = yes
+		}
+		else = {
+			# Partial acceptance — form anyway with those who accepted
+			if = {
+				limit = {
+					var:freraut_pending_accept >= 1
+				}
+				freraut_form_confederate_country = yes
+			}
+		}
+		# Clean up state
+		set_variable = {
+			name = freraut_pending_accept
+			value = 0
+		}
+		set_variable = {
+			name = freraut_pending_reject
+			value = 0
+		}
+		remove_country_flag = freraut_unification_in_progress
+	}
+
+	option = {
+		name = freraut_unification.10.a # Understood
+	}
+}
+
+# Event 20 — Notification to subjects that joined voluntarily
+freraut_unification.20 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_unification.20.t
+	desc = freraut_unification.20.d
+	theme = diplomacy
+
+	option = {
+		name = freraut_unification.20.a # For the confederation!
+	}
+}
+
+# Event 21 — Notification to subjects that are being forcibly annexed
+freraut_unification.21 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_unification.21.t
+	desc = freraut_unification.21.d
+	theme = diplomacy
+
+	option = {
+		name = freraut_unification.21.a # We resist!
+	}
+}

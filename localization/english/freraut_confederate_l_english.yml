@@ -1,0 +1,55 @@
+﻿l_english:
+ # -------------------------------------------------------
+ # Country names and adjectives
+ # -------------------------------------------------------
+ FEU_NAME_EUROPA:0 "United States of Europe"
+ FEU_ADJ_EUROPA:0 "European Confederate"
+ FAM_NAME_AMERICA:0 "United Americas"
+ FAM_ADJ_AMERICA:0 "American Confederate"
+ FRE_NAME_DEFAULT:0 "Confederate United States"
+ FRE_ADJ_DEFAULT:0 "Confederate"
+
+ # -------------------------------------------------------
+ # Decision titles and descriptions
+ # -------------------------------------------------------
+ freraut_propose_great_unification:0 "Propose the Great Confederate Unification"
+ freraut_propose_great_unification_desc:0 "The time has come to transform our confederation into a unified nation. We will send a proposal to all confederated states, who may accept or reject it. If at least three members accept, the new state will be formed. Those who refuse risk war."
+ freraut_forced_unification:0 "Impose the Confederate Unification"
+ freraut_forced_unification_desc:0 "Loyal members will be absorbed immediately. Those who resist will face military action to enforce unification."
+
+ # -------------------------------------------------------
+ # Decision tooltips
+ # -------------------------------------------------------
+ freraut_need_4_confederate_members_tt:0 "Requires at least 4 confederated subjects"
+
+ # -------------------------------------------------------
+ # Event titles, descriptions, and options
+ # -------------------------------------------------------
+ freraut_unification.1.t:0 "A Call to Unity"
+ freraut_unification.1.d:0 "[scope:confederate_member.overlord.GetName] has proposed the formation of a grand confederate state. As a member of [scope:confederate_member.overlord.GetName]'s confederation, we must decide: do we join this new nation, or remain apart?"
+ freraut_unification.1.a:0 "We stand together! For the Confederation!"
+ freraut_unification.1.b:0 "Our sovereignty cannot be surrendered."
+
+ freraut_unification.10.t:0 "The Day of Decision"
+ freraut_unification.10.d:0 "The votes are in. [ROOT.GetName] must now act on the will of the confederation's members."
+ freraut_unification.10.a:0 "The die is cast."
+
+ freraut_unification.20.t:0 "Absorbed into the Confederation"
+ freraut_unification.20.d:0 "Our nation joins the confederate union. A new chapter begins."
+ freraut_unification.20.a:0 "Long live the Confederation!"
+
+ freraut_unification.21.t:0 "The Confederation Demands Compliance"
+ freraut_unification.21.d:0 "Despite our refusal, the confederation moves against us by force. Our resistance must hold."
+ freraut_unification.21.a:0 "We will not yield!"
+
+ # -------------------------------------------------------
+ # War goal
+ # -------------------------------------------------------
+ wg_freraut_confederalize:0 "Force into Confederation"
+ wg_freraut_confederalize_desc:0 "Compel the target nation to join the confederation as a subject state."
+
+ # -------------------------------------------------------
+ # Modifier
+ # -------------------------------------------------------
+ freraut_unification_momentum:0 "Unification Momentum"
+ freraut_unification_momentum_desc:0 "This nation has voted to join the confederation and awaits the formal unification."

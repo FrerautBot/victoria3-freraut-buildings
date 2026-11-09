@@ -1,0 +1,38 @@
+﻿############################################
+# Freraut - Grupos de Principios de Confederación
+############################################
+
+# Principio 1: Integración Industrial (primario, universal)
+principle_group_confederation_industry = {
+	primary_for_identity = identity_confederation
+
+	levels = {
+		principle_confederation_industry_1
+		principle_confederation_industry_2
+		principle_confederation_industry_3
+	}
+}
+
+# Principio 2: Banca Confederada (primario, exclusivo confederación)
+principle_group_confederation_banking = {
+	primary_for_identity = identity_confederation
+	unlocking_identity = identity_confederation
+
+	levels = {
+		principle_confederation_banking_1
+		principle_confederation_banking_2
+		principle_confederation_banking_3
+	}
+}
+
+# Principio 3: Política Compartida (primario, exclusivo confederación)
+principle_group_confederation_politics = {
+	primary_for_identity = identity_confederation
+	unlocking_identity = identity_confederation
+
+	levels = {
+		principle_confederation_politics_1
+		principle_confederation_politics_2
+		principle_confederation_politics_3
+	}
+}

@@ -1,0 +1,61 @@
+﻿# Freraut - Gran Unificacion decisions (debug simple)
+
+freraut_propose_great_unification = {
+	is_shown = {
+		is_player = yes
+	}
+
+	possible = {
+		any_subject_or_below = {
+			is_subject_type = subject_type_confederated_state
+			count >= 4
+		}
+	}
+
+	when_taken = {
+		set_country_flag = freraut_unification_in_progress
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			save_scope_as = confederate_member
+			trigger_event = { id = freraut_unification.1 }
+		}
+		trigger_event = { id = freraut_unification.10 days = 30 }
+	}
+
+	ai_chance = { base = 0 }
+}
+
+freraut_forced_unification = {
+	is_shown = {
+		is_player = yes
+	}
+
+	possible = {
+		any_subject_or_below = {
+			is_subject_type = subject_type_confederated_state
+			count >= 1
+		}
+		is_at_war = no
+	}
+
+	when_taken = {
+		set_country_flag = freraut_unification_in_progress
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			if = {
+				limit = { subject_loyalty >= 60 }
+				set_country_flag = freraut_accepted_unification
+			}
+			else = {
+				set_country_flag = freraut_rejected_unification
+			}
+		}
+		trigger_event = { id = freraut_unification.10 days = 1 }
+	}
+
+	ai_chance = { base = 0 }
+}

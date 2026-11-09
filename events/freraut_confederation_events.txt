@@ -1,0 +1,124 @@
+﻿############################################
+# Freraut - Eventos de Confederación
+############################################
+namespace = freraut_confederation
+
+# Evento 1: Confederalización automática al unirse al bloque
+# Se dispara via on_action cuando un país se une a un power bloc
+freraut_confederation.1 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		exists = power_bloc
+		power_bloc = {
+			has_identity = identity:identity_confederation
+		}
+		is_power_bloc_leader = no
+		NOT = { is_subject = yes }
+	}
+
+	immediate = {
+		power_bloc = {
+			power_bloc_leader = {
+				save_scope_as = overlord_country
+			}
+		}
+		create_diplomatic_pact = {
+			country = scope:overlord_country
+			type = confederate
+		}
+		add_liberty_desire = -50
+	}
+
+	option = {
+		name = freraut_confederation.1.a
+	}
+}
+
+# Evento 2: Sincronización de gobierno cuando el líder reforma gobierno
+# Se dispara via on_government_reformed
+freraut_confederation.2 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		is_power_bloc_leader = yes
+		power_bloc = {
+			has_identity = identity:identity_confederation
+			OR = {
+				has_principle_group = principle_group:principle_group_confederation_politics
+			}
+		}
+	}
+
+	immediate = {
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			activate_law = root.active_law:lawgroup_governance_principles.type
+			activate_law = root.active_law:lawgroup_distribution_of_power.type
+		}
+	}
+
+	option = {
+		name = freraut_confederation.2.a
+	}
+}
+
+# Evento 3: Sincronización de elecciones
+# Se dispara via on_election_campaign_end
+freraut_confederation.3 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		is_power_bloc_leader = yes
+		power_bloc = {
+			has_identity = identity:identity_confederation
+			has_principle_group = principle_group:principle_group_confederation_politics
+		}
+	}
+
+	immediate = {
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			activate_law = root.active_law:lawgroup_governance_principles.type
+			activate_law = root.active_law:lawgroup_distribution_of_power.type
+		}
+	}
+
+	option = {
+		name = freraut_confederation.3.a
+	}
+}
+
+# Evento 4: Disolución - convertir confederalizados en puppets
+# Se dispara cuando el líder deja el bloque o el bloque se disuelve
+freraut_confederation.4 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		any_subject_or_below = {
+			is_subject_type = subject_type_confederated_state
+		}
+	}
+
+	immediate = {
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			change_subject_type = subject_type_puppet
+			add_liberty_desire = 25
+		}
+	}
+
+	option = {
+		name = freraut_confederation.4.a
+	}
+}

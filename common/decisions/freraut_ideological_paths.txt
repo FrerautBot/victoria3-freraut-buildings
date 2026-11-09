@@ -1,0 +1,209 @@
+# ═══════════════════════════════════════════════════════════════════
+# DECISIONES: CAMINOS IDEOLÓGICOS
+# La decisión dispara un evento oculto que aplica las leyes
+# (set_law no funciona directamente en when_taken de Vic3)
+# ═══════════════════════════════════════════════════════════════════
+
+# Socialista
+freraut_path_socialist = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.1 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Comunista
+freraut_path_communist = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.2 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Liberal Republicano Presidencial
+freraut_path_presidential = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.3 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Liberal Parlamentario
+freraut_path_parliamentary = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.4 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Anarcocapitalista
+freraut_path_ancap = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.5 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Anarcocomunista
+freraut_path_ancocom = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.6 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Fascista Monarquista
+freraut_path_monarcho_fascist = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.7 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Fascista
+freraut_path_fascist = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.8 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Teocrático
+freraut_path_theocratic = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.9 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Feudal
+freraut_path_feudal = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.10 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Absolutista
+freraut_path_absolutist = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.11 }
+	}
+	ai_chance = { value = 0 }
+}
+
+# Monarquía Democrática
+freraut_path_democratic_monarchy = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_path.12 }
+	}
+	ai_chance = { value = 0 }
+}
