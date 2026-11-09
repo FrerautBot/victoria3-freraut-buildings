@@ -35,7 +35,7 @@ Mod para Victoria 3 que agrega **16 edificios custom** con métodos de producci�
 
 ## Limitaciones conocidas
 
-- `state_construction_add` está registrada como modifier type propio del mod (`common/modifier_type_definitions/freraut_modifier_types.txt`). Su efecto en runtime (bonus de construcción de Public Works) está pendiente de verificación en una partida.
+- Obras Públicas otorga sus bonus de construcción con claves vanilla verificadas: `state_construction_mult = 0.05` (+5% de eficiencia de construcción en el estado) y `country_construction_add = 10` (+10 de construcción por semana). Ya no depende de un modifier type custom sin evidencia en runtime.
 
 ## Cómo verificar tu instalación
 

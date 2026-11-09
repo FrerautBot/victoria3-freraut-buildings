@@ -220,13 +220,16 @@ pm_public_works_base = {
 	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
 
 	state_modifiers = {
-		level_scaled = {
-			state_construction_add = 10
+		workforce_scaled = {
+			# +5% eficiencia de construcción en el estado
+			state_construction_mult = 0.05
 		}
 	}
 
 	country_modifiers = {
 		workforce_scaled = {
+			# +10 de construcción por semana
+			country_construction_add = 10
 			country_weekly_innovation_add = 10
 		}
 	}
@@ -234,12 +237,12 @@ pm_public_works_base = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Inputs
-			goods_input_iron_add = 15
-			goods_input_coal_add = 15
+			goods_input_iron_add = 3.75
+			goods_input_coal_add = 3.75
 			goods_input_wood_add = 15
 			goods_input_fabric_add = 15
-			goods_input_glass_add = 15
-			goods_input_tools_add = 15
+			goods_input_glass_add = 7.5
+			goods_input_tools_add = 7.5
 			goods_input_hardwood_add = 15
 
 			# Outputs

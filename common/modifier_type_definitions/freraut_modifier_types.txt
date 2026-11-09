@@ -14,11 +14,3 @@ goods_output_corporate_financial_services_add = {
 		ai_value = 0
 	}
 }
-
-state_construction_add = {
-	decimals = 1
-	color = good
-	game_data = {
-		ai_value = 0
-	}
-}
