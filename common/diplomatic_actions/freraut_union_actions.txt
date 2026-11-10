@@ -1,0 +1,45 @@
+﻿############################################
+# Union Confederal - Accion del senor
+# Convierte una marioneta en estado confederado.
+# Flujo manual por diseno (orden-54): la ley NO convierte automaticamente.
+# El pacto de vasallaje ya existe -> change_subject_type directo (no create_diplomatic_pact).
+############################################
+
+freraut_da_union_member = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/da_decrease_autonomy.dds"
+
+	potential = {
+		has_law = law_type:law_freraut_confederation
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_puppet
+		}
+	}
+
+	possible = {
+		has_law = law_type:law_freraut_confederation
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_puppet
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			change_subject_type = subject_type_confederated_state
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}

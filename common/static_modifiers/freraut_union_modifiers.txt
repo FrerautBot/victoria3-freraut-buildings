@@ -1,0 +1,10 @@
+﻿############################################
+# Union Confederal - Reconocimiento de la Capital
+# Factor de deseo de libertad del estado confederado (orden-54: -0.5/semana).
+# Se refresca cada pulso mensual con add_modifier (months = 1).
+############################################
+
+freraut_union_member_liberty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_liberty_desire_add = -0.5
+}

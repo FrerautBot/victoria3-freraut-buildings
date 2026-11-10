@@ -1,0 +1,1099 @@
+﻿############################################
+# Union Confederal - Pulso mensual
+# (a) Refresca el factor "Reconocimiento de la Capital" sobre los estados confederados
+# (b) Copia TODAS las tecnologias del senor a los estados confederados (igualdad total, orden-54)
+# Hook ADITIVO: las listas on_actions se suman entre archivos (patron oficial _on_actions.md).
+############################################
+
+on_monthly_pulse_country = {
+	on_actions = {
+		freraut_union_monthly_pulse
+	}
+}
+
+freraut_union_monthly_pulse = {
+	trigger = {
+		has_law = law_type:law_freraut_confederation
+	}
+
+	effect = {
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+
+			add_modifier = {
+				name = freraut_union_member_liberty
+				months = 1
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = academia }
+				}
+				add_technology_researched = academia
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = admiralty }
+				}
+				add_technology_researched = admiralty
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = analytical_philosophy }
+				}
+				add_technology_researched = analytical_philosophy
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = anarchism }
+				}
+				add_technology_researched = anarchism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = aniline }
+				}
+				add_technology_researched = aniline
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = antibiotics }
+				}
+				add_technology_researched = antibiotics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = arc_welding }
+				}
+				add_technology_researched = arc_welding
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = army_reserves }
+				}
+				add_technology_researched = army_reserves
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = art_silk }
+				}
+				add_technology_researched = art_silk
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = artillery }
+				}
+				add_technology_researched = artillery
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = atmospheric_engine }
+				}
+				add_technology_researched = atmospheric_engine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = automatic_bottle_blowers }
+				}
+				add_technology_researched = automatic_bottle_blowers
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = automatic_machine_guns }
+				}
+				add_technology_researched = automatic_machine_guns
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = baking_powder }
+				}
+				add_technology_researched = baking_powder
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = banking }
+				}
+				add_technology_researched = banking
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = battlefleet_tactics }
+				}
+				add_technology_researched = battlefleet_tactics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = battleship_tech }
+				}
+				add_technology_researched = battleship_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = behaviorism }
+				}
+				add_technology_researched = behaviorism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = bessemer_process }
+				}
+				add_technology_researched = bessemer_process
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = bolt_action_rifles }
+				}
+				add_technology_researched = bolt_action_rifles
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = breech_loading_artillery }
+				}
+				add_technology_researched = breech_loading_artillery
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = camera }
+				}
+				add_technology_researched = camera
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = canneries }
+				}
+				add_technology_researched = canneries
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = carrier_tech }
+				}
+				add_technology_researched = carrier_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = central_archives }
+				}
+				add_technology_researched = central_archives
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = central_banking }
+				}
+				add_technology_researched = central_banking
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = central_planning }
+				}
+				add_technology_researched = central_planning
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = centralization }
+				}
+				add_technology_researched = centralization
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = chemical_bleaching }
+				}
+				add_technology_researched = chemical_bleaching
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = chemical_warfare }
+				}
+				add_technology_researched = chemical_warfare
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = civilizing_mission }
+				}
+				add_technology_researched = civilizing_mission
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = colonization }
+				}
+				add_technology_researched = colonization
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = combustion_engine }
+				}
+				add_technology_researched = combustion_engine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = compression_ignition }
+				}
+				add_technology_researched = compression_ignition
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = concrete_dockyards }
+				}
+				add_technology_researched = concrete_dockyards
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = concrete_fortifications }
+				}
+				add_technology_researched = concrete_fortifications
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = conveyors }
+				}
+				add_technology_researched = conveyors
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = corporate_charters }
+				}
+				add_technology_researched = corporate_charters
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = corporate_management }
+				}
+				add_technology_researched = corporate_management
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = corporatism }
+				}
+				add_technology_researched = corporatism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = cotton_gin }
+				}
+				add_technology_researched = cotton_gin
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = crystal_glass }
+				}
+				add_technology_researched = crystal_glass
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = currency_standards }
+				}
+				add_technology_researched = currency_standards
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = defense_in_depth }
+				}
+				add_technology_researched = defense_in_depth
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = democracy }
+				}
+				add_technology_researched = democracy
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = destroyer }
+				}
+				add_technology_researched = destroyer
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = dialectics }
+				}
+				add_technology_researched = dialectics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = distillation }
+				}
+				add_technology_researched = distillation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = dough_rollers }
+				}
+				add_technology_researched = dough_rollers
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = dreadnought_tech }
+				}
+				add_technology_researched = dreadnought_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = drydocks }
+				}
+				add_technology_researched = drydocks
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = dynamite }
+				}
+				add_technology_researched = dynamite
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = egalitarianism }
+				}
+				add_technology_researched = egalitarianism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = electric_arc_process }
+				}
+				add_technology_researched = electric_arc_process
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = electric_railway }
+				}
+				add_technology_researched = electric_railway
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = electric_telegraph }
+				}
+				add_technology_researched = electric_telegraph
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = electrical_capacitors }
+				}
+				add_technology_researched = electrical_capacitors
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = electrical_generation }
+				}
+				add_technology_researched = electrical_generation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = elevator }
+				}
+				add_technology_researched = elevator
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = empiricism }
+				}
+				add_technology_researched = empiricism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = enclosure }
+				}
+				add_technology_researched = enclosure
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = enlistment_offices }
+				}
+				add_technology_researched = enlistment_offices
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = feminism }
+				}
+				add_technology_researched = feminism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = field_works }
+				}
+				add_technology_researched = field_works
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = film }
+				}
+				add_technology_researched = film
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = flamethrowers }
+				}
+				add_technology_researched = flamethrowers
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = flash_freezing }
+				}
+				add_technology_researched = flash_freezing
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = floating_harbor }
+				}
+				add_technology_researched = floating_harbor
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = fractional_distillation }
+				}
+				add_technology_researched = fractional_distillation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = gantry_cranes }
+				}
+				add_technology_researched = gantry_cranes
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = general_staff }
+				}
+				add_technology_researched = general_staff
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = gunsmithing }
+				}
+				add_technology_researched = gunsmithing
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = handcranked_machine_gun }
+				}
+				add_technology_researched = handcranked_machine_gun
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = human_rights }
+				}
+				add_technology_researched = human_rights
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = hydraulic_cranes }
+				}
+				add_technology_researched = hydraulic_cranes
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = identification_documents }
+				}
+				add_technology_researched = identification_documents
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = improved_fertilizer }
+				}
+				add_technology_researched = improved_fertilizer
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = intensive_agriculture }
+				}
+				add_technology_researched = intensive_agriculture
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = international_exchange_standards }
+				}
+				add_technology_researched = international_exchange_standards
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = international_relations }
+				}
+				add_technology_researched = international_relations
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = international_trade }
+				}
+				add_technology_researched = international_trade
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = investment_banks }
+				}
+				add_technology_researched = investment_banks
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = ironclad_tech }
+				}
+				add_technology_researched = ironclad_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = jeune_ecole }
+				}
+				add_technology_researched = jeune_ecole
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = joint_stock_companies }
+				}
+				add_technology_researched = joint_stock_companies
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = labor_movement }
+				}
+				add_technology_researched = labor_movement
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = landing_craft }
+				}
+				add_technology_researched = landing_craft
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = lathe }
+				}
+				add_technology_researched = lathe
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = law_enforcement }
+				}
+				add_technology_researched = law_enforcement
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = line_infantry }
+				}
+				add_technology_researched = line_infantry
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = logistics }
+				}
+				add_technology_researched = logistics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = macroeconomics }
+				}
+				add_technology_researched = macroeconomics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = malaria_prevention }
+				}
+				add_technology_researched = malaria_prevention
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mandatory_service }
+				}
+				add_technology_researched = mandatory_service
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = manufacturies }
+				}
+				add_technology_researched = manufacturies
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mass_communication }
+				}
+				add_technology_researched = mass_communication
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mass_propaganda }
+				}
+				add_technology_researched = mass_propaganda
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mass_surveillance }
+				}
+				add_technology_researched = mass_surveillance
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mechanical_tools }
+				}
+				add_technology_researched = mechanical_tools
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mechanized_farming }
+				}
+				add_technology_researched = mechanized_farming
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mechanized_workshops }
+				}
+				add_technology_researched = mechanized_workshops
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = medical_degrees }
+				}
+				add_technology_researched = medical_degrees
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = military_aviation }
+				}
+				add_technology_researched = military_aviation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = military_drill }
+				}
+				add_technology_researched = military_drill
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = military_statistics }
+				}
+				add_technology_researched = military_statistics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mobile_armor }
+				}
+				add_technology_researched = mobile_armor
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = modern_financial_instruments }
+				}
+				add_technology_researched = modern_financial_instruments
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = modern_nursing }
+				}
+				add_technology_researched = modern_nursing
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = modern_sewerage }
+				}
+				add_technology_researched = modern_sewerage
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = monitor_tech }
+				}
+				add_technology_researched = monitor_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = multilateral_alliances }
+				}
+				add_technology_researched = multilateral_alliances
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = mutual_funds }
+				}
+				add_technology_researched = mutual_funds
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = napoleonic_warfare }
+				}
+				add_technology_researched = napoleonic_warfare
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = nationalism }
+				}
+				add_technology_researched = nationalism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = navigation }
+				}
+				add_technology_researched = navigation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = nco_training }
+				}
+				add_technology_researched = nco_training
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = nitrogen_fixation }
+				}
+				add_technology_researched = nitrogen_fixation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = nitroglycerin }
+				}
+				add_technology_researched = nitroglycerin
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = oil_turbine }
+				}
+				add_technology_researched = oil_turbine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = open_hearth_process }
+				}
+				add_technology_researched = open_hearth_process
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = organized_sports }
+				}
+				add_technology_researched = organized_sports
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = paddle_steamer }
+				}
+				add_technology_researched = paddle_steamer
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = pasteurization }
+				}
+				add_technology_researched = pasteurization
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = paved_roads }
+				}
+				add_technology_researched = paved_roads
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = percussion_cap }
+				}
+				add_technology_researched = percussion_cap
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = pharmaceuticals }
+				}
+				add_technology_researched = pharmaceuticals
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = philosophical_pragmatism }
+				}
+				add_technology_researched = philosophical_pragmatism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = plastics }
+				}
+				add_technology_researched = plastics
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = pneumatic_tools }
+				}
+				add_technology_researched = pneumatic_tools
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = political_agitation }
+				}
+				add_technology_researched = political_agitation
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = postal_savings }
+				}
+				add_technology_researched = postal_savings
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = power_of_the_purse }
+				}
+				add_technology_researched = power_of_the_purse
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = pre_dreadnought_tech }
+				}
+				add_technology_researched = pre_dreadnought_tech
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = prospecting }
+				}
+				add_technology_researched = prospecting
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = psychiatry }
+				}
+				add_technology_researched = psychiatry
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = psychoanalysis }
+				}
+				add_technology_researched = psychoanalysis
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = pumpjacks }
+				}
+				add_technology_researched = pumpjacks
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = quinine }
+				}
+				add_technology_researched = quinine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = radio }
+				}
+				add_technology_researched = radio
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = railways }
+				}
+				add_technology_researched = railways
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = rationalism }
+				}
+				add_technology_researched = rationalism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = realism }
+				}
+				add_technology_researched = realism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = reinforced_concrete }
+				}
+				add_technology_researched = reinforced_concrete
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = repeaters }
+				}
+				add_technology_researched = repeaters
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = rifling }
+				}
+				add_technology_researched = rifling
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = romanticism }
+				}
+				add_technology_researched = romanticism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = rotary_valve_engine }
+				}
+				add_technology_researched = rotary_valve_engine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = rubber_mastication }
+				}
+				add_technology_researched = rubber_mastication
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = screw_frigate }
+				}
+				add_technology_researched = screw_frigate
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = sea_lane_strategies }
+				}
+				add_technology_researched = sea_lane_strategies
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = self_propelled_torpedoes }
+				}
+				add_technology_researched = self_propelled_torpedoes
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = sericulture }
+				}
+				add_technology_researched = sericulture
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = shaft_mining }
+				}
+				add_technology_researched = shaft_mining
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = shell_gun }
+				}
+				add_technology_researched = shell_gun
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = shift_work }
+				}
+				add_technology_researched = shift_work
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = socialism }
+				}
+				add_technology_researched = socialism
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = standing_army }
+				}
+				add_technology_researched = standing_army
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = steam_donkey }
+				}
+				add_technology_researched = steam_donkey
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = steam_turbine }
+				}
+				add_technology_researched = steam_turbine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = steel_frame_buildings }
+				}
+				add_technology_researched = steel_frame_buildings
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = steel_railway_cars }
+				}
+				add_technology_researched = steel_railway_cars
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = steelworking }
+				}
+				add_technology_researched = steelworking
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = stock_exchange }
+				}
+				add_technology_researched = stock_exchange
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = stormtroopers }
+				}
+				add_technology_researched = stormtroopers
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = submarine }
+				}
+				add_technology_researched = submarine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = tech_bureaucracy }
+				}
+				add_technology_researched = tech_bureaucracy
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = telephone }
+				}
+				add_technology_researched = telephone
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = threshing_machine }
+				}
+				add_technology_researched = threshing_machine
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = trench_works }
+				}
+				add_technology_researched = trench_works
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = triage }
+				}
+				add_technology_researched = triage
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = urban_planning }
+				}
+				add_technology_researched = urban_planning
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = urbanization }
+				}
+				add_technology_researched = urbanization
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = vacuum_canning }
+				}
+				add_technology_researched = vacuum_canning
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = vulcanization }
+				}
+				add_technology_researched = vulcanization
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = war_propaganda }
+				}
+				add_technology_researched = war_propaganda
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = wargaming }
+				}
+				add_technology_researched = wargaming
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = watertube_boiler }
+				}
+				add_technology_researched = watertube_boiler
+			}
+			if = {
+				limit = {
+					root = { has_technology_researched = zeppelins }
+				}
+				add_technology_researched = zeppelins
+			}
+		}
+	}
+}

@@ -345,3 +345,23 @@
 
  # Hidden event options (required by engine)
  freraut_path.1.a: "Done."
+
+# Union Confederal - Ley de Gobierno (orden-54)
+ law_freraut_confederation: "Confederal Government"
+ law_freraut_confederation_desc: "The country is the capital of a confederal union of associated states."
+
+# Union Confederal - Integrar a la Union (accion del senor)
+ freraut_da_union_member: "Integrate into the Union"
+ freraut_da_union_member_desc: "Turns this puppet into a confederated state of the union."
+ freraut_da_union_member_action_notification_name: "[INITIATOR_COUNTRY.GetName] integrated us into the Union"
+ freraut_da_union_member_action_notification_desc: "[INITIATOR_COUNTRY.GetName] recognized us as a confederated state of their union."
+ freraut_da_union_member_action_propose_name: "$freraut_da_union_member$"
+ freraut_da_union_member_action_break_name: "Leave the Union"
+ freraut_da_union_member_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] integrated [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] into the confederal union."
+ freraut_da_union_member_trigger_desc_global: "Puppet integrated into the confederal union"
+ freraut_da_union_member_trigger_desc_first: "[COUNTRY.GetName] integrated its puppet [TARGET_COUNTRY.GetName] into the confederal union"
+ freraut_da_union_member_trigger_desc_third: "[COUNTRY.GetName] integrated [TARGET_COUNTRY.GetName] into the confederal union"
+
+# Union Confederal - Reconocimiento de la Capital (factor de deseo de libertad)
+ freraut_union_member_liberty: "Recognition of the Capital"
+ freraut_union_member_liberty_desc: "This state recognizes the union's capital as its political reference."

@@ -345,3 +345,23 @@
 
  # Eventos ocultos (options requeridos por el motor)
  freraut_path.1.a: "Hecho."
+
+# Union Confederal - Ley de Gobierno (orden-54)
+ law_freraut_confederation: "Gobierno Confederal"
+ law_freraut_confederation_desc: "El país es la capital de una unión confederal de estados asociados."
+
+# Union Confederal - Integrar a la Union (accion del senor)
+ freraut_da_union_member: "Integrar a la Unión"
+ freraut_da_union_member_desc: "Transforma a esta marioneta en un estado confederado de la unión."
+ freraut_da_union_member_action_notification_name: "[INITIATOR_COUNTRY.GetName] nos integró a la Unión"
+ freraut_da_union_member_action_notification_desc: "[INITIATOR_COUNTRY.GetName] nos reconoció como estado confederado de su unión."
+ freraut_da_union_member_action_propose_name: "$freraut_da_union_member$"
+ freraut_da_union_member_action_break_name: "Abandonar la Unión"
+ freraut_da_union_member_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] integró a [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] a la unión confederal."
+ freraut_da_union_member_trigger_desc_global: "Marioneta integrada a la unión confederal"
+ freraut_da_union_member_trigger_desc_first: "[COUNTRY.GetName] integró a su marioneta [TARGET_COUNTRY.GetName] a la unión confederal"
+ freraut_da_union_member_trigger_desc_third: "[COUNTRY.GetName] integró a [TARGET_COUNTRY.GetName] a la unión confederal"
+
+# Union Confederal - Reconocimiento de la Capital (factor de deseo de libertad)
+ freraut_union_member_liberty: "Reconocimiento de la Capital"
+ freraut_union_member_liberty_desc: "Este estado reconoce a la capital de la unión como su referente político."
