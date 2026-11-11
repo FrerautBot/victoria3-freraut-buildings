@@ -13,13 +13,13 @@ pm_central_bank_base = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_gold_add = 100
+			goods_output_gold_add = 25
 		}
 
 		level_scaled = {
-			building_employment_capitalists_add = 500
-			building_employment_laborers_add = 1000
-			building_employment_bureaucrats_add = 2000
+			building_employment_capitalists_add = 125
+			building_employment_laborers_add = 250
+			building_employment_bureaucrats_add = 500
 		}
 	}
 }
@@ -40,7 +40,7 @@ pm_bank_financial_services = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_services_add = 30
-			goods_output_gold_add = 60
+			goods_output_gold_add = 15
 		}
 	}
 }
@@ -62,8 +62,8 @@ pm_public_health_base = {
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 2000
-			building_employment_laborers_add = 3000
+			building_employment_bureaucrats_add = 500
+			building_employment_laborers_add = 750
 		}
 	}
 }
@@ -90,8 +90,8 @@ pm_public_health_quinine = {
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 2000
-			building_employment_laborers_add = 3000
+			building_employment_bureaucrats_add = 500
+			building_employment_laborers_add = 750
 		}
 	}
 }
@@ -122,8 +122,8 @@ pm_public_health_victorian = {
 	building_modifiers = {
 		level_scaled = {
 			# Contrata empleados adicionales
-			building_employment_bureaucrats_add = -1000
-			building_employment_laborers_add = -1500
+			building_employment_bureaucrats_add = -250
+			building_employment_laborers_add = -375
 		}
 	}
 }
@@ -134,16 +134,16 @@ pm_mining_center_base = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_tools_add = 15
-			goods_output_sulfur_add = 50
-			goods_output_iron_add = 50
-			goods_output_lead_add = 50
-			goods_output_gold_add = 10
-			goods_output_coal_add = 50
-			goods_output_copper_add = 50
+			goods_output_sulfur_add = 12.5
+			goods_output_iron_add = 12.5
+			goods_output_lead_add = 12.5
+			goods_output_gold_add = 2.5
+			goods_output_coal_add = 12.5
+			goods_output_copper_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 3000
+			building_employment_laborers_add = 750
 		}
 	}
 }
@@ -161,57 +161,57 @@ pm_manufacturing_center_base = {
 			goods_input_wood_add = 15
 
 			# Outputs - Herramientas y materiales
-			goods_output_tools_add = 50
-			goods_output_steel_add = 50
-			goods_output_glass_add = 50
-			goods_output_engines_add = 50
-			goods_output_hardwood_add = 100
-			goods_output_wood_add = 50
+			goods_output_tools_add = 12.5
+			goods_output_steel_add = 12.5
+			goods_output_glass_add = 12.5
+			goods_output_engines_add = 12.5
+			goods_output_hardwood_add = 25
+			goods_output_wood_add = 12.5
 
 			# Outputs - Ropa y textiles
-			goods_output_clothes_add = 50
-			goods_output_luxury_clothes_add = 50
-			goods_output_fabric_add = 50
-			goods_output_silk_add = 50
+			goods_output_clothes_add = 12.5
+			goods_output_luxury_clothes_add = 12.5
+			goods_output_fabric_add = 12.5
+			goods_output_silk_add = 12.5
 
 			# Outputs - Muebles
-			goods_output_furniture_add = 50
-			goods_output_luxury_furniture_add = 50
+			goods_output_furniture_add = 12.5
+			goods_output_luxury_furniture_add = 12.5
 
 			# Outputs - Militar
-			goods_output_small_arms_add = 50
-			goods_output_artillery_add = 50
-			goods_output_ammunition_add = 50
+			goods_output_small_arms_add = 12.5
+			goods_output_artillery_add = 12.5
+			goods_output_ammunition_add = 12.5
 
 			# Outputs - Naval (todos los tipos de barcos)
-			goods_output_manowars_add = 50
-			goods_output_ironclads_add = 50
-			goods_output_clippers_add = 50
-			goods_output_steamers_add = 50
-			goods_output_aeroplanes_add = 50
+			goods_output_manowars_add = 12.5
+			goods_output_ironclads_add = 12.5
+			goods_output_clippers_add = 12.5
+			goods_output_steamers_add = 12.5
+			goods_output_aeroplanes_add = 12.5
 
 			# Outputs - Comercio naval
-			goods_output_merchant_marine_add = 100
+			goods_output_merchant_marine_add = 25
 
 			# Outputs - Lujo y consumo
-			goods_output_porcelain_add = 50
-			goods_output_liquor_add = 50
-			goods_output_tobacco_add = 50
-			goods_output_wine_add = 100
-			goods_output_fish_add = 50
+			goods_output_porcelain_add = 12.5
+			goods_output_liquor_add = 12.5
+			goods_output_tobacco_add = 12.5
+			goods_output_wine_add = 25
+			goods_output_fish_add = 12.5
 
 			# Outputs - Papel
-			goods_output_paper_add = 50
+			goods_output_paper_add = 12.5
 
 			# Outputs - Comida y Electricidad
-			goods_output_groceries_add = 50
-			goods_output_electricity_add = 50
+			goods_output_groceries_add = 12.5
+			goods_output_electricity_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 5000
-			building_employment_machinists_add = 3000
-			building_employment_engineers_add = 2000
+			building_employment_laborers_add = 1250
+			building_employment_machinists_add = 750
+			building_employment_engineers_add = 500
 		}
 	}
 }
@@ -246,12 +246,12 @@ pm_public_works_base = {
 			goods_input_hardwood_add = 15
 
 			# Outputs
-			goods_output_services_add = 50
-			goods_output_transportation_add = 50
+			goods_output_services_add = 12.5
+			goods_output_transportation_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 500
+			building_employment_laborers_add = 125
 		}
 	}
 }
@@ -280,15 +280,15 @@ pm_tech_university_base = {
 			# Input
 			goods_input_paper_add = 15
 			# Output
-			goods_output_services_add = 35
+			goods_output_services_add = 8.75
 		}
 
 		level_scaled = {
 			# Pocos trabajadores: oficinistas y proletarios
-			building_employment_clerks_add = 250
-			building_employment_laborers_add = 250
+			building_employment_clerks_add = 62
+			building_employment_laborers_add = 62
 			# Produce académicos (como la universidad del juego)
-			building_employment_academics_add = 500
+			building_employment_academics_add = 125
 		}
 	}
 }
@@ -318,9 +318,9 @@ pm_sovereign_palace_base = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_bureaucrats_add = 3000
-			building_employment_aristocrats_add = 1000
-			building_employment_officers_add = 1000
+			building_employment_bureaucrats_add = 750
+			building_employment_aristocrats_add = 250
+			building_employment_officers_add = 250
 		}
 	}
 }
@@ -352,8 +352,8 @@ pm_national_trade_base = {
 
 	building_modifiers = {
 		level_scaled = {
-			building_employment_clerks_add = 500
-			building_employment_shopkeepers_add = 500
+			building_employment_clerks_add = 125
+			building_employment_shopkeepers_add = 125
 		}
 	}
 }
@@ -408,13 +408,13 @@ pm_logistics_center_base = {
 			goods_input_wine_add = 15
 
 			# Outputs
-			goods_output_services_add = 50
-			goods_output_gold_add = 50
+			goods_output_services_add = 12.5
+			goods_output_gold_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_clerks_add = 500
-			building_employment_laborers_add = 500
+			building_employment_clerks_add = 125
+			building_employment_laborers_add = 125
 		}
 	}
 }
@@ -486,9 +486,9 @@ pm_national_academy_base = {
 		}
 
 		level_scaled = {
-			building_employment_officers_add = 1000
-			building_employment_soldiers_add = 2000
-			building_employment_academics_add = 500
+			building_employment_officers_add = 250
+			building_employment_soldiers_add = 500
+			building_employment_academics_add = 125
 		}
 	}
 }
@@ -519,9 +519,9 @@ pm_stock_exchange_national = {
 		}
 
 		level_scaled = {
-			building_employment_capitalists_add = 500
-			building_employment_clerks_add = 500
-			building_employment_shopkeepers_add = 500
+			building_employment_capitalists_add = 125
+			building_employment_clerks_add = 125
+			building_employment_shopkeepers_add = 125
 		}
 	}
 }
@@ -563,9 +563,9 @@ pm_stock_exchange_international = {
 		}
 
 		level_scaled = {
-			building_employment_capitalists_add = 500
-			building_employment_clerks_add = 500
-			building_employment_shopkeepers_add = 500
+			building_employment_capitalists_add = 125
+			building_employment_clerks_add = 125
+			building_employment_shopkeepers_add = 125
 		}
 	}
 }
@@ -619,8 +619,8 @@ pm_dissident_agency_base = {
 		}
 
 		level_scaled = {
-			building_employment_bureaucrats_add = 2000
-			building_employment_officers_add = 1000
+			building_employment_bureaucrats_add = 500
+			building_employment_officers_add = 250
 		}
 	}
 }
@@ -875,26 +875,26 @@ pm_fertilization_base = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Produce 30 de cada bien agrícola/plantación
-			goods_output_opium_add = 30
-			goods_output_silk_add = 30
-			goods_output_liquor_add = 30
-			goods_output_grain_add = 30
-			goods_output_fruit_add = 30
-			goods_output_tobacco_add = 30
-			goods_output_sugar_add = 30
-			goods_output_tea_add = 30
-			goods_output_coffee_add = 30
-			goods_output_cotton_add = 30
-			goods_output_rubber_add = 30
-			goods_output_dye_add = 30
+			goods_output_opium_add = 7.5
+			goods_output_silk_add = 7.5
+			goods_output_liquor_add = 7.5
+			goods_output_grain_add = 7.5
+			goods_output_fruit_add = 7.5
+			goods_output_tobacco_add = 7.5
+			goods_output_sugar_add = 7.5
+			goods_output_tea_add = 7.5
+			goods_output_coffee_add = 7.5
+			goods_output_cotton_add = 7.5
+			goods_output_rubber_add = 7.5
+			goods_output_dye_add = 7.5
 
 			# Autosuficiente: produce fertilizante
-			goods_output_fertilizer_add = 30
+			goods_output_fertilizer_add = 7.5
 		}
 
 		level_scaled = {
-			building_employment_farmers_add = 3000
-			building_employment_laborers_add = 2000
+			building_employment_farmers_add = 750
+			building_employment_laborers_add = 500
 		}
 	}
 }
@@ -913,29 +913,29 @@ pm_fertilization_railways = {
 			goods_input_transportation_add = 30
 
 			# Autosuficiente: produce transporte
-			goods_output_transportation_add = 50
+			goods_output_transportation_add = 12.5
 
 			# Produce 50 de cada bien agrícola/plantación
-			goods_output_opium_add = 50
-			goods_output_silk_add = 50
-			goods_output_liquor_add = 50
-			goods_output_grain_add = 50
-			goods_output_fruit_add = 50
-			goods_output_tobacco_add = 50
-			goods_output_sugar_add = 50
-			goods_output_tea_add = 50
-			goods_output_coffee_add = 50
-			goods_output_cotton_add = 50
-			goods_output_rubber_add = 50
-			goods_output_dye_add = 50
+			goods_output_opium_add = 12.5
+			goods_output_silk_add = 12.5
+			goods_output_liquor_add = 12.5
+			goods_output_grain_add = 12.5
+			goods_output_fruit_add = 12.5
+			goods_output_tobacco_add = 12.5
+			goods_output_sugar_add = 12.5
+			goods_output_tea_add = 12.5
+			goods_output_coffee_add = 12.5
+			goods_output_cotton_add = 12.5
+			goods_output_rubber_add = 12.5
+			goods_output_dye_add = 12.5
 
 			# Autosuficiente: produce fertilizante
-			goods_output_fertilizer_add = 50
+			goods_output_fertilizer_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_farmers_add = 3000
-			building_employment_laborers_add = 2000
+			building_employment_farmers_add = 750
+			building_employment_laborers_add = 500
 		}
 	}
 }
@@ -964,18 +964,18 @@ pm_fertilization_with_fertilizer = {
 			goods_input_coal_add = 30
 
 			# +30 adicional de cada bien (sin mano de obra extra)
-			goods_output_opium_add = 30
-			goods_output_silk_add = 30
-			goods_output_liquor_add = 30
-			goods_output_grain_add = 30
-			goods_output_fruit_add = 30
-			goods_output_tobacco_add = 30
-			goods_output_sugar_add = 30
-			goods_output_tea_add = 30
-			goods_output_coffee_add = 30
-			goods_output_cotton_add = 30
-			goods_output_rubber_add = 30
-			goods_output_dye_add = 30
+			goods_output_opium_add = 7.5
+			goods_output_silk_add = 7.5
+			goods_output_liquor_add = 7.5
+			goods_output_grain_add = 7.5
+			goods_output_fruit_add = 7.5
+			goods_output_tobacco_add = 7.5
+			goods_output_sugar_add = 7.5
+			goods_output_tea_add = 7.5
+			goods_output_coffee_add = 7.5
+			goods_output_cotton_add = 7.5
+			goods_output_rubber_add = 7.5
+			goods_output_dye_add = 7.5
 		}
 	}
 }
@@ -995,13 +995,13 @@ pm_industrial_trains_base = {
 			goods_input_engines_add = 5
 
 			# Output
-			goods_output_transportation_add = 60
+			goods_output_transportation_add = 15
 		}
 
 		level_scaled = {
-			building_employment_machinists_add = 2000
-			building_employment_laborers_add = 2000
-			building_employment_engineers_add = 500
+			building_employment_machinists_add = 500
+			building_employment_laborers_add = 500
+			building_employment_engineers_add = 125
 		}
 	}
 }
@@ -1016,15 +1016,15 @@ pm_breeding_center_base = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Outputs (no consume nada)
-			goods_output_fertilizer_add = 60
-			goods_output_meat_add = 80
-			goods_output_fabric_add = 60
-			goods_output_oil_add = 50
+			goods_output_fertilizer_add = 15
+			goods_output_meat_add = 20
+			goods_output_fabric_add = 15
+			goods_output_oil_add = 12.5
 		}
 
 		level_scaled = {
-			building_employment_farmers_add = 3000
-			building_employment_laborers_add = 2000
+			building_employment_farmers_add = 750
+			building_employment_laborers_add = 500
 		}
 	}
 }
@@ -1042,14 +1042,14 @@ pm_grand_company_bank_base = {
 			goods_input_services_add = 20
 
 			# Outputs
-			goods_output_gold_add = 70
-			goods_output_corporate_financial_services_add = 40
+			goods_output_gold_add = 17.5
+			goods_output_corporate_financial_services_add = 10
 		}
 
 		level_scaled = {
-			building_employment_capitalists_add = 1000
-			building_employment_clerks_add = 2000
-			building_employment_shopkeepers_add = 1000
+			building_employment_capitalists_add = 250
+			building_employment_clerks_add = 500
+			building_employment_shopkeepers_add = 250
 		}
 	}
 }
@@ -1077,10 +1077,10 @@ pm_mining_center_mechanized = {
 	building_modifiers = {
 		workforce_scaled = {
 			building_input_engines_add = 5
-			building_output_transportation_add = 15
+			building_output_transportation_add = 3.75
 		}
 		level_scaled = {
-			building_employment_laborers_add = -1500
+			building_employment_laborers_add = -375
 		}
 	}
 }
@@ -1111,26 +1111,26 @@ pm_manufacturing_center_specialized_tools = {
 			building_input_iron_add = 10
 			building_input_coal_add = 10
 			building_input_wood_add = 5
-			building_output_engines_add = 25
-			building_output_clothing_add = 50
-			building_output_hardwood_add = 20
-			building_output_small_arms_add = 90
-			building_output_artillery_add = 75
-			building_output_groceries_add = 40
-			building_output_steel_add = 100
-			building_output_tools_add = 150
-			building_output_glass_add = 50
-			building_output_furniture_add = 70
-			building_output_paper_add = 40
-			building_output_wood_add = 300
-			building_output_fabric_add = 150
-			building_output_iron_add = 20
-			building_output_coal_add = 40
+			building_output_engines_add = 6.25
+			building_output_clothing_add = 12.5
+			building_output_hardwood_add = 5
+			building_output_small_arms_add = 22.5
+			building_output_artillery_add = 18.75
+			building_output_groceries_add = 10
+			building_output_steel_add = 25
+			building_output_tools_add = 37.5
+			building_output_glass_add = 12.5
+			building_output_furniture_add = 17.5
+			building_output_paper_add = 10
+			building_output_wood_add = 75
+			building_output_fabric_add = 37.5
+			building_output_iron_add = 5
+			building_output_coal_add = 10
 		}
 		level_scaled = {
-			building_employment_engineers_add = -1500
-			building_employment_laborers_add = -2500
-			building_employment_machinists_add = -1500
+			building_employment_engineers_add = -375
+			building_employment_laborers_add = -625
+			building_employment_machinists_add = -375
 		}
 	}
 }
