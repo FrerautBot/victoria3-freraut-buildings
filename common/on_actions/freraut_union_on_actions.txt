@@ -13,7 +13,10 @@ on_monthly_pulse_country = {
 
 freraut_union_monthly_pulse = {
 	trigger = {
-		has_law = law_type:law_freraut_confederation
+		OR = {
+			has_law = law_type:law_freraut_confederation
+			has_law = law_type:law_freraut_confederation_crown
+		}
 	}
 
 	effect = {

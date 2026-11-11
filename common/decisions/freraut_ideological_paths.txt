@@ -207,3 +207,26 @@ freraut_path_democratic_monarchy = {
 	}
 	ai_chance = { value = 0 }
 }
+
+# Confederacion (orden-57)
+freraut_path_confederation = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+	}
+	possible = {
+		is_player = yes
+		NOT = { has_variable = freraut_ideology_chosen }
+		NOT = {
+			OR = {
+				has_law_or_variant = law_type:law_freraut_confederation
+				has_law_or_variant = law_type:law_freraut_confederation_crown
+			}
+		}
+	}
+	when_taken = {
+		set_variable = freraut_ideology_chosen
+		trigger_event = { id = freraut_confederation.5 }
+	}
+	ai_chance = { value = 0 }
+}

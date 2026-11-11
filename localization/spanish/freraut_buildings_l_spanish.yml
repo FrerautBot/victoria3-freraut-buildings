@@ -438,3 +438,12 @@
 # Decretos de Autonomia - Nombres dinamicos (orden-56)
  freraut_admin_name: "Administración"
  freraut_admin_name_adj: "Administrativa"
+
+# Camino Confederacion - Real Corona de la Union (orden-57)
+ freraut_path_confederation: "Establecer un gobierno de confederación"
+ freraut_path_confederation_desc: "Une los estados de la nación en una confederación. Si el gobierno es monárquico o teocrático, se establece la Real Corona de la Unión; en una república, la Confederación."
+ law_freraut_confederation_crown: "La Real Corona de la Unión"
+ law_freraut_confederation_crown_desc: "La Unión Confederal regida por una corona hereditaria: el Real Coronado reina y su heredero le sucede."
+ gov_freraut_confederation_crown: "Gobierno de la Corona"
+ RULER_TITLE_FRERAUT_REAL_CORONADO: "Real Coronado"
+ freraut_confederation.5.a: "Proclamar la Confederación"

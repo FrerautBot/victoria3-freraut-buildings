@@ -122,3 +122,28 @@ freraut_confederation.4 = {
 		name = freraut_confederation.4.a
 	}
 }
+
+# Evento 5: Camino decision - ley confederal o corona segun el gobierno (orden-57)
+freraut_confederation.5 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_law_or_variant = law_type:law_monarchy
+					has_law_or_variant = law_type:law_theocracy
+				}
+			}
+			activate_law = law_type:law_freraut_confederation_crown
+			else = {
+				activate_law = law_type:law_freraut_confederation
+			}
+		}
+	}
+
+	option = {
+		name = freraut_confederation.5.a
+	}
+}

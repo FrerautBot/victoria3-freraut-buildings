@@ -438,3 +438,12 @@
 # Decretos de Autonomia - Dynamic names (orden-56)
  freraut_admin_name: "Administration"
  freraut_admin_name_adj: "Administrative"
+
+# Confederation Path - Royal Crown of the Union (orden-57)
+ freraut_path_confederation: "Establish a Confederate Government"
+ freraut_path_confederation_desc: "Unite the states of the nation into a confederation. If the government is monarchical or theocratic, the Royal Crown of the Union is established; in a republic, the Confederation."
+ law_freraut_confederation_crown: "The Royal Crown of the Union"
+ law_freraut_confederation_crown_desc: "The Confederal Union ruled by a hereditary crown: the Royal Crowned reigns and an heir succeeds them."
+ gov_freraut_confederation_crown: "Crown Government"
+ RULER_TITLE_FRERAUT_REAL_CORONADO: "Royal Crowned"
+ freraut_confederation.5.a: "Proclaim the Confederation"
