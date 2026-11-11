@@ -1,0 +1,25 @@
+﻿############################################
+# Freraut: gobierno Confederacion (orden-55)
+# Vinculado a law_freraut_confederation. Elecciones como
+# republica parlamentaria (transfer_of_power = parliamentary_elective).
+############################################
+
+gov_freraut_confederation = {
+	transfer_of_power = parliamentary_elective
+	new_leader_on_reform_government = yes
+
+	male_ruler = "RULER_TITLE_FRERAUT_PRIME_MAGISTRATE"
+	female_ruler = "RULER_TITLE_FRERAUT_PRIME_MAGISTRATE"
+
+	possible = {
+		has_law_or_variant = law_type:law_freraut_confederation
+		NOT = { has_law_or_variant = law_type:law_single_party_state }
+	}
+
+	on_government_type_change = {
+		change_to_parliamentary_elective = yes
+	}
+	on_post_government_type_change = {
+		post_change_to_parliamentary_elective = yes
+	}
+}

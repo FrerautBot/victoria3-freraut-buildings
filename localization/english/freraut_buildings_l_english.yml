@@ -347,8 +347,12 @@
  freraut_path.1.a: "Done."
 
 # Union Confederal - Ley de Gobierno (orden-54)
- law_freraut_confederation: "Confederal Government"
+ law_freraut_confederation: "Confederate Republic"
  law_freraut_confederation_desc: "The country is the capital of a confederal union of associated states."
+
+# Union Confederal - Government and ruler title (orden-55)
+ gov_freraut_confederation: "Confederation"
+ RULER_TITLE_FRERAUT_PRIME_MAGISTRATE: "First Magistrate"
 
 # Union Confederal - Integrar a la Union (accion del senor)
  freraut_da_union_member: "Integrate into the Union"

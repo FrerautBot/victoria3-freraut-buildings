@@ -347,8 +347,12 @@
  freraut_path.1.a: "Hecho."
 
 # Union Confederal - Ley de Gobierno (orden-54)
- law_freraut_confederation: "Gobierno Confederal"
+ law_freraut_confederation: "República Confederada"
  law_freraut_confederation_desc: "El país es la capital de una unión confederal de estados asociados."
+
+# Union Confederal - Gobierno y titulo del lider (orden-55)
+ gov_freraut_confederation: "Confederación"
+ RULER_TITLE_FRERAUT_PRIME_MAGISTRATE: "Primer Magistrado"
 
 # Union Confederal - Integrar a la Union (accion del senor)
  freraut_da_union_member: "Integrar a la Unión"
