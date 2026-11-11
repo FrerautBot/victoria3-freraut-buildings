@@ -1,0 +1,36 @@
+﻿############################################
+# Decretos de Autonomia (orden-56)
+# Funcionan con TODAS las formas de gobierno, no solo la confederacion.
+# El decreto de capital requiere el decreto de autonomia en el mismo
+# estado y no puede ponerse en la capital del pais.
+############################################
+
+freraut_decree_autonomy = {
+	texture = "gfx/interface/icons/decree/decree_promote_national_values.dds"
+	modifier = {
+		state_infrastructure_from_population_add = 1
+	}
+	cost = 100
+
+	ai_weight = {
+		value = 0
+	}
+}
+
+freraut_decree_capital = {
+	texture = "gfx/interface/icons/decree/decree_promote_social_mobility.dds"
+	modifier = {
+		state_infrastructure_from_population_add = 1
+		state_construction_mult = 0.05
+	}
+	cost = 100
+
+	state_trigger = {
+		has_decree = freraut_decree_autonomy
+		NOT = { is_capital = yes }
+	}
+
+	ai_weight = {
+		value = 0
+	}
+}

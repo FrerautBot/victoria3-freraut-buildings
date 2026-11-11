@@ -1,0 +1,23 @@
+﻿############################################
+# Decretos de Autonomia - modifiers (orden-56)
+# (a) Lealtad base de las Administraciones: -0.25/semana = -1.0/mes
+# (b) Cultura unificada: +0.075/semana = +0.3/mes (neto con (a): -0.7/mes)
+# (c) Explotacion colonial: +200% de rendimiento en edificios de
+#     recursos y agricultura (2 = +200%, escala percentual del motor)
+############################################
+
+freraut_admin_base_liberty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_liberty_desire_add = -0.25
+}
+
+freraut_admin_unified_liberty = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	country_liberty_desire_add = 0.075
+}
+
+freraut_admin_exploitation = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds
+	building_group_bg_extraction_throughput_add = 2
+	building_group_bg_agriculture_throughput_add = 2
+}

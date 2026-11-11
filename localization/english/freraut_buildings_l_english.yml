@@ -369,3 +369,72 @@
 # Union Confederal - Reconocimiento de la Capital (factor de deseo de libertad)
  freraut_union_member_liberty: "Recognition of the Capital"
  freraut_union_member_liberty_desc: "This state recognizes the union's capital as its political reference."
+
+# Decretos de Autonomia - Decrees (orden-56)
+ freraut_decree_autonomy: "Decree of Autonomy"
+ freraut_decree_autonomy_desc: "This state will govern itself as part of an autonomous Administration."
+ freraut_decree_capital: "Designate Autonomy Capital"
+ freraut_decree_capital_desc: "This state will become the capital of the future autonomous Administration. Can only be decreed where the Decree of Autonomy is already in force."
+
+# Decretos de Autonomia - Decision (orden-56)
+ freraut_approve_autonomy: "Approve Autonomy Decree"
+ freraut_approve_autonomy_desc: "Cedes every state with the Decree of Autonomy to a new autonomous Administration, a vassal of our country."
+
+# Decretos de Autonomia - Subject type (orden-56)
+ subject_type_freraut_administration: "Administration"
+ subject_type_freraut_administration_no_icon: "Administration"
+ subject_type_freraut_administration_desc: "A mere administrative subdivision of its overlord."
+
+# Decretos de Autonomia - Hidden pacts (orden-56)
+ freraut_da_create_administration: "Administration Pact"
+ freraut_da_create_administration_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] created the Administration of [SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName]."
+ freraut_da_tribute: "Colonial Tribute"
+ freraut_da_tribute_pact_desc: "[SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] pays tribute to [SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName]."
+
+# Decretos de Autonomia - Cease autonomy (orden-56)
+ freraut_da_cease_autonomy: "Cease Autonomy"
+ freraut_da_cease_autonomy_desc: "Annexes this Administration into our country, incorporating its states."
+ freraut_da_cease_autonomy_action_notification_name: "[INITIATOR_COUNTRY.GetName] ceased our autonomy"
+ freraut_da_cease_autonomy_action_notification_desc: "[INITIATOR_COUNTRY.GetName] annexed our Administration."
+ freraut_da_cease_autonomy_trigger_desc_global: "Administration annexed by its overlord"
+ freraut_da_cease_autonomy_trigger_desc_first: "[COUNTRY.GetName] ceases the autonomy of [TARGET_COUNTRY.GetName]"
+ freraut_da_cease_autonomy_trigger_desc_third: "[COUNTRY.GetName] ceases the autonomy of [TARGET_COUNTRY.GetName]"
+
+# Decretos de Autonomia - Colonial regime (orden-56)
+ freraut_da_colonial_regime: "Establish Colonial Regime"
+ freraut_da_colonial_regime_desc: "This subject adopts our primary cultures and the colonial administration form of government."
+ freraut_da_colonial_regime_action_notification_name: "[INITIATOR_COUNTRY.GetName] imposed a colonial regime on us"
+ freraut_da_colonial_regime_action_notification_desc: "[INITIATOR_COUNTRY.GetName] turned our government into a colonial administration."
+ freraut_da_colonial_regime_trigger_desc_global: "Subject turned into a colonial administration"
+ freraut_da_colonial_regime_trigger_desc_first: "[COUNTRY.GetName] establishes a colonial regime over [TARGET_COUNTRY.GetName]"
+ freraut_da_colonial_regime_trigger_desc_third: "[COUNTRY.GetName] establishes a colonial regime over [TARGET_COUNTRY.GetName]"
+
+# Decretos de Autonomia - Exploitation regime (orden-56)
+ freraut_da_explotation_regime: "Establish Exploitation Regime"
+ freraut_da_explotation_regime_desc: "This subject switches to the colonial extraction law, pays tribute and its resources yield double."
+ freraut_da_explotation_regime_action_notification_name: "[INITIATOR_COUNTRY.GetName] imposed an exploitation regime on us"
+ freraut_da_explotation_regime_action_notification_desc: "[INITIATOR_COUNTRY.GetName] imposed colonial extraction upon our country."
+ freraut_da_explotation_regime_trigger_desc_global: "Subject under an exploitation regime"
+ freraut_da_explotation_regime_trigger_desc_first: "[COUNTRY.GetName] establishes an exploitation regime over [TARGET_COUNTRY.GetName]"
+ freraut_da_explotation_regime_trigger_desc_third: "[COUNTRY.GetName] establishes an exploitation regime over [TARGET_COUNTRY.GetName]"
+
+# Decretos de Autonomia - Unify culture (orden-56)
+ freraut_da_unify_culture: "Unify Culture"
+ freraut_da_unify_culture_desc: "This subject adopts only our primary cultures."
+ freraut_da_unify_culture_action_notification_name: "[INITIATOR_COUNTRY.GetName] unified our culture"
+ freraut_da_unify_culture_action_notification_desc: "[INITIATOR_COUNTRY.GetName] replaced our primary cultures with theirs."
+ freraut_da_unify_culture_trigger_desc_global: "Subject with a unified culture"
+ freraut_da_unify_culture_trigger_desc_first: "[COUNTRY.GetName] unifies the culture of [TARGET_COUNTRY.GetName]"
+ freraut_da_unify_culture_trigger_desc_third: "[COUNTRY.GetName] unifies the culture of [TARGET_COUNTRY.GetName]"
+
+# Decretos de Autonomia - Modifiers (orden-56)
+ freraut_admin_base_liberty: "Loyal Subdivision"
+ freraut_admin_base_liberty_desc: "This Administration is a mere subdivision of its overlord: its liberty desire wanes."
+ freraut_admin_unified_liberty: "Unified Culture"
+ freraut_admin_unified_liberty_desc: "Local cultures were replaced by the overlord's: liberty desire grows."
+ freraut_admin_exploitation: "Colonial Exploitation"
+ freraut_admin_exploitation_desc: "Intensive extraction: resource and agriculture buildings yield double."
+
+# Decretos de Autonomia - Dynamic names (orden-56)
+ freraut_admin_name: "Administration"
+ freraut_admin_name_adj: "Administrative"

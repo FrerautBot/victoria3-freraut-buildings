@@ -1,0 +1,48 @@
+﻿############################################
+# Decretos de Autonomia - pulso mensual (orden-56)
+# (a) Refresca la lealtad base (-1.0/mes) sobre las Administraciones
+# (b) Radicales locales en los subditos con el efecto de explotacion
+# Hook ADITIVO: las listas on_actions se suman entre archivos
+# (patron oficial _on_actions.md).
+############################################
+
+on_monthly_pulse_country = {
+	on_actions = {
+		freraut_admin_monthly_pulse
+	}
+}
+
+freraut_admin_monthly_pulse = {
+	trigger = {
+		any_subject_or_below = {
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				has_modifier = freraut_admin_exploitation
+			}
+		}
+	}
+
+	effect = {
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_freraut_administration
+			}
+
+			add_modifier = {
+				name = freraut_admin_base_liberty
+				months = 1
+			}
+		}
+		every_subject_or_below = {
+			limit = {
+				has_modifier = freraut_admin_exploitation
+			}
+
+			every_scope_state = {
+				add_radicals_in_state = {
+					value = 0.002
+				}
+			}
+		}
+	}
+}
