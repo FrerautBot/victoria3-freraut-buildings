@@ -137,9 +137,9 @@ freraut_confederation.5 = {
 				}
 			}
 			activate_law = law_type:law_freraut_confederation_crown
-			else = {
-				activate_law = law_type:law_freraut_confederation
-			}
+		}
+		else = {
+			activate_law = law_type:law_freraut_confederation
 		}
 	}
 
