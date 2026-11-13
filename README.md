@@ -1,4 +1,4 @@
-# Freraut Buildings
+﻿# Freraut Buildings
 
 Mod para Victoria 3 que agrega **16 edificios custom** con métodos de producción ajustados, incluyendo producción de cobre en el Mining Center y un bonus de construcción en Public Works.
 
@@ -37,6 +37,7 @@ Mod para Victoria 3 que agrega **16 edificios custom** con métodos de producci�
 
 - Obras Públicas otorga sus bonus de construcción con claves vanilla verificadas: `state_construction_mult = 0.05` (+5% de eficiencia de construcción en el estado) y `country_construction_add = 10` (+10 de construcción por semana). Ya no depende de un modifier type custom sin evidencia en runtime.
 - Acción "Establecer régimen tributario" (orden-62): la DA `freraut_da_set_tribute` aplica solo a súbditos "Administración" y abre un evento de selección con escalones discretos de tributo 10/20/30/40/50/60/70/80 % (pactos ocultos `freraut_da_tribute_p*`). El 20 % es el pacto original `freraut_da_tribute`; el régimen de explotación restablece el 20 % al aplicarse.
+- Orden-63: se corrigió la dirección del tributo (el vasallo paga al señor; antes estaba invertida), se agregó la opción "Exención (0%)" y la acción "Invertir en desarrollo" (`freraut_da_dev_invest`) para Administraciones y títeres vanilla, con escalones 10-80 % pagados por el señor. Nota de migración: en partidas ya guardadas los pactos viejos conservan la dirección invertida hasta re-ejecutar la acción sobre el mismo sujeto.
 
 ## Cómo verificar tu instalación
 

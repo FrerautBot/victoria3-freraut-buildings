@@ -1,4 +1,4 @@
-############################################
+﻿############################################
 # Freraut - Eventos de regimen tributario (orden-62)
 # Escalones discretos 10-80% elegidos por el senor via DA freraut_da_set_tribute.
 # El evento .1 elige banda (baja 10-40 / alta 50-80) y dispara .2 o .3.
@@ -33,6 +33,14 @@ freraut_tribute.1 = {
 		name = freraut_tribute.1.b
 		trigger_event = { id = freraut_tribute.3 popup = yes }
 	}
+
+	option = {
+		name = freraut_tribute.1.c
+		scope:freraut_tribute_subject = {
+			freraut_remove_all_tribute_pacts = yes
+			freraut_remove_all_dev_pacts = yes
+		}
+	}
 }
 
 # Evento 2: banda baja (10/20/30/40)
@@ -40,12 +48,13 @@ freraut_tribute.2 = {
 	type = country_event
 	placement = ROOT
 	title = freraut_tribute.2.t
-	desc = freraut_tribute.2.d
+	desc = freraut_tribute.2.desc
 	theme = diplomacy
 
 	option = {
 		name = freraut_tribute.2.a
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -57,6 +66,7 @@ freraut_tribute.2 = {
 	option = {
 		name = freraut_tribute.2.b
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -68,6 +78,7 @@ freraut_tribute.2 = {
 	option = {
 		name = freraut_tribute.2.c
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -79,6 +90,7 @@ freraut_tribute.2 = {
 	option = {
 		name = freraut_tribute.2.d
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -93,12 +105,13 @@ freraut_tribute.3 = {
 	type = country_event
 	placement = ROOT
 	title = freraut_tribute.3.t
-	desc = freraut_tribute.3.d
+	desc = freraut_tribute.3.desc
 	theme = diplomacy
 
 	option = {
 		name = freraut_tribute.3.a
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -110,6 +123,7 @@ freraut_tribute.3 = {
 	option = {
 		name = freraut_tribute.3.b
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -121,6 +135,7 @@ freraut_tribute.3 = {
 	option = {
 		name = freraut_tribute.3.c
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
@@ -132,6 +147,7 @@ freraut_tribute.3 = {
 	option = {
 		name = freraut_tribute.3.d
 		scope:freraut_tribute_subject = {
+			freraut_remove_all_dev_pacts = yes
 			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root

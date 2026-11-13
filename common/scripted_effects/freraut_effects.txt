@@ -293,3 +293,105 @@ freraut_remove_all_tribute_pacts = {
 		}
 	}
 }
+
+# Remover TODOS los pactos de inversion en desarrollo freraut entre este pais
+# (this) y su senor (root). Espejo de freraut_remove_all_tribute_pacts
+# (orden-63).
+freraut_remove_all_dev_pacts = {
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p10
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p10
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p20
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p20
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p30
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p30
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p40
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p40
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p50
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p50
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p60
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p60
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p70
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p70
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_dev_p80
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_dev_p80
+		}
+	}
+}

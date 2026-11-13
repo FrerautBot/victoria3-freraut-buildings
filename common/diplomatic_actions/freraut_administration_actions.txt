@@ -8,6 +8,7 @@
 # (d) Regimen colonial / (e) explotacion / (f) unificar cultura:
 #     Administraciones y titeres vanilla
 # (g) Establecer regimen tributario: SOLO Administraciones (orden-62)
+# (h) Invertir en desarrollo: Administraciones y titeres vanilla (orden-63)
 # Nota: sin cambio de religion (verificado: no existe efecto de religion
 # sobre paises ya creados en el motor 1.15).
 ############################################
@@ -76,10 +77,10 @@ freraut_da_tribute = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.2
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -108,10 +109,10 @@ freraut_da_tribute_p10 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.1
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -140,10 +141,10 @@ freraut_da_tribute_p30 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.3
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -172,10 +173,10 @@ freraut_da_tribute_p40 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.4
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -204,10 +205,10 @@ freraut_da_tribute_p50 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.5
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -236,10 +237,10 @@ freraut_da_tribute_p60 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.6
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -268,10 +269,10 @@ freraut_da_tribute_p70 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.7
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -300,10 +301,10 @@ freraut_da_tribute_p80 = {
 		maintenance_paid_by = first_country
 		relations_progress_per_day = -1
 		income_transfer = 0.8
-		second_country_gets_income_transfer = no
-		income_transfer_based_on_second_country = yes
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
 
-		second_modifier = {
+		first_modifier = {
 			country_liberty_desire_add = 0.10
 		}
 	}
@@ -315,6 +316,261 @@ freraut_da_tribute_p80 = {
 	}
 }
 
+freraut_da_dev_p10 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.1
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p20 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.2
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p30 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.3
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p40 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.4
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p50 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.5
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p60 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.6
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p70 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.7
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p80 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.8
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
 freraut_da_cease_autonomy = {
 	groups = { overlord }
 
@@ -406,6 +662,7 @@ freraut_da_colonial_regime = {
 				remove_modifier = freraut_admin_exploitation
 			}
 			freraut_remove_all_tribute_pacts = yes
+			freraut_remove_all_dev_pacts = yes
 		}
 	}
 
@@ -457,6 +714,7 @@ freraut_da_explotation_regime = {
 				name = freraut_admin_exploitation
 			}
 			freraut_remove_all_tribute_pacts = yes
+			freraut_remove_all_dev_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute
@@ -509,6 +767,49 @@ freraut_da_set_tribute = {
 	}
 }
 
+freraut_da_dev_invest = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/da_grant_investment_rights.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			save_scope_as = freraut_dev_subject
+		}
+		trigger_event = { id = freraut_dev.1 popup = yes }
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
 freraut_da_unify_culture = {
 	groups = { overlord }
 
@@ -575,6 +876,7 @@ freraut_da_unify_culture = {
 				activate_law = law_type:law_frontier_colonization
 			}
 			freraut_remove_all_tribute_pacts = yes
+			freraut_remove_all_dev_pacts = yes
 		}
 	}
 
