@@ -51,3 +51,26 @@ Mod para Victoria 3 que agrega **16 edificios custom** con métodos de producci�
 ## Distribución
 
 Este mod se distribuye por dos canales: backup manual en este repositorio público de GitHub y Steam Workshop.
+
+## Balance declarado (orden-58)
+
+Balance /4 aplicado en commit `b608ada` (orden-58): outputs y empleo ÷4, inputs/construcción/techs intactos, oro del banco 25/15. Baseline jugable = `b608ada`. Verificación de monotonía con `python tools/validar_balance.py`.
+
+## Tabla de países para la prueba de la rama corona (orden-61)
+
+El evento `freraut_confederation.5` (events/freraut_confederation_events.txt:134-137) evalúa la LEY inicial de gobierno (`has_law_or_variant = law_type:law_monarchy` o `law_type:law_theocracy`). Países vanilla grandes válidos para probar la rama corona:
+
+| País | Archivo history | Línea | Ley inicial | ¿Activa rama corona? |
+|---|---|---|---|---|
+| Rusia | rus - russia.txt | :12 | law_monarchy | Sí |
+| Austria | aus - austria.txt | :12 | law_monarchy | Sí |
+| Imperio Otomano | tur - ottoman empire.txt | :16 | law_monarchy | Sí |
+| Japón | jap - japan.txt | :14 | law_monarchy | Sí |
+| España | spa - spain.txt | :29 | law_monarchy | Sí |
+| Estados Pontificios | pap - papal states.txt | :12 | law_theocracy | Sí |
+
+Todo país fresco vanilla cumple además `NOT has_variable freraut_ideology_chosen` (la variable solo la setean las decisiones del mod).
+
+## Verificación runtime pendiente
+
+Errores preexistentes del `error.log` NO son del mod nuevo (firma binaria de la sesión 2026-11-13 19:05): 7 `Unknown modifier type: goods_input_` + 41 `Duplicated key ideology_`. Recontar tras la próxima sesión de juego y comparar contra esa base. Verificación estructural de else/else_if con `python tools/validar_else.py` (62 bloques OK en el árbol vigente).
