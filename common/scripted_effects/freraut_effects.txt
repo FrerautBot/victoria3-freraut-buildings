@@ -187,3 +187,109 @@ freraut_declare_rejection_war = {
 		remove_country_flag = freraut_rejected_unification
 	}
 }
+
+############################################################
+# Regimen tributario (orden-62) — escalones discretos 10-80%
+############################################################
+
+# Remover TODOS los pactos de tributo freraut entre este pais (this)
+# y su senor (root). Cada remocion guardada con has_diplomatic_pact
+# (patron vanilla 00_ep1_korea_events.txt:739-753).
+freraut_remove_all_tribute_pacts = {
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p10
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p10
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p30
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p30
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p40
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p40
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p50
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p50
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p60
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p60
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p70
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p70
+		}
+	}
+	if = {
+		limit = {
+			has_diplomatic_pact = {
+				who = root
+				type = freraut_da_tribute_p80
+			}
+		}
+		remove_diplomatic_pact = {
+			country = root
+			type = freraut_da_tribute_p80
+		}
+	}
+}
