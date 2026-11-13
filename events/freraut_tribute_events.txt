@@ -1,9 +1,11 @@
 ############################################
 # Freraut - Eventos de regimen tributario (orden-62)
 # Escalones discretos 10-80% elegidos por el senor via DA freraut_da_set_tribute.
-# El evento .1 elige banda (baja 10-40 / alta 50-80) y dispara .2 o .3
-# (tope vanilla: maximo 7 opciones por evento, verificado
-# tsarpoints_events.12 :1302). El sujeto llega como scope:freraut_tribute_subject
+# El evento .1 elige banda (baja 10-40 / alta 50-80) y dispara .2 o .3.
+# Tope vanilla de opciones por evento: maximo 10 (negotiation.1,
+# game/events/iberia_events/negotiation_events.txt:280-740). Se encadeno en 3
+# eventos de <=4 opciones por legibilidad; un solo evento de 8 opciones tambien
+# quedaba dentro del tope. El sujeto llega como scope:freraut_tribute_subject
 # guardado en accept_effect de la DA (patron vanilla 45_seek_royal_marriage.txt:101-115).
 ############################################
 namespace = freraut_tribute
