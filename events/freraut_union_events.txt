@@ -18,7 +18,7 @@ freraut_union.1 = {
 	type = country_event
 	placement = ROOT
 	title = freraut_union.1.t
-	desc = freraut_union.1.d
+	desc = freraut_union.1.desc
 	theme = diplomacy
 
 	immediate = {

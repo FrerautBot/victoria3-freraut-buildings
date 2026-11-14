@@ -597,9 +597,7 @@ freraut_da_cease_autonomy = {
 	}
 
 	accept_effect = {
-		show_as_tooltip = {
-			annex_with_incorporation = scope:target_country
-		}
+		annex_with_incorporation = scope:target_country
 	}
 
 	ai = {

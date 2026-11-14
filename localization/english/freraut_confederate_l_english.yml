@@ -68,7 +68,7 @@
  freraut_da_union_tribute_trigger_desc_third:0 "[COUNTRY.GetName] sets the union contribution on [TARGET_COUNTRY.GetName]"
 
  freraut_union.1.t:0 "Establish Union Contribution"
- freraut_union.1.d:0 "Select the contribution band that every confederated state of our union will pay, starting with [SCOPE.sCountry('freraut_union_subject').GetName]. The chosen tier applies to all confederates."
+ freraut_union.1.desc:0 "Select the contribution band that every confederated state of our union will pay, starting with [SCOPE.sCountry('freraut_union_subject').GetName]. The chosen tier applies to all confederates."
  freraut_union.1.a:0 "Cancel"
  freraut_union.1.b:0 "Low contribution (10-40%)"
  freraut_union.1.c:0 "High contribution (50-80%)"

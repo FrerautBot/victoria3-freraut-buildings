@@ -68,7 +68,7 @@
  freraut_da_union_tribute_trigger_desc_third:0 "[COUNTRY.GetName] establece el aporte de la unión sobre [TARGET_COUNTRY.GetName]"
 
  freraut_union.1.t:0 "Establecer aporte de la unión"
- freraut_union.1.d:0 "Seleccioná la banda de aporte que pagará cada estado confederado de nuestra unión, comenzando por [SCOPE.sCountry('freraut_union_subject').GetName]. El escalón elegido se aplica a todos los confederados."
+ freraut_union.1.desc:0 "Seleccioná la banda de aporte que pagará cada estado confederado de nuestra unión, comenzando por [SCOPE.sCountry('freraut_union_subject').GetName]. El escalón elegido se aplica a todos los confederados."
  freraut_union.1.a:0 "Cancelar"
  freraut_union.1.b:0 "Aporte bajo (10-40%)"
  freraut_union.1.c:0 "Aporte alto (50-80%)"
