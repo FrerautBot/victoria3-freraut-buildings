@@ -133,17 +133,17 @@ pm_mining_center_base = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add = 15
-			goods_output_sulfur_add = 12.5
-			goods_output_iron_add = 12.5
-			goods_output_lead_add = 12.5
-			goods_output_gold_add = 2.5
-			goods_output_coal_add = 12.5
-			goods_output_copper_add = 12.5
+			goods_input_tools_add = 10 # orden-68
+			goods_output_sulfur_add = 30 # orden-68
+			goods_output_iron_add = 30 # orden-68
+			goods_output_lead_add = 30 # orden-68
+			goods_output_gold_add = 10 # orden-68
+			goods_output_coal_add = 30 # orden-68
+			goods_output_copper_add = 30 # orden-68
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 750
+			building_employment_laborers_add = 2000 # orden-68
 		}
 	}
 }
