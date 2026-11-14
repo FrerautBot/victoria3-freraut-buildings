@@ -58,6 +58,9 @@ freraut_tribute.2 = {
 				country = root
 				type = freraut_da_tribute_p10
 			}
+			add_loyalists = {
+				value = 0.02
+			}
 		}
 	}
 
@@ -68,6 +71,9 @@ freraut_tribute.2 = {
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute
+			}
+			add_loyalists = {
+				value = 0.02
 			}
 		}
 	}
@@ -80,6 +86,9 @@ freraut_tribute.2 = {
 				country = root
 				type = freraut_da_tribute_p30
 			}
+			add_loyalists = {
+				value = 0.02
+			}
 		}
 	}
 
@@ -90,6 +99,9 @@ freraut_tribute.2 = {
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p40
+			}
+			add_loyalists = {
+				value = 0.02
 			}
 		}
 	}
@@ -111,6 +123,9 @@ freraut_tribute.3 = {
 				country = root
 				type = freraut_da_tribute_p50
 			}
+			add_loyalists = {
+				value = 0.02
+			}
 		}
 	}
 
@@ -121,6 +136,9 @@ freraut_tribute.3 = {
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p60
+			}
+			add_loyalists = {
+				value = 0.02
 			}
 		}
 	}
@@ -133,6 +151,9 @@ freraut_tribute.3 = {
 				country = root
 				type = freraut_da_tribute_p70
 			}
+			add_loyalists = {
+				value = 0.02
+			}
 		}
 	}
 
@@ -143,6 +164,9 @@ freraut_tribute.3 = {
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p80
+			}
+			add_loyalists = {
+				value = 0.02
 			}
 		}
 	}

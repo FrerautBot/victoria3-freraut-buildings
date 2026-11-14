@@ -75,7 +75,6 @@ freraut_da_tribute = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.2
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -107,7 +106,6 @@ freraut_da_tribute_p10 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.1
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -139,7 +137,6 @@ freraut_da_tribute_p30 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.3
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -171,7 +168,6 @@ freraut_da_tribute_p40 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.4
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -203,7 +199,6 @@ freraut_da_tribute_p50 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.5
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -235,7 +230,6 @@ freraut_da_tribute_p60 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.6
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -267,7 +261,6 @@ freraut_da_tribute_p70 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.7
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no
@@ -299,7 +292,6 @@ freraut_da_tribute_p80 = {
 		cost = 25
 
 		maintenance_paid_by = first_country
-		relations_progress_per_day = -1
 		income_transfer = 0.8
 		second_country_gets_income_transfer = yes
 		income_transfer_based_on_second_country = no

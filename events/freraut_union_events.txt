@@ -49,6 +49,10 @@ freraut_union.1 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			set_variable = {
+				name = freraut_union_exempt
+				value = 1
+			}
 		}
 	}
 }

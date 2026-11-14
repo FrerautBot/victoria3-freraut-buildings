@@ -8,6 +8,7 @@ on_monthly_pulse_country = {
 	on_actions = {
 		freraut_confederation_monthly_check
 		freraut_confederation_dissolution_check
+		freraut_tribute_monthly_pulse
 	}
 }
 
@@ -182,6 +183,177 @@ freraut_confederation_leadership_transfer = {
 			# Los ex-confederados ahora son independientes pero miembros del bloc.
 			# El monthly_check los detectará (en bloc confederación + no sujeto + no líder)
 			# y los re-confederalizará bajo el nuevo líder automáticamente.
+		}
+	}
+}
+
+############################################
+# Tributos - pulso mensual (orden-66)
+# (a) Confederados: delta mensual de relaciones por banda de aporte
+# (b) Administraciones/titeres: radicales mensuales por banda de imposicion
+# Los pactos de tributo ya no degradan relaciones por dia (orden-66):
+# el coste relacional pasa a ser este pulso.
+############################################
+
+freraut_tribute_monthly_pulse = {
+	# M722: tabla semanal x4.33 redondeado al entero mas cercano:
+	# +3->+13, +1->+4, 0->0, -0.5->-2, -1->-4, -2->-9
+	trigger = {
+		any_subject_or_below = {
+			OR = {
+				has_diplomatic_pact = { who = root type = freraut_da_tribute }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p10 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p30 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p40 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p50 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
+				has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+			}
+		}
+	}
+
+	effect = {
+		# Rama confederada: delta mensual de relaciones por banda
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+				OR = {
+					has_diplomatic_pact = { who = root type = freraut_da_tribute }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p10 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p30 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p40 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p50 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_variable = freraut_union_exempt }
+				}
+				if = {
+					limit = {
+						OR = {
+							has_diplomatic_pact = { who = root type = freraut_da_tribute }
+							has_diplomatic_pact = { who = root type = freraut_da_tribute_p10 }
+						}
+					}
+					change_relations = {
+						country = root
+						value = 4
+					}
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_diplomatic_pact = { who = root type = freraut_da_tribute_p30 }
+							has_diplomatic_pact = { who = root type = freraut_da_tribute_p40 }
+						}
+					}
+					# banda 30-40%: delta 0, sin efecto
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_diplomatic_pact = { who = root type = freraut_da_tribute_p50 }
+							has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
+						}
+					}
+					change_relations = {
+						country = root
+						value = -2
+					}
+				}
+				else_if = {
+					limit = {
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
+					}
+					change_relations = {
+						country = root
+						value = -4
+					}
+				}
+				else_if = {
+					limit = {
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+					}
+					change_relations = {
+						country = root
+						value = -9
+					}
+				}
+			}
+		}
+
+		# Rama administraciones/titeres: radicales por banda de imposicion
+		every_subject_or_below = {
+			limit = {
+				OR = {
+					is_subject_type = subject_type_freraut_administration
+					is_subject_type = subject_type_puppet
+				}
+				OR = {
+					has_diplomatic_pact = { who = root type = freraut_da_tribute }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p10 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p30 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p40 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p50 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = { who = root type = freraut_da_tribute }
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p10 }
+					}
+				}
+				add_radicals = {
+					value = 0.002
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p30 }
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p40 }
+					}
+				}
+				add_radicals = {
+					value = 0.004
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p50 }
+						has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
+					}
+				}
+				add_radicals = {
+					value = 0.008
+				}
+			}
+			else_if = {
+				limit = {
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
+				}
+				add_radicals = {
+					value = 0.015
+				}
+			}
+			else_if = {
+				limit = {
+					has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+				}
+				add_radicals = {
+					value = 0.03
+				}
+			}
 		}
 	}
 }
