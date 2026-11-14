@@ -39,9 +39,23 @@ Reglas:
       freraut_union_exempt (set_variable value = 1).
   (h) Guard anti-vacuidad (M664): 0 pactos escaneados, 0 bandas detectadas
       o pulso ausente = fallo ruidoso.
+  (i) M747: las 8 opciones de freraut_union.2/.3 que imponen pacto sobre
+      confederados deben limpiar la exencion (remove_variable
+      freraut_union_exempt, conteo exacto 8; quitar el pacto no basta, el
+      pulso mensual lee la variable).
+  (j) M748: la exencion de la union paga +13/mes (decisicion de Lucas, banda
+      0% de TABLA_MENSUAL): (a) el trigger del pulso la contempla en su OR,
+      (b) el limit del loop confederado tambien, (c) existe rama if con
+      limit has_variable y change_relations value = 13. La rama de deltas
+      (M720-b) sigue envuelta en NOT has_variable.
+  (k) M749: accept_effect de freraut_da_explotation_regime agrega
+      add_loyalists value = 0.02 dentro de scope:target_country (misma
+      forma que la imposicion de tributo, Parte C).
 
 Exit code: 0 = sin violaciones, 1 = violaciones.
-Uso:  python tools/validar_tributos.py
+Uso:  python tools/validar_tributos.py [RAIZ]
+      RAIZ opcional (M750): directorio con la estructura del mod
+      (common/..., events/...); por defecto '.' (repo vigente).
 """
 import glob
 import math
@@ -49,7 +63,9 @@ import os
 import re
 import sys
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# M750: raiz opcional por argumento (fixtures del red test); default '.'
+ROOT = sys.argv[1] if len(sys.argv) > 1 else "."
+BASE = os.path.abspath(ROOT)
 
 DA_FILE = os.path.join(BASE, "common", "diplomatic_actions",
                        "freraut_administration_actions.txt")
@@ -94,6 +110,15 @@ ADD_LOYALISTS_RE = re.compile(
 SET_VAR_RE = re.compile(
     r"set_variable\s*=\s*\{\s*name\s*=\s*freraut_union_exempt\s*"
     r"value\s*=\s*1\s*\}", re.DOTALL)
+REMOVE_VAR_RE = re.compile(r"remove_variable\s*=\s*freraut_union_exempt")
+# has_variable positivo dentro de un OR (M748-a/b); el negativo (NOT = { ... })
+# queda fuera porque NOT no esta dentro del OR
+OR_EXEMPT_RE = re.compile(
+    r"OR\s*=\s*\{.*?has_variable\s*=\s*freraut_union_exempt", re.DOTALL)
+EXEMPT_BRANCH_RE = re.compile(
+    r"if\s*=\s*\{\s*limit\s*=\s*\{\s*has_variable\s*=\s*freraut_union_exempt"
+    r"\s*\}.*?change_relations\s*=\s*\{\s*country\s*=\s*root\s*"
+    r"value\s*=\s*13\s*\}", re.DOTALL)
 
 
 def strip_comment(line):
@@ -294,10 +319,12 @@ def chequear_pulso(rel, violaciones):
                 (rel, "B.2 pulso usa %s (prohibido; usar change_relations)"
                  % prohibido))
     valores_rel = sorted(int(m) for m in CHANGE_REL_RE.findall(bloque))
-    esperados_rel = sorted([4, -2, -4, -9])
+    # M748: +13 es la banda 0% de TABLA_MENSUAL (exentos de la union)
+    esperados_rel = sorted([13, 4, -2, -4, -9])
     if valores_rel == esperados_rel:
         print("[OK] B.2 change_relations con valores de tabla %s "
-              "(banda 30-40%% = delta 0 sin linea)" % esperados_rel)
+              "(13 = banda 0%% exenta M748, 30-40%% = delta 0 sin linea)"
+              % esperados_rel)
     else:
         violaciones.append(
             (rel, "B.2 change_relations valores %s != esperados %s"
@@ -354,6 +381,126 @@ def chequear_parte_d(violaciones):
              "en la opcion d"))
 
 
+def chequear_m747(violaciones):
+    """A.2: las 8 opciones de union.2/.3 que imponen pacto deben limpiar la
+    variable de exencion (remove_variable freraut_union_exempt)."""
+    texto = "\n".join(leer(UNION_EVENTS))
+    total = len(REMOVE_VAR_RE.findall(texto))
+    for ev in ("freraut_union.2", "freraut_union.3"):
+        bloque = sub_bloque_texto(texto, ev)
+        if bloque is None:
+            violaciones.append(("events/freraut_union_events.txt",
+                                "M747 %s no encontrado" % ev))
+            return
+        restante = bloque
+        while True:
+            sub = sub_bloque_texto(restante, "every_subject_or_below")
+            if sub is None:
+                break
+            if "create_diplomatic_pact" in sub:
+                if REMOVE_VAR_RE.search(sub):
+                    print("[OK] M747 %s opcion con pacto limpia la "
+                          "exencion" % ev)
+                else:
+                    violaciones.append(
+                        ("events/freraut_union_events.txt",
+                         "M747 opcion de %s con create_diplomatic_pact sin "
+                         "remove_variable freraut_union_exempt" % ev))
+            idx = restante.find("every_subject_or_below")
+            restante = restante[idx + len("every_subject_or_below"):]
+    if total == 8:
+        print("[OK] M747 remove_variable freraut_union_exempt x8 "
+              "(una por opcion de banda)")
+    else:
+        violaciones.append(
+            ("events/freraut_union_events.txt",
+             "M747 remove_variable freraut_union_exempt x8 esperados, "
+             "hay %d" % total))
+
+
+def chequear_m748(rel, violaciones):
+    """B.4: exentos de la union pagan +13/mes: (a) trigger con has_variable
+    en el OR, (b) limit del loop confederado idem, (c) rama if con
+    change_relations value = 13."""
+    texto_pulso = "\n".join(leer(PULSE_FILE))
+    bloque = sub_bloque_texto(texto_pulso, "freraut_tribute_monthly_pulse")
+    if bloque is None:
+        violaciones.append((rel, "M748 bloque del pulso ilegible"))
+        return
+    trigger = sub_bloque_texto(bloque, "trigger")
+    if trigger and OR_EXEMPT_RE.search(trigger):
+        print("[OK] M748-a trigger del pulso contempla exentos "
+              "(has_variable en el OR)")
+    else:
+        violaciones.append(
+            (rel, "M748-a trigger sin has_variable freraut_union_exempt "
+                  "en el OR de any_subject_or_below"))
+    loops = []
+    restante = bloque
+    while True:
+        sub = sub_bloque_texto(restante, "every_subject_or_below")
+        if sub is None:
+            break
+        loops.append(sub)
+        idx = restante.find("every_subject_or_below")
+        restante = restante[idx + len("every_subject_or_below"):]
+    confederado = loops[0] if loops and "confederated_state" in loops[0] \
+        else (loops[1] if len(loops) > 1 and "confederated_state" in loops[1]
+              else None)
+    if confederado is None:
+        violaciones.append((rel, "M748 loop confederado no encontrado"))
+        return
+    limit = sub_bloque_texto(confederado, "limit")
+    if limit and OR_EXEMPT_RE.search(limit):
+        print("[OK] M748-b limit del loop confederado contempla exentos "
+              "(has_variable en el OR)")
+    else:
+        violaciones.append(
+            (rel, "M748-b limit del loop confederado sin has_variable "
+                  "freraut_union_exempt en el OR"))
+    if EXEMPT_BRANCH_RE.search(confederado):
+        print("[OK] M748-c rama +13 (has_variable -> change_relations "
+              "value = 13) presente")
+    else:
+        violaciones.append(
+            (rel, "M748-c falta rama if con has_variable "
+                  "freraut_union_exempt y change_relations value = 13"))
+
+
+def chequear_m749(violaciones):
+    """C.2: el regimen de explotacion agrega add_loyalists 0.02 al sujeto
+    (target_country), misma forma que la imposicion de tributo."""
+    raices = bloques_raiz(DA_FILE)
+    reg = {nombre: texto for nombre, texto in raices
+           if nombre == "freraut_da_explotation_regime"}
+    if "freraut_da_explotation_regime" not in reg:
+        violaciones.append(("freraut_administration_actions.txt",
+                            "M749 freraut_da_explotation_regime no "
+                            "encontrado"))
+        return
+    accept = sub_bloque_texto(reg["freraut_da_explotation_regime"],
+                              "accept_effect")
+    if accept is None:
+        violaciones.append(("freraut_administration_actions.txt",
+                            "M749 accept_effect del regimen ilegible"))
+        return
+    target = sub_bloque_texto(accept, "scope:target_country")
+    if target is None:
+        violaciones.append(("freraut_administration_actions.txt",
+                            "M749 scope:target_country no encontrado en "
+                            "accept_effect del regimen"))
+        return
+    valores = ADD_LOYALISTS_RE.findall(target)
+    if valores == ["0.02"]:
+        print("[OK] M749 add_loyalists 0.02 en target_country "
+              "(accept_effect del regimen)")
+    else:
+        violaciones.append(
+            ("freraut_administration_actions.txt",
+             "M749 add_loyalists value 0.02 en scope:target_country del "
+             "regimen esperado, encontrado %s" % valores))
+
+
 def main():
     violaciones = []
     chequear_tabla_m722(violaciones)
@@ -363,6 +510,10 @@ def main():
         chequear_pulso(rel, violaciones)
     chequear_parte_c(violaciones)
     chequear_parte_d(violaciones)
+    chequear_m747(violaciones)
+    if rel:
+        chequear_m748(rel, violaciones)
+    chequear_m749(violaciones)
 
     for etiqueta, mensaje in violaciones:
         print("VIOLACION %s: %s" % (etiqueta, mensaje))

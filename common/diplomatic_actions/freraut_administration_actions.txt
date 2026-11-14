@@ -707,6 +707,10 @@ freraut_da_explotation_regime = {
 				country = root
 				type = freraut_da_tribute
 			}
+			# M749: misma forma que la imposicion de tributo
+			add_loyalists = {
+				value = 0.02
+			}
 		}
 	}
 

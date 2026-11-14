@@ -209,6 +209,8 @@ freraut_tribute_monthly_pulse = {
 				has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
 				has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
 				has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+				# M748: exentos de la union siguen pagando +13/mes
+				has_variable = freraut_union_exempt
 			}
 		}
 	}
@@ -227,6 +229,19 @@ freraut_tribute_monthly_pulse = {
 					has_diplomatic_pact = { who = root type = freraut_da_tribute_p60 }
 					has_diplomatic_pact = { who = root type = freraut_da_tribute_p70 }
 					has_diplomatic_pact = { who = root type = freraut_da_tribute_p80 }
+					# M748: exentos de la union siguen en el pulso
+					has_variable = freraut_union_exempt
+				}
+			}
+			# M748: exento de la union = banda 0% de la tabla (+3 semanal
+			# x4.33 = +13 mensual, decision de Lucas)
+			if = {
+				limit = {
+					has_variable = freraut_union_exempt
+				}
+				change_relations = {
+					country = root
+					value = 13
 				}
 			}
 			if = {

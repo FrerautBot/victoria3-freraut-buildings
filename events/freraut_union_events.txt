@@ -72,6 +72,7 @@ freraut_union.2 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p10
@@ -86,6 +87,7 @@ freraut_union.2 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute
@@ -100,6 +102,7 @@ freraut_union.2 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p30
@@ -114,6 +117,7 @@ freraut_union.2 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p40
@@ -137,6 +141,7 @@ freraut_union.3 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p50
@@ -151,6 +156,7 @@ freraut_union.3 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p60
@@ -165,6 +171,7 @@ freraut_union.3 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p70
@@ -179,6 +186,7 @@ freraut_union.3 = {
 				is_subject_type = subject_type_confederated_state
 			}
 			freraut_remove_all_tribute_pacts = yes
+			remove_variable = freraut_union_exempt
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute_p80
