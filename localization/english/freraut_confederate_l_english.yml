@@ -53,3 +53,35 @@
  # -------------------------------------------------------
  freraut_unification_momentum:0 "Unification Momentum"
  freraut_unification_momentum_desc:0 "This nation has voted to join the confederation and awaits the formal unification."
+
+ # -------------------------------------------------------
+ # Union contribution (order-64)
+ # -------------------------------------------------------
+ freraut_da_union_tribute:0 "Establish Union Contribution"
+ freraut_da_union_tribute_desc:0 "Sets a contribution tier that all confederated states of our union will pay us."
+ freraut_da_union_tribute_action_notification_name:0 "[INITIATOR_COUNTRY.GetName] set the union contribution"
+ freraut_da_union_tribute_action_notification_desc:0 "[INITIATOR_COUNTRY.GetName] set a contribution tier for all confederated states."
+ freraut_da_union_tribute_action_notification_third_party_name:0 "[INITIATOR_COUNTRY.GetName] set their confederate union's contribution"
+ freraut_da_union_tribute_action_notification_third_party_desc:0 "[INITIATOR_COUNTRY.GetName] has set a contribution tier for all confederated states of their union."
+ freraut_da_union_tribute_trigger_desc_global:0 "Confederate union with established contribution"
+ freraut_da_union_tribute_trigger_desc_first:0 "[COUNTRY.GetName] sets the union contribution on [TARGET_COUNTRY.GetName]"
+ freraut_da_union_tribute_trigger_desc_third:0 "[COUNTRY.GetName] sets the union contribution on [TARGET_COUNTRY.GetName]"
+
+ freraut_union.1.t:0 "Establish Union Contribution"
+ freraut_union.1.d:0 "Select the contribution band that every confederated state of our union will pay, starting with [SCOPE.sCountry('freraut_union_subject').GetName]. The chosen tier applies to all confederates."
+ freraut_union.1.a:0 "Cancel"
+ freraut_union.1.b:0 "Low contribution (10-40%)"
+ freraut_union.1.c:0 "High contribution (50-80%)"
+ freraut_union.1.d:0 "Union exemption (0%)"
+ freraut_union.2.t:0 "Union Contribution Tier"
+ freraut_union.2.desc:0 "Choose the share of their income that every confederated state will pay to the union."
+ freraut_union.2.a:0 "10% of income"
+ freraut_union.2.b:0 "20% of income"
+ freraut_union.2.c:0 "30% of income"
+ freraut_union.2.d:0 "40% of income"
+ freraut_union.3.t:0 "Union Contribution Tier"
+ freraut_union.3.desc:0 "Choose the share of their income that every confederated state will pay to the union."
+ freraut_union.3.a:0 "50% of income"
+ freraut_union.3.b:0 "60% of income"
+ freraut_union.3.c:0 "70% of income"
+ freraut_union.3.d:0 "80% of income"

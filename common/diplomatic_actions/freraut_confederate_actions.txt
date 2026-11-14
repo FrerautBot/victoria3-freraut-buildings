@@ -133,3 +133,45 @@ da_freraut_implement_regime = {
 		will_propose = { always = no }
 	}
 }
+
+# === 3) Establecer aporte de la union (sobre Estado Confederado, orden-64) ===
+# El escalon elegido en el evento se aplica a TODOS los confederados del senor
+# (pedido de Lucas). Reutiliza los pactos freraut_da_tribute* de orden-62/63:
+# dentro de every_subject_or_below, first = confederado (paga), second = senor
+# (recibe), par (yes, no) ya corregido. Sin tipos de pacto nuevos.
+freraut_da_union_tribute = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/raise_payments.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_confederated_state
+		}
+	}
+
+	possible = {
+		always = yes
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			save_scope_as = freraut_union_subject
+		}
+		trigger_event = {
+			id = freraut_union.1
+			popup = yes
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}

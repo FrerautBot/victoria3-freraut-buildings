@@ -1,0 +1,184 @@
+############################################
+# Freraut - Aporte de la union confederal (orden-64)
+# La DA freraut_da_union_tribute fija UN escalon de tributo (10-80%) que se
+# aplica a TODOS los estados confederados del senor, no solo al objetivo de
+# la DA (pedido de Lucas). Dentro de every_subject_or_below: this = confederado
+# iterado, root = el senor; pacto con first = confederado (paga), second =
+# senor (recibe) — leccion L238. El evento .1 elige banda (baja 10-40 / alta
+# 50-80) y dispara .2 o .3; la opcion d exime a toda la union (0%). Se
+# reutilizan los pactos freraut_da_tribute* tal como quedaron en 78c1a56
+# (par ya corregido en orden-63): sin tipos de pacto nuevos (A428).
+# El sujeto llega como scope:freraut_union_subject guardado en accept_effect
+# de la DA (patron de freraut_tribute.1, events/freraut_tribute_events.txt).
+############################################
+namespace = freraut_union
+
+# Evento 1: seleccion de banda de aporte de la union
+freraut_union.1 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_union.1.t
+	desc = freraut_union.1.d
+	theme = diplomacy
+
+	immediate = {
+		scope:freraut_union_subject = {
+			save_scope_as = freraut_union_subject
+		}
+	}
+
+	option = {
+		name = freraut_union.1.a
+		default_option = yes
+	}
+
+	option = {
+		name = freraut_union.1.b
+		trigger_event = { id = freraut_union.2 popup = yes }
+	}
+
+	option = {
+		name = freraut_union.1.c
+		trigger_event = { id = freraut_union.3 popup = yes }
+	}
+
+	option = {
+		name = freraut_union.1.d
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+		}
+	}
+}
+
+# Evento 2: banda baja (10/20/30/40)
+freraut_union.2 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_union.2.t
+	desc = freraut_union.2.desc
+	theme = diplomacy
+
+	option = {
+		name = freraut_union.2.a
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p10
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.2.b
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.2.c
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p30
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.2.d
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p40
+			}
+		}
+	}
+}
+
+# Evento 3: banda alta (50/60/70/80)
+freraut_union.3 = {
+	type = country_event
+	placement = ROOT
+	title = freraut_union.3.t
+	desc = freraut_union.3.desc
+	theme = diplomacy
+
+	option = {
+		name = freraut_union.3.a
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p50
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.3.b
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p60
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.3.c
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p70
+			}
+		}
+	}
+
+	option = {
+		name = freraut_union.3.d
+		every_subject_or_below = {
+			limit = {
+				is_subject_type = subject_type_confederated_state
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute_p80
+			}
+		}
+	}
+}

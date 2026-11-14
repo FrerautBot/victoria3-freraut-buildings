@@ -9,11 +9,13 @@ de un scope de sujeto con `country = root`. Por lo tanto, segun la primitiva
   - inversion en desarrollo (senor paga al vasallo % de SU ingreso): par (no, yes)
 
 Chequeos por cada create_diplomatic_pact en events/freraut_tribute_events.txt,
-events/freraut_dev_events.txt y common/diplomatic_actions/freraut_administration_actions.txt:
+events/freraut_dev_events.txt, events/freraut_union_events.txt y
+common/diplomatic_actions/freraut_administration_actions.txt:
   1. el tipo del pacto tiene definicion con par de income transfer en el DA
   2. el par de la definicion coincide con el esperado para el tipo
   3. el create esta dentro de un scope de sujeto (freraut_tribute_subject /
-     freraut_dev_subject / target_country) y el recipiente es country = root
+     freraut_dev_subject / target_country / every_subject_or_below) y el
+     recipiente es country = root
 
 Exit code: 0 = sin violaciones, 1 = violaciones.
 Uso:  python tools/validar_direccion.py
@@ -27,6 +29,7 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FILES = [
     "events/freraut_tribute_events.txt",
     "events/freraut_dev_events.txt",
+    "events/freraut_union_events.txt",
     "common/diplomatic_actions/freraut_administration_actions.txt",
 ]
 DA_FILE = "common/diplomatic_actions/freraut_administration_actions.txt"
@@ -35,6 +38,7 @@ ACTOR_SCOPES = (
     "scope:freraut_tribute_subject",
     "scope:freraut_dev_subject",
     "scope:target_country",
+    "every_subject_or_below",
 )
 
 BLOCK_RE = re.compile(r"^(\S[\S ]*?)\s*=\s*\{$")

@@ -662,7 +662,6 @@ freraut_da_colonial_regime = {
 				remove_modifier = freraut_admin_exploitation
 			}
 			freraut_remove_all_tribute_pacts = yes
-			freraut_remove_all_dev_pacts = yes
 		}
 	}
 
@@ -714,7 +713,6 @@ freraut_da_explotation_regime = {
 				name = freraut_admin_exploitation
 			}
 			freraut_remove_all_tribute_pacts = yes
-			freraut_remove_all_dev_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_tribute
@@ -876,7 +874,6 @@ freraut_da_unify_culture = {
 				activate_law = law_type:law_frontier_colonization
 			}
 			freraut_remove_all_tribute_pacts = yes
-			freraut_remove_all_dev_pacts = yes
 		}
 	}
 

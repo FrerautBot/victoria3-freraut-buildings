@@ -4,7 +4,8 @@
 # El senor paga al vasallo un % de SU ingreso (direccion inversa al tributo):
 # first = vasallo, second = senor, par (no, yes) en los pactos.
 # El evento .1 elige banda (baja 10-40 / alta 50-80) y dispara .2 o .3;
-# la opcion c suspende la inversion (0%) removiendo pactos de ambos tipos.
+# la opcion c suspende la inversion (0%) removiendo solo sus pactos de
+# desarrollo: coexiste con el tributo (fin de la exclusion mutua, orden-64).
 # El sujeto llega como scope:freraut_dev_subject guardado en accept_effect
 # de la DA (patron de freraut_tribute.1, events/freraut_tribute_events.txt).
 ############################################
@@ -38,7 +39,6 @@ freraut_dev.1 = {
 		name = freraut_dev.1.c
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 		}
 	}
 }
@@ -55,7 +55,6 @@ freraut_dev.2 = {
 		name = freraut_dev.2.a
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p10
@@ -67,7 +66,6 @@ freraut_dev.2 = {
 		name = freraut_dev.2.b
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p20
@@ -79,7 +77,6 @@ freraut_dev.2 = {
 		name = freraut_dev.2.c
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p30
@@ -91,7 +88,6 @@ freraut_dev.2 = {
 		name = freraut_dev.2.d
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p40
@@ -112,7 +108,6 @@ freraut_dev.3 = {
 		name = freraut_dev.3.a
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p50
@@ -124,7 +119,6 @@ freraut_dev.3 = {
 		name = freraut_dev.3.b
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p60
@@ -136,7 +130,6 @@ freraut_dev.3 = {
 		name = freraut_dev.3.c
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p70
@@ -148,7 +141,6 @@ freraut_dev.3 = {
 		name = freraut_dev.3.d
 		scope:freraut_dev_subject = {
 			freraut_remove_all_dev_pacts = yes
-			freraut_remove_all_tribute_pacts = yes
 			create_diplomatic_pact = {
 				country = root
 				type = freraut_da_dev_p80
