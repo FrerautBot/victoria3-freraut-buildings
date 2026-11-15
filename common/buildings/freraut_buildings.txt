@@ -158,6 +158,7 @@ building_sovereign_palace = {
 
 	city_type = city
 	levels_per_mesh = 5
+	expandable = no
 
 	production_method_groups = {
 		pmg_sovereign_palace_operations
@@ -178,8 +179,27 @@ building_sovereign_palace = {
 		always = no
 	}
 
+	# A490b: el menu de construccion gubernamental filtra por
+	# can_build_government, NO por possible (bug in-game reportado por
+	# Lucas 2026-11-15: el palacio se podia construir en cualquier estado
+	# pese a possible is_capital; precedentes vanilla de gate de menu:
+	# skyscraper has_modifier = skyscraper_site 07_government.txt:186,
+	# universidad pol_cannot_build_unis 07_government.txt:77).
+	# Unicidad: country_has_building_type_levels (precedente vanilla
+	# 11_private_infrastructure.txt:275) bloquea el segundo palacio y la
+	# expansion (1 palacio = 1 nivel, refuerzo de expandable = no).
 	can_build_government = {
-		owner = { is_player = yes }
+		owner = {
+			is_player = yes
+			NOT = {
+				country_has_building_type_levels = {
+					target = bt:building_sovereign_palace
+					value >= 1
+				}
+			}
+		}
+		is_capital = yes
+		is_incorporated = yes
 	}
 }
 

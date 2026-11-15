@@ -2,9 +2,17 @@
 """Validador estatico del sistema de edificios (M777, orden-67, task-70).
 
 Reglas (6 checks + guard anti-vacuidad que cuenta, L310):
-  1. building_sovereign_palace tiene possible con is_capital = yes
-     (A490b: 1 palacio por pais, solo en la capital; V3 tiene UNA instancia
-     del building por estado, los niveles no duplican).
+  1. building_sovereign_palace: possible con is_capital = yes (A490b,
+     documental) + can_build_government con is_capital = yes e
+     is_incorporated = yes (gate efectivo: el menu de construccion
+     gubernamental filtra por can_build_government, NO por possible — bug
+     in-game reportado por Lucas 2026-11-15; precedentes vanilla de gate
+     de menu: skyscraper has_modifier = skyscraper_site
+     07_government.txt:186, universidad pol_cannot_build_unis :77) +
+     country_has_building_type_levels con target
+     bt:building_sovereign_palace (unicidad: 1 palacio por pais,
+     precedente vanilla 11_private_infrastructure.txt:275) +
+     expandable = no (1 nivel, precedente skyscraper 07_government.txt:173).
   2. pm_sovereign_palace_base tiene state_modifiers con la clave de
      throughput elegida en P2 (building_sovereign_palace_throughput_add =
      0.10, precedente vanilla common/production_methods/08_monuments.txt:280
@@ -254,6 +262,7 @@ def chequear_1_palacio_capital(violaciones, dict_buildings):
             ("freraut_buildings.txt",
              "GUARD anti-vacuidad: building_sovereign_palace no encontrado"))
         return
+    # 1a: possible documental (el gate efectivo es can_build_government)
     possible = sub_bloque_texto(bloque, "possible")
     if possible is None:
         violaciones.append(
@@ -261,12 +270,62 @@ def chequear_1_palacio_capital(violaciones, dict_buildings):
              "check 1 (A490b): falta bloque possible (is_capital = yes "
              "exigido: 1 palacio por pais, solo en la capital)"))
     elif IS_CAPITAL_RE.search(possible):
-        print("[OK] check 1 palacio possible con is_capital = yes "
-              "(solo la capital; 1 instancia por estado = 1 palacio/pais)")
+        print("[OK] check 1a palacio possible con is_capital = yes "
+              "(documental; el gate efectivo es can_build_government)")
     else:
         violaciones.append(
             ("freraut_buildings.txt building_sovereign_palace",
              "check 1 (A490b): possible sin is_capital = yes"))
+    # 1b: el menu de construccion gubernamental filtra por
+    # can_build_government, NO por possible (bug in-game reportado por
+    # Lucas 2026-11-15: possible is_capital no bloqueo el menu; precedentes
+    # vanilla de gate de menu: skyscraper has_modifier = skyscraper_site
+    # 07_government.txt:186, universidad pol_cannot_build_unis :77)
+    cbg = sub_bloque_texto(bloque, "can_build_government")
+    if cbg is None:
+        violaciones.append(
+            ("freraut_buildings.txt building_sovereign_palace",
+             "check 1 (A490b): falta can_build_government (el menu filtra "
+             "por can_build_government, NO por possible)"))
+        return
+    if not IS_CAPITAL_RE.search(cbg):
+        violaciones.append(
+            ("freraut_buildings.txt building_sovereign_palace",
+             "check 1 (A490b): can_build_government sin is_capital = yes "
+             "(gate efectivo del menu: solo la capital)"))
+    else:
+        print("[OK] check 1b can_build_government con is_capital = yes "
+              "(gate efectivo del menu)")
+    if not IS_INCORPORATED_RE.search(cbg):
+        violaciones.append(
+            ("freraut_buildings.txt building_sovereign_palace",
+             "check 1 (A491): can_build_government sin is_incorporated = "
+             "yes"))
+    else:
+        print("[OK] check 1b can_build_government con is_incorporated = yes")
+    if ("country_has_building_type_levels" not in cbg
+            or "bt:building_sovereign_palace" not in cbg):
+        violaciones.append(
+            ("freraut_buildings.txt building_sovereign_palace",
+             "check 1 (A490b): can_build_government sin "
+             "country_has_building_type_levels target "
+             "bt:building_sovereign_palace (unicidad: 1 palacio por pais; "
+             "precedente vanilla 11_private_infrastructure.txt:275)"))
+    else:
+        print("[OK] check 1b unicidad country_has_building_type_levels "
+              "(1 palacio por pais)")
+    # 1c: 1 nivel (expandable = no, precedente skyscraper
+    # 07_government.txt:173); buscar en el bloque sin comentarios para que
+    # un comentario no enmascare la ausencia del campo
+    sin_comentarios = "\n".join(strip_comment(l)
+                                for l in bloque.split("\n"))
+    if not re.search(r"^\s*expandable\s*=\s*no\s*$", sin_comentarios, re.M):
+        violaciones.append(
+            ("freraut_buildings.txt building_sovereign_palace",
+             "check 1 (A490b): falta expandable = no (1 palacio de 1 "
+             "nivel; precedente skyscraper 07_government.txt:173)"))
+    else:
+        print("[OK] check 1c expandable = no (1 nivel)")
 
 
 def chequear_2_throughput(violaciones, texto_pms):
