@@ -14,3 +14,29 @@ goods_output_corporate_financial_services_add = {
 		ai_value = 0
 	}
 }
+
+# A490a task-70: +10% throughput SOLO del palacio (estado de la capital).
+# Patron vanilla: toda clave per-building lleva definicion de tipo —
+# game/common/modifier_type_definitions/01_building_modifier_types.txt:2642
+# (building_government_administration_throughput_add, usado en
+# pm_default_building_white_house, game/common/production_methods/
+# 08_monuments.txt:280).
+building_sovereign_palace_throughput_add = {
+	decimals = 0
+	color = good
+	percent = yes
+	game_data = {
+		ai_value = 0
+	}
+}
+
+# B.0 task-70 flats: goods_input_furniture_add NO existe en vanilla (solo
+# goods_output_furniture_add, 01_building_modifier_types.txt:1182). Forma
+# de los goods_input_*_add vanilla (01_building_modifier_types.txt:1598).
+goods_input_furniture_add = {
+	decimals = 1
+	color = bad
+	game_data = {
+		ai_value = 0
+	}
+}

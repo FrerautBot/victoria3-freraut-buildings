@@ -1,0 +1,16 @@
+# Modifier types for Corporate Financial Services
+goods_input_corporate_financial_services_add = {
+	decimals = 1
+	color = bad
+	game_data = {
+		ai_value = 0
+	}
+}
+
+goods_output_corporate_financial_services_add = {
+	decimals = 1
+	color = good
+	game_data = {
+		ai_value = 0
+	}
+}

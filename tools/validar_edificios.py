@@ -11,6 +11,11 @@ Reglas (6 checks + guard anti-vacuidad que cuenta, L310):
      building_government_administration_throughput_add = 0.2 en
      workforce_scaled), y esa clave NO esta en country_modifiers del mismo
      PM (B.2 check negativo) ni en otro PM (conteo total == 1).
+     CLAVE CON TIPO: building_sovereign_palace_throughput_add debe tener
+     su definicion de tipo en freraut_modifier_types.txt con
+     percent = yes (patron vanilla: toda clave per-building lleva
+     definicion literal, 01_building_modifier_types.txt:2642; sin
+     definicion el juego no aplica ni muestra el modificador).
      INPUTS OMITIDOS (P2): vanilla no ofrece clave por-building ni por
      building_group para inputs de bienes; solo existe
      building_goods_input_mult generico (01_building_modifier_types.txt:718)
@@ -38,7 +43,10 @@ Reglas (6 checks + guard anti-vacuidad que cuenta, L310):
      esta en production_method_groups de building_sovereign_palace, y
      pm_sovereign_palace_flats existe en freraut_pms.txt con los goods de
      B.0 (goods_input_furniture_add = 20, goods_input_groceries_add = 20,
-     goods_output_services_add = 40).
+     goods_output_services_add = 40). goods_input_furniture_add (custom,
+     no existe en vanilla: 01_building_modifier_types.txt:1182 solo define
+     goods_output_furniture_add) debe tener su definicion de tipo en
+     freraut_modifier_types.txt.
 
 Guard anti-vacuidad (M664 + L310): si los bloques esperados no se
 encuentran, cada guard agrega una violacion al contador (el patron que
@@ -48,7 +56,8 @@ Exit code: 0 = sin violaciones, 1 = violaciones.
 Uso:  python tools/validar_edificios.py [RAIZ]
       RAIZ opcional (M750): directorio con la estructura del mod
       (common/buildings/..., common/production_methods/...,
-      common/production_method_groups/...); por defecto '.' (repo vigente).
+      common/production_method_groups/..., common/building_groups/...,
+      common/modifier_type_definitions/...); por defecto '.' (repo vigente).
 """
 import os
 import re
@@ -66,6 +75,8 @@ PMGS_FILE = os.path.join(BASE, "common", "production_method_groups",
                          "freraut_pmgs.txt")
 BG_FILE = os.path.join(BASE, "common", "building_groups",
                        "freraut_building_groups.txt")
+MT_FILE = os.path.join(BASE, "common", "modifier_type_definitions",
+                       "freraut_modifier_types.txt")
 
 # 16 buildings del mod (anclas verificadas en Paso 0, HEAD del task)
 TODAS_BUILDINGS = [
@@ -191,6 +202,38 @@ def sub_bloque_texto(texto, nombre):
     return None
 
 
+def chequear_tipo_definido(violaciones, clave, contexto, requiere=None):
+    """La clave per-building debe tener su definicion de tipo en
+    freraut_modifier_types.txt (patron vanilla: toda clave per-building
+    lleva definicion literal, 01_building_modifier_types.txt:2642); sin
+    definicion el juego no aplica ni muestra el modificador."""
+    if not os.path.isfile(MT_FILE):
+        violaciones.append(
+            ("freraut_modifier_types.txt",
+             "GUARD anti-vacuidad: archivo de tipos de modificador no "
+             "encontrado (%s) exigido para %s (%s)"
+             % (MT_FILE, clave, contexto)))
+        return
+    mt_texto = "\n".join(leer(MT_FILE))
+    bloque = sub_bloque_texto(mt_texto, clave)
+    if bloque is None:
+        violaciones.append(
+            ("freraut_modifier_types.txt",
+             "%s: falta definicion de tipo para %s (clave per-building sin "
+             "tipo: el juego no la aplica ni la muestra; patron vanilla "
+             "01_building_modifier_types.txt:2642)" % (contexto, clave)))
+        return
+    if requiere and requiere not in bloque:
+        violaciones.append(
+            ("freraut_modifier_types.txt %s" % clave,
+             "%s: la definicion de %s no contiene %r (sin ella cambia la "
+             "semantica del valor)" % (contexto, clave, requiere)))
+        return
+    print("[OK] %s: %s definido en freraut_modifier_types.txt%s"
+          % (contexto, clave,
+             " (con %r)" % requiere if requiere else ""))
+
+
 def chequear_guard_buildings(violaciones, dict_buildings):
     """Anti-vacuidad: los 14 bloques activos esperados deben existir."""
     faltantes = [b for b in ACTIVAS_ESPERADAS if b not in dict_buildings]
@@ -265,6 +308,8 @@ def chequear_2_throughput(violaciones, texto_pms):
             ("freraut_pms.txt",
              "check 2 (B.2): %s aparece %d veces (esperado 1)"
              % (THROUGHPUT_KEY, total)))
+    chequear_tipo_definido(violaciones, THROUGHPUT_KEY,
+                           "check 2 (A490a)", requiere="percent = yes")
     print("[INFO] check 2 inputs -10% OMITIDO por P2: vanilla no ofrece "
           "clave por-building ni por building_group para inputs de bienes "
           "(solo building_goods_input_mult generico, que en scope de "
@@ -397,6 +442,8 @@ def chequear_6_flats(violaciones, texto_pmgs, dict_buildings, texto_pms):
             ("freraut_buildings.txt building_sovereign_palace",
              "check 6 (B.0): production_method_groups sin "
              "pmg_sovereign_palace_flats"))
+    chequear_tipo_definido(violaciones, "goods_input_furniture_add",
+                           "check 6 (B.0)")
     pm_flats = sub_bloque_texto(texto_pms, "pm_sovereign_palace_flats")
     if pm_flats is None:
         violaciones.append(
