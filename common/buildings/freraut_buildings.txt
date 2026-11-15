@@ -21,6 +21,11 @@ building_central_bank = {
 
 	required_construction = 1
 
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
+
 	can_build_private = {
 		always = no
 	}
@@ -73,6 +78,11 @@ building_mining_center = {
 
 	required_construction = 1
 
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
+
 	can_build_private = {
 		always = no
 	}
@@ -82,29 +92,36 @@ building_mining_center = {
 	}
 }
 
-building_manufacturing_center = {
-	building_group = bg_manufacturing_center
-
-	texture = "gfx/interface/icons/building_icons/building_tooling_workshops.dds"
-
-	city_type = city
-	levels_per_mesh = 5
-
-	production_method_groups = {
-		pmg_manufacturing_center_operations
-		pmg_manufacturing_center_automation
-	}
-
-	required_construction = 1
-
-	can_build_private = {
-		always = no
-	}
-
-	can_build_government = {
-		owner = { is_player = yes }
-	}
-}
+# DESACTIVADA por decision de Lucas (orden-67, task-70): guardada en el
+# archivo pero el juego NO la carga (bloque comentado entero, Parte D).
+# building_manufacturing_center = {
+# 	building_group = bg_manufacturing_center
+#
+# 	texture = "gfx/interface/icons/building_icons/building_tooling_workshops.dds"
+#
+# 	city_type = city
+# 	levels_per_mesh = 5
+#
+# 	production_method_groups = {
+# 		pmg_manufacturing_center_operations
+# 		pmg_manufacturing_center_automation
+# 	}
+#
+# 	required_construction = 1
+#
+# 	# A491: no construible en colonias/territorios no incorporados
+# 	possible = {
+# 		is_incorporated = yes
+# 	}
+#
+# 	can_build_private = {
+# 		always = no
+# 	}
+#
+# 	can_build_government = {
+# 		owner = { is_player = yes }
+# 	}
+# }
 
 building_public_works = {
 	building_group = bg_public_works
@@ -119,6 +136,11 @@ building_public_works = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -139,9 +161,18 @@ building_sovereign_palace = {
 
 	production_method_groups = {
 		pmg_sovereign_palace_operations
+		pmg_sovereign_palace_flats
 	}
 
 	required_construction = 1
+
+	# A490b: 1 palacio por pais, solo en la capital (V3 tiene UNA instancia
+	# del building por estado; los niveles no duplican)
+	possible = {
+		is_capital = yes
+		# A491: no construible en colonias/territorios no incorporados
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -166,6 +197,11 @@ building_tech_university = {
 
 	required_construction = 1
 
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
+
 	can_build_private = {
 		always = no
 	}
@@ -188,6 +224,11 @@ building_national_trade = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -213,6 +254,11 @@ building_logistics_center = {
 
 	required_construction = 1
 
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
+
 	can_build_private = {
 		always = no
 	}
@@ -235,6 +281,11 @@ building_national_academy = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -259,6 +310,11 @@ building_stock_exchange = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -292,6 +348,8 @@ building_dissident_agency = {
 	required_construction = 1
 
 	possible = {
+		# A491: no construible en colonias/territorios no incorporados
+		is_incorporated = yes
 		owner = {
 			OR = {
 				has_law = law_type:law_censorship
@@ -329,6 +387,11 @@ building_fertilization_center = {
 
 	required_construction = 1
 
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
+
 	can_build_private = {
 		always = no
 	}
@@ -338,32 +401,39 @@ building_fertilization_center = {
 	}
 }
 
-building_industrial_trains = {
-	building_group = bg_industrial_trains
-
-	texture = "gfx/interface/icons/building_icons/building_railway.dds"
-
-	city_type = city
-	levels_per_mesh = 5
-
-	unlocking_technologies = {
-		railways
-	}
-
-	production_method_groups = {
-		pmg_industrial_trains_operations
-	}
-
-	required_construction = 1
-
-	can_build_private = {
-		always = no
-	}
-
-	can_build_government = {
-		owner = { is_player = yes }
-	}
-}
+# DESACTIVADA por decision de Lucas (orden-67, task-70): guardada en el
+# archivo pero el juego NO la carga (bloque comentado entero, Parte D).
+# building_industrial_trains = {
+# 	building_group = bg_industrial_trains
+#
+# 	texture = "gfx/interface/icons/building_icons/building_railway.dds"
+#
+# 	city_type = city
+# 	levels_per_mesh = 5
+#
+# 	unlocking_technologies = {
+# 		railways
+# 	}
+#
+# 	production_method_groups = {
+# 		pmg_industrial_trains_operations
+# 	}
+#
+# 	required_construction = 1
+#
+# 	# A491: no construible en colonias/territorios no incorporados
+# 	possible = {
+# 		is_incorporated = yes
+# 	}
+#
+# 	can_build_private = {
+# 		always = no
+# 	}
+#
+# 	can_build_government = {
+# 		owner = { is_player = yes }
+# 	}
+# }
 
 building_breeding_center = {
 	building_group = bg_breeding_center
@@ -378,6 +448,11 @@ building_breeding_center = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	can_build_private = {
 		always = no
@@ -401,6 +476,11 @@ building_grand_company_bank = {
 	}
 
 	required_construction = 1
+
+	# A491: no construible en colonias/territorios no incorporados
+	possible = {
+		is_incorporated = yes
+	}
 
 	# Solo el jugador puede construir manualmente
 	can_build_government = {

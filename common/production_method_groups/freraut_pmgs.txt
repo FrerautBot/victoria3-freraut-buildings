@@ -62,6 +62,14 @@ pmg_sovereign_palace_operations = {
 	}
 }
 
+# Palacio Soberano - Columna 2: Viviendas del palacio (flats, B.0)
+pmg_sovereign_palace_flats = {
+	texture = "gfx/interface/icons/production_method_icons/ownership.dds"
+	production_methods = {
+		pm_sovereign_palace_flats
+	}
+}
+
 pmg_tech_university_operations = {
 	texture = "gfx/interface/icons/production_method_icons/scholastic_education.dds"
 	production_methods = {
