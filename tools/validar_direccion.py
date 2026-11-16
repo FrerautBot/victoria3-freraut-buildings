@@ -9,13 +9,18 @@ de un scope de sujeto con `country = root`. Por lo tanto, segun la primitiva
   - inversion en desarrollo (senor paga al vasallo % de SU ingreso): par (no, yes)
 
 Chequeos por cada create_diplomatic_pact en events/freraut_tribute_events.txt,
-events/freraut_dev_events.txt, events/freraut_union_events.txt y
-common/diplomatic_actions/freraut_administration_actions.txt:
+events/freraut_dev_events.txt, events/freraut_union_events.txt,
+common/diplomatic_actions/freraut_administration_actions.txt y
+common/decisions/freraut_ai_admin_decisions.txt (orden-69):
   1. el tipo del pacto tiene definicion con par de income transfer en el DA
   2. el par de la definicion coincide con el esperado para el tipo
   3. el create esta dentro de un scope de sujeto (freraut_tribute_subject /
-     freraut_dev_subject / target_country / every_subject_or_below) y el
-     recipiente es country = root
+     freraut_dev_subject / target_country / every_subject_or_below /
+     on_created) y el recipiente es country = root, EXCEPTO en on_created
+     de create_dynamic_country (orden-69, D4): ahi el actor es el sujeto
+     RECIEN CREADO (root es la nueva administracion) y el recipiente del
+     tributo es scope:freraut_ai_overlord (el senor, guardado antes del
+     create_dynamic_country).
 
 Exit code: 0 = sin violaciones, 1 = violaciones.
 Uso:  python tools/validar_direccion.py
@@ -31,6 +36,7 @@ FILES = [
     "events/freraut_dev_events.txt",
     "events/freraut_union_events.txt",
     "common/diplomatic_actions/freraut_administration_actions.txt",
+    "common/decisions/freraut_ai_admin_decisions.txt",
 ]
 DA_FILE = "common/diplomatic_actions/freraut_administration_actions.txt"
 
@@ -39,7 +45,12 @@ ACTOR_SCOPES = (
     "scope:freraut_dev_subject",
     "scope:target_country",
     "every_subject_or_below",
+    "on_created",
 )
+
+# En on_created el recipiente valido del tributo es el senor guardado
+# (root dentro de on_created es el sujeto nuevo, no el senor).
+RECIPIENTE_ON_CREATED = "scope:freraut_ai_overlord"
 
 BLOCK_RE = re.compile(r"^(\S[\S ]*?)\s*=\s*\{$")
 FIELD_TYPE_RE = re.compile(r"^type\s*=\s*(\S+)$")
@@ -134,7 +145,12 @@ def escanear_creaciones(definiciones):
                                 veredicto = "VIOLACION: tipo sin definicion"
                             elif actor not in ACTOR_SCOPES:
                                 veredicto = "VIOLACION: create fuera de scope de sujeto"
-                            elif recipiente != "root":
+                            elif actor == "on_created" and \
+                                    recipiente != RECIPIENTE_ON_CREATED:
+                                veredicto = ("VIOLACION: recipiente en "
+                                             "on_created != %s (el senor)"
+                                             % RECIPIENTE_ON_CREATED)
+                            elif actor != "on_created" and recipiente != "root":
                                 veredicto = "VIOLACION: recipiente != root"
                             elif par_def != exp:
                                 veredicto = "VIOLACION: par %s != esperado %s" % (par_def, exp)

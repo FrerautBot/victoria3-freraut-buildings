@@ -63,6 +63,10 @@ freraut_approve_autonomy = {
 				save_scope_as = freraut_admin_culture_3
 			}
 		}
+		# D6: guardar el scope del senor ANTES del create (flujo del jugador;
+		# el bug vivo de Lucas: Paraguay socialista creaba administraciones
+		# con monarquia por el principio por defecto del country_type).
+		save_scope_as = freraut_admin_overlord_scope
 		create_dynamic_country = {
 			origin = root
 			country_type = colonial
@@ -86,6 +90,81 @@ freraut_approve_autonomy = {
 						exists = scope:freraut_admin_culture_3
 					}
 					add_primary_culture = scope:freraut_admin_culture_3
+				}
+				# D6: herencia de la forma de gobierno del senor
+				# (variantes especificas antes del padre; has_law/activate_law
+				# anclados en 00_colonial_administration_buttons.txt:98-99).
+				if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_social_monarchy
+						}
+					}
+					activate_law = law_type:law_social_monarchy
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_presidential_republic
+						}
+					}
+					activate_law = law_type:law_presidential_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_parliamentary_republic
+						}
+					}
+					activate_law = law_type:law_parliamentary_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_theocracy
+						}
+					}
+					activate_law = law_type:law_theocracy
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_council_republic
+						}
+					}
+					activate_law = law_type:law_council_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_corporate_state
+						}
+					}
+					activate_law = law_type:law_corporate_state
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_chiefdom
+						}
+					}
+					activate_law = law_type:law_chiefdom
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_colonial_administration
+						}
+					}
+					activate_law = law_type:law_colonial_administration
+				}
+				else_if = {
+					limit = {
+						scope:freraut_admin_overlord_scope = {
+							has_law = law_type:law_monarchy
+						}
+					}
+					activate_law = law_type:law_monarchy
 				}
 				add_modifier = {
 					name = freraut_admin_base_liberty

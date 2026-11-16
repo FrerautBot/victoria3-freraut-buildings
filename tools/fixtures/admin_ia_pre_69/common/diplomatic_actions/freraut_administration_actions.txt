@@ -1,0 +1,879 @@
+﻿############################################
+# Decretos de Autonomia - acciones del senor (orden-56)
+# (a) Pacto oculto de Administracion (creado por la decision, nunca por la UI)
+# (b) Pactos ocultos de tributo, escalones 10-80% (orden-62): el 20%
+#     (freraut_da_tribute) lo crea el regimen de explotacion; los demas
+#     (p10/p30/p40/p50/p60/p70/p80) la DA Establecer regimen tributario
+# (c) Cesar autonomia: SOLO Administraciones, anexion con incorporacion
+# (d) Regimen colonial / (e) explotacion / (f) unificar cultura:
+#     Administraciones y titeres vanilla
+# (g) Establecer regimen tributario: SOLO Administraciones (orden-62)
+# (h) Invertir en desarrollo: Administraciones y titeres vanilla (orden-63)
+# Nota: sin cambio de religion (verificado: no existe efecto de religion
+# sobre paises ya creados en el motor 1.15).
+############################################
+
+freraut_da_create_administration = {
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 10
+		has_junior_participant = yes
+		maintenance_paid_by = first_country
+		income_transfer = 0
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		relations_progress_per_day = 1
+		relations_improvement_max = 50
+
+		subject_type = subject_type_freraut_administration
+
+		actor_can_break = {
+			is_diplomatic_play_committed_participant = no
+		}
+
+		target_can_break = {
+			always = no
+		}
+
+		manual_break_effect = {
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
+		}
+
+		auto_break_effect = {
+			create_bidirectional_truce = { country = scope:target_country months = 60 }
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.2
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p10 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.1
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p30 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.3
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p40 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.4
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p50 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.5
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p60 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.6
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p70 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.7
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_tribute_p80 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		income_transfer = 0.8
+		second_country_gets_income_transfer = yes
+		income_transfer_based_on_second_country = no
+
+		first_modifier = {
+			country_liberty_desire_add = 0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p10 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.1
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p20 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.2
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p30 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.3
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p40 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.4
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p50 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.5
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p60 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.6
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p70 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.7
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+
+freraut_da_dev_p80 = {
+	requires_approval = no
+	groups = {
+		general
+	}
+	show_in_lens = no
+
+	potential = {
+		always = no
+	}
+
+	pact = {
+		cost = 25
+
+		maintenance_paid_by = first_country
+		relations_progress_per_day = -1
+		income_transfer = 0.8
+		second_country_gets_income_transfer = no
+		income_transfer_based_on_second_country = yes
+
+		first_modifier = {
+			country_liberty_desire_add = -0.10
+		}
+	}
+
+	ai = {
+		will_break = {
+			always = no
+		}
+	}
+}
+freraut_da_cease_autonomy = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/da_decrease_autonomy.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_freraut_administration
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_freraut_administration
+		}
+	}
+
+	accept_effect = {
+		annex_with_incorporation = scope:target_country
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
+
+freraut_da_colonial_regime = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/da_appoint_colonial_governor.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+			NOT = { has_law = law_type:law_colonial_administration }
+		}
+	}
+
+	accept_effect = {
+		root = {
+			every_primary_culture = {
+				limit = {
+					NOT = { is_primary_culture_of = scope:target_country }
+				}
+				save_temporary_scope_as = freraut_admin_temp_culture
+				scope:target_country = {
+					add_primary_culture = scope:freraut_admin_temp_culture
+				}
+			}
+		}
+		scope:target_country = {
+			activate_law = law_type:law_frontier_colonization
+			activate_law = law_type:law_colonial_administration
+			if = {
+				limit = {
+					has_modifier = freraut_admin_exploitation
+				}
+				remove_modifier = freraut_admin_exploitation
+			}
+			freraut_remove_all_tribute_pacts = yes
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
+
+freraut_da_explotation_regime = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/raise_payments.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+			NOT = { has_law = law_type:law_colonial_administration }
+			NOT = { has_modifier = freraut_admin_exploitation }
+			NOT = { has_modifier = freraut_admin_unified_liberty }
+			NOT = { has_diplomatic_pact = { who = root type = freraut_da_tribute } }
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			activate_law = law_type:law_colonial_exploitation
+			add_modifier = {
+				name = freraut_admin_exploitation
+			}
+			freraut_remove_all_tribute_pacts = yes
+			create_diplomatic_pact = {
+				country = root
+				type = freraut_da_tribute
+			}
+			# M749: misma forma que la imposicion de tributo
+			add_loyalists = {
+				value = 0.02
+			}
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
+
+freraut_da_set_tribute = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/raise_payments.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_freraut_administration
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			is_subject_type = subject_type_freraut_administration
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			save_scope_as = freraut_tribute_subject
+		}
+		trigger_event = { id = freraut_tribute.1 popup = yes }
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
+
+freraut_da_dev_invest = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/da_grant_investment_rights.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	accept_effect = {
+		scope:target_country = {
+			save_scope_as = freraut_dev_subject
+		}
+		trigger_event = { id = freraut_dev.1 popup = yes }
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}
+freraut_da_unify_culture = {
+	groups = { overlord }
+
+	requires_approval = no
+	should_notify_third_parties = yes
+	show_effect_in_tooltip = yes
+	is_hostile = no
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/change_culture.dds"
+
+	potential = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+		}
+	}
+
+	possible = {
+		scope:target_country = {
+			is_subject_of = root
+			OR = {
+				is_subject_type = subject_type_freraut_administration
+				is_subject_type = subject_type_puppet
+			}
+			any_primary_culture = {
+				NOT = { is_primary_culture_of = root }
+			}
+			NOT = { has_modifier = freraut_admin_unified_liberty }
+		}
+	}
+
+	accept_effect = {
+		root = {
+			every_primary_culture = {
+				limit = {
+					NOT = { is_primary_culture_of = scope:target_country }
+				}
+				save_temporary_scope_as = freraut_admin_temp_culture
+				scope:target_country = {
+					add_primary_culture = scope:freraut_admin_temp_culture
+				}
+			}
+		}
+		scope:target_country = {
+			every_primary_culture = {
+				limit = {
+					NOT = { is_primary_culture_of = root }
+				}
+				prev = {
+					remove_primary_culture = prev
+				}
+			}
+			add_modifier = {
+				name = freraut_admin_unified_liberty
+			}
+			if = {
+				limit = {
+					has_modifier = freraut_admin_exploitation
+				}
+				remove_modifier = freraut_admin_exploitation
+				activate_law = law_type:law_frontier_colonization
+			}
+			freraut_remove_all_tribute_pacts = yes
+		}
+	}
+
+	ai = {
+		evaluation_chance = { value = 0.1 }
+		propose_score = { value = 1 }
+		will_propose = { always = no }
+	}
+}

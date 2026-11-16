@@ -1,0 +1,128 @@
+﻿############################################
+# Decretos de Autonomia - decision (orden-56)
+# Crea una "Administracion de XXXX" (vasallo) cediendo todos los
+# estados con el decreto de autonomia. El estado con el decreto de
+# capital pasa a ser la capital de la nueva Administracion.
+# Culturas: las 3 primarias mas grandes del senor (aproximacion
+# aprobada por Lucas: no existe ordenamiento estatal de culturas).
+############################################
+
+freraut_approve_autonomy = {
+	is_shown = {
+		any_scope_state = {
+			has_decree = freraut_decree_capital
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_diplomatic_play_committed_participant = no
+		any_scope_state = {
+			has_decree = freraut_decree_capital
+		}
+	}
+
+	when_taken = {
+		every_scope_state = {
+			limit = {
+				has_decree = freraut_decree_capital
+			}
+			if = {
+				limit = {
+					NOT = { exists = scope:freraut_admin_capital }
+				}
+				save_scope_as = freraut_admin_capital
+			}
+		}
+		ordered_primary_culture = {
+			order_by = "root.culture_percent_country(this)"
+			position = 0
+			save_scope_as = freraut_admin_culture_1
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					count >= 2
+				}
+			}
+			ordered_primary_culture = {
+				order_by = "root.culture_percent_country(this)"
+				position = 1
+				save_scope_as = freraut_admin_culture_2
+			}
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					count >= 3
+				}
+			}
+			ordered_primary_culture = {
+				order_by = "root.culture_percent_country(this)"
+				position = 2
+				save_scope_as = freraut_admin_culture_3
+			}
+		}
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			culture = scope:freraut_admin_culture_1
+			capital = scope:freraut_admin_capital
+			cede_state_trigger = {
+				has_decree = freraut_decree_autonomy
+				NOT = { is_capital = yes }
+			}
+			on_created = {
+				set_variable = freraut_admin_var
+				if = {
+					limit = {
+						exists = scope:freraut_admin_culture_2
+					}
+					add_primary_culture = scope:freraut_admin_culture_2
+				}
+				if = {
+					limit = {
+						exists = scope:freraut_admin_culture_3
+					}
+					add_primary_culture = scope:freraut_admin_culture_3
+				}
+				add_modifier = {
+					name = freraut_admin_base_liberty
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:freraut_admin_capital.owner
+				type = freraut_da_create_administration
+			}
+		}
+		every_scope_state = {
+			limit = {
+				OR = {
+					has_decree = freraut_decree_autonomy
+					has_decree = freraut_decree_capital
+				}
+			}
+			remove_decree = freraut_decree_autonomy
+			remove_decree = freraut_decree_capital
+		}
+		scope:freraut_admin_capital.owner = {
+			every_scope_state = {
+				limit = {
+					OR = {
+						has_decree = freraut_decree_autonomy
+						has_decree = freraut_decree_capital
+					}
+				}
+				remove_decree = freraut_decree_autonomy
+				remove_decree = freraut_decree_capital
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 0
+	}
+}

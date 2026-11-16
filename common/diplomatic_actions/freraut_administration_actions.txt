@@ -589,13 +589,238 @@ freraut_da_cease_autonomy = {
 	}
 
 	accept_effect = {
+		# D6: guardar el scope del senor (root) ANTES de anexar; la cadena
+		# de herencia vive en el on_created de abajo.
+		save_scope_as = freraut_ai_overlord
+		# D5: marcar TODOS los estados del sujeto ANTES de anexar.
+		scope:target_country = {
+			every_scope_state = {
+				set_variable = freraut_ai_consolidation_group
+			}
+		}
+		scope:target_country.capital = {
+			save_scope_as = freraut_ai_consolidation_capital
+		}
 		annex_with_incorporation = scope:target_country
+		# Re-derivar las 3 culturas primarias del senor (patron de la
+		# decision freraut_approve_autonomy :37-65) ANTES del create.
+		ordered_primary_culture = {
+			order_by = "root.culture_percent_country(this)"
+			position = 0
+			save_scope_as = freraut_admin_culture_1
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					count >= 2
+				}
+			}
+			ordered_primary_culture = {
+				order_by = "root.culture_percent_country(this)"
+				position = 1
+				save_scope_as = freraut_admin_culture_2
+			}
+		}
+		if = {
+			limit = {
+				any_primary_culture = {
+					count >= 3
+				}
+			}
+			ordered_primary_culture = {
+				order_by = "root.culture_percent_country(this)"
+				position = 2
+				save_scope_as = freraut_admin_culture_3
+			}
+		}
+		# D5 encadenado: UNA administracion con TODOS los estados anexados
+		# (cross-region, orden de Lucas). Sin precedente vanilla de
+		# create_dynamic_country en accept_effect (Parte E.5): riesgo
+		# documentado; el gate final es la validacion in-game (L317).
+		create_dynamic_country = {
+			origin = root
+			country_type = colonial
+			tier = principality
+			culture = scope:freraut_admin_culture_1
+			capital = scope:freraut_ai_consolidation_capital
+			cede_state_trigger = {
+				has_variable = freraut_ai_consolidation_group
+			}
+			on_created = {
+				set_variable = freraut_admin_var
+				if = {
+					limit = {
+						exists = scope:freraut_admin_culture_2
+					}
+					add_primary_culture = scope:freraut_admin_culture_2
+				}
+				if = {
+					limit = {
+						exists = scope:freraut_admin_culture_3
+					}
+					add_primary_culture = scope:freraut_admin_culture_3
+				}
+				# D6: herencia de la forma de gobierno del senor
+				# (scope:freraut_ai_overlord guardado antes de anexar;
+				# variantes especificas antes del padre).
+				if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_social_monarchy
+						}
+					}
+					activate_law = law_type:law_social_monarchy
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_presidential_republic
+						}
+					}
+					activate_law = law_type:law_presidential_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_parliamentary_republic
+						}
+					}
+					activate_law = law_type:law_parliamentary_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_theocracy
+						}
+					}
+					activate_law = law_type:law_theocracy
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_council_republic
+						}
+					}
+					activate_law = law_type:law_council_republic
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_corporate_state
+						}
+					}
+					activate_law = law_type:law_corporate_state
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_chiefdom
+						}
+					}
+					activate_law = law_type:law_chiefdom
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_colonial_administration
+						}
+					}
+					activate_law = law_type:law_colonial_administration
+				}
+				else_if = {
+					limit = {
+						scope:freraut_ai_overlord = {
+							has_law = law_type:law_monarchy
+						}
+					}
+					activate_law = law_type:law_monarchy
+				}
+				# Parte C: transformacion inline (D4). En la consolidacion el
+				# filtro de region es la variable del grupo.
+				if = {
+					limit = {
+						any_scope_state = {
+							has_variable = freraut_ai_consolidation_group
+							OR = {
+								has_potential_resource = building_gold_mine
+								has_potential_resource = building_gold_field
+								has_potential_resource = building_oil_rig
+								has_potential_resource = building_rubber_plantation
+								has_potential_resource = building_coal_mine
+								has_potential_resource = building_iron_mine
+							}
+						}
+					}
+					# rama explotacion (espejo freraut_da_explotation_regime
+					# :701-713; anti-deriva M797)
+					activate_law = law_type:law_colonial_exploitation
+					add_modifier = {
+						name = freraut_admin_exploitation
+					}
+					freraut_remove_all_tribute_pacts = yes
+					create_diplomatic_pact = {
+						country = scope:freraut_ai_overlord
+						type = freraut_da_tribute
+					}
+					add_loyalists = {
+						value = 0.02
+					}
+				}
+				else = {
+					# rama colonia (espejo freraut_da_colonial_regime
+					# :634-654 sin la activacion de law_colonial_administration:
+					# D6)
+					scope:freraut_ai_overlord = {
+						every_primary_culture = {
+							limit = {
+								NOT = { is_primary_culture_of = root }
+							}
+							save_temporary_scope_as = freraut_admin_temp_culture
+							root = {
+								add_primary_culture = scope:freraut_admin_temp_culture
+							}
+						}
+					}
+					activate_law = law_type:law_frontier_colonization
+					freraut_remove_all_tribute_pacts = yes
+				}
+				add_modifier = {
+					name = freraut_admin_base_liberty
+				}
+				# CORR-4: higiene de variables (patron vanilla
+				# 00_colonial_administration_buttons.txt:95-97)
+				every_scope_state = {
+					remove_variable = freraut_ai_consolidation_group
+				}
+			}
+		}
+		hidden_effect = {
+			create_diplomatic_pact = {
+				country = scope:freraut_ai_consolidation_capital.owner
+				type = freraut_da_create_administration
+			}
+		}
 	}
 
 	ai = {
 		evaluation_chance = { value = 0.1 }
-		propose_score = { value = 1 }
-		will_propose = { always = no }
+		propose_score = { value = 5 }
+		# Tercer gate (ADENDA): always = no reemplazado. will_propose es
+		# SOLO forma-trigger en vanilla (36/36 DAs; el "ponderado"
+		# value/add no existe en will_propose — L259): el +25 (sujeto <= 2
+		# estados) y el +20 (>= 2 administraciones) del briefing se
+		# implementan como OR de las dos condiciones.
+		will_propose = {
+			OR = {
+				scope:target_country = {
+					NOT = { any_scope_state = { count >= 3 } }
+				}
+				any_subject_or_below = {
+					count >= 2
+					is_subject_type = subject_type_freraut_administration
+				}
+			}
+		}
 	}
 }
 
