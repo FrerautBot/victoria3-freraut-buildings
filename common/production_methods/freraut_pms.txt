@@ -133,13 +133,13 @@ pm_mining_center_base = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_tools_add = 10 # orden-68
-			goods_output_sulfur_add = 30 # orden-68
-			goods_output_iron_add = 30 # orden-68
-			goods_output_lead_add = 30 # orden-68
-			goods_output_gold_add = 10 # orden-68
-			goods_output_coal_add = 30 # orden-68
-			goods_output_copper_add = 30 # orden-68
+			goods_input_tools_add = 5 # orden-70
+			goods_output_sulfur_add = 60 # orden-70
+			goods_output_iron_add = 60 # orden-70
+			goods_output_lead_add = 60 # orden-70
+			goods_output_gold_add = 20 # orden-70
+			goods_output_coal_add = 60 # orden-70
+			goods_output_copper_add = 60 # orden-70
 		}
 
 		level_scaled = {
@@ -914,22 +914,22 @@ pm_fertilization_base = {
 
 	building_modifiers = {
 		workforce_scaled = {
-			# Produce 30 de cada bien agrícola/plantación
-			goods_output_opium_add = 7.5
-			goods_output_silk_add = 7.5
-			goods_output_liquor_add = 7.5
-			goods_output_grain_add = 7.5
-			goods_output_fruit_add = 7.5
-			goods_output_tobacco_add = 7.5
-			goods_output_sugar_add = 7.5
-			goods_output_tea_add = 7.5
-			goods_output_coffee_add = 7.5
-			goods_output_cotton_add = 7.5
-			goods_output_rubber_add = 7.5
-			goods_output_dye_add = 7.5
+			# Produce 60 de cada bien agrícola/plantación
+			goods_output_opium_add = 15 # orden-70
+			goods_output_silk_add = 15 # orden-70
+			goods_output_liquor_add = 15 # orden-70
+			goods_output_grain_add = 15 # orden-70
+			goods_output_fruit_add = 15 # orden-70
+			goods_output_tobacco_add = 15 # orden-70
+			goods_output_sugar_add = 15 # orden-70
+			goods_output_tea_add = 15 # orden-70
+			goods_output_coffee_add = 15 # orden-70
+			goods_output_cotton_add = 15 # orden-70
+			goods_output_rubber_add = 15 # orden-70
+			goods_output_dye_add = 15 # orden-70
 
 			# Autosuficiente: produce fertilizante
-			goods_output_fertilizer_add = 7.5
+			goods_output_fertilizer_add = 15 # orden-70
 		}
 
 		level_scaled = {
@@ -950,27 +950,27 @@ pm_fertilization_railways = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Input: transporte para distribución por rieles
-			goods_input_transportation_add = 30
+			goods_input_transportation_add = 15 # orden-70
 
 			# Autosuficiente: produce transporte
-			goods_output_transportation_add = 12.5
+			goods_output_transportation_add = 25 # orden-70
 
-			# Produce 50 de cada bien agrícola/plantación
-			goods_output_opium_add = 12.5
-			goods_output_silk_add = 12.5
-			goods_output_liquor_add = 12.5
-			goods_output_grain_add = 12.5
-			goods_output_fruit_add = 12.5
-			goods_output_tobacco_add = 12.5
-			goods_output_sugar_add = 12.5
-			goods_output_tea_add = 12.5
-			goods_output_coffee_add = 12.5
-			goods_output_cotton_add = 12.5
-			goods_output_rubber_add = 12.5
-			goods_output_dye_add = 12.5
+			# Produce 100 de cada bien agrícola/plantación
+			goods_output_opium_add = 25 # orden-70
+			goods_output_silk_add = 25 # orden-70
+			goods_output_liquor_add = 25 # orden-70
+			goods_output_grain_add = 25 # orden-70
+			goods_output_fruit_add = 25 # orden-70
+			goods_output_tobacco_add = 25 # orden-70
+			goods_output_sugar_add = 25 # orden-70
+			goods_output_tea_add = 25 # orden-70
+			goods_output_coffee_add = 25 # orden-70
+			goods_output_cotton_add = 25 # orden-70
+			goods_output_rubber_add = 25 # orden-70
+			goods_output_dye_add = 25 # orden-70
 
 			# Autosuficiente: produce fertilizante
-			goods_output_fertilizer_add = 12.5
+			goods_output_fertilizer_add = 25 # orden-70
 		}
 
 		level_scaled = {
@@ -998,24 +998,24 @@ pm_fertilization_with_fertilizer = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Inputs: fertilizante, hierro, azufre y carbón
-			goods_input_fertilizer_add = 30
-			goods_input_iron_add = 30
-			goods_input_sulfur_add = 30
-			goods_input_coal_add = 30
+			goods_input_fertilizer_add = 15 # orden-70
+			goods_input_iron_add = 15 # orden-70
+			goods_input_sulfur_add = 15 # orden-70
+			goods_input_coal_add = 15 # orden-70
 
-			# +30 adicional de cada bien (sin mano de obra extra)
-			goods_output_opium_add = 7.5
-			goods_output_silk_add = 7.5
-			goods_output_liquor_add = 7.5
-			goods_output_grain_add = 7.5
-			goods_output_fruit_add = 7.5
-			goods_output_tobacco_add = 7.5
-			goods_output_sugar_add = 7.5
-			goods_output_tea_add = 7.5
-			goods_output_coffee_add = 7.5
-			goods_output_cotton_add = 7.5
-			goods_output_rubber_add = 7.5
-			goods_output_dye_add = 7.5
+			# +60 adicional de cada bien (sin mano de obra extra)
+			goods_output_opium_add = 15 # orden-70
+			goods_output_silk_add = 15 # orden-70
+			goods_output_liquor_add = 15 # orden-70
+			goods_output_grain_add = 15 # orden-70
+			goods_output_fruit_add = 15 # orden-70
+			goods_output_tobacco_add = 15 # orden-70
+			goods_output_sugar_add = 15 # orden-70
+			goods_output_tea_add = 15 # orden-70
+			goods_output_coffee_add = 15 # orden-70
+			goods_output_cotton_add = 15 # orden-70
+			goods_output_rubber_add = 15 # orden-70
+			goods_output_dye_add = 15 # orden-70
 		}
 	}
 }
@@ -1056,10 +1056,10 @@ pm_breeding_center_base = {
 	building_modifiers = {
 		workforce_scaled = {
 			# Outputs (no consume nada)
-			goods_output_fertilizer_add = 15
-			goods_output_meat_add = 20
-			goods_output_fabric_add = 15
-			goods_output_oil_add = 12.5
+			goods_output_fertilizer_add = 30 # orden-70
+			goods_output_meat_add = 40 # orden-70
+			goods_output_fabric_add = 30 # orden-70
+			goods_output_oil_add = 25 # orden-70
 		}
 
 		level_scaled = {
@@ -1116,8 +1116,8 @@ pm_mining_center_mechanized = {
 	
 	building_modifiers = {
 		workforce_scaled = {
-			building_input_engines_add = 5
-			building_output_transportation_add = 3.75
+			building_input_engines_add = 2.5 # orden-70
+			building_output_transportation_add = 7.5 # orden-70
 		}
 		level_scaled = {
 			building_employment_laborers_add = -375

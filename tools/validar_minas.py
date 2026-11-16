@@ -3,18 +3,18 @@
 
 Reglas:
   (a) pm_mining_center_base (common/production_methods/freraut_pms.txt),
-      sub-bloque workforce_scaled: goods_input_tools_add = 10 (C-68-1: el
-      "357" in-game es el agregado de ~23.8 niveles; el valor de archivo
-      real es 15 y se edita ese). goods_output_{sulfur,iron,lead,coal,
-      copper}_add = 30 y goods_output_gold_add = 10 (valores exactos de
-      Lucas; sin regla de redondeo).
+      sub-bloque workforce_scaled: goods_input_tools_add = 5 (orden-70:
+      consumo /2) y goods_output_{sulfur,iron,lead,coal,copper}_add = 60 y
+      goods_output_gold_add = 20 (orden-70: produccion x2; valores exactos
+      de Lucas; sin regla de redondeo).
   (b) level_scaled del PM base: building_employment_laborers_add = 2000
       (M687-d). pm_mining_center_mechanized:
       building_employment_laborers_add = -375 INTACTO (M723: NO reescalar;
       con mecanizada el nivel queda 2000 - 375 = 1625; si Lucas quiere otra
-      cosa, lo dira en validacion in-game). M687-a6 intacto:
-      building_input_engines_add = 5 y
-      building_output_transportation_add = 3.75 en la mecanizada.
+      cosa, lo dira en validacion in-game). orden-70 (regla nueva; ya no
+      M687-a6 intacto): building_input_engines_add = 2.5 (consumo /2) y
+      building_output_transportation_add = 7.5 (produccion x2) en la
+      mecanizada.
   (c) bg_mining_center (common/building_groups/freraut_building_groups.txt):
       urbanization = 5 (M687-c3: urbanizacion PER NIVEL del edificio; el
       edificio no define employment ni urbanization propio, M687-c4).
@@ -49,18 +49,18 @@ PM_MECH = "pm_mining_center_mechanized"
 BG = "bg_mining_center"
 
 EXPECTED_GOODS = {
-    "goods_input_tools_add": 10,
-    "goods_output_sulfur_add": 30,
-    "goods_output_iron_add": 30,
-    "goods_output_lead_add": 30,
-    "goods_output_gold_add": 10,
-    "goods_output_coal_add": 30,
-    "goods_output_copper_add": 30,
+    "goods_input_tools_add": 5,
+    "goods_output_sulfur_add": 60,
+    "goods_output_iron_add": 60,
+    "goods_output_lead_add": 60,
+    "goods_output_gold_add": 20,
+    "goods_output_coal_add": 60,
+    "goods_output_copper_add": 60,
 }
 EMPLOYMENT_BASE = 2000
 EMPLOYMENT_MECH = -375
-ENGINES_MECH = 5
-TRANSPORT_MECH = 3.75
+ENGINES_MECH = 2.5
+TRANSPORT_MECH = 7.5
 URBANIZATION = 5
 
 BLOCK_HEADER_RE = re.compile(r"^(\S[\S ]*?)\s*=\s*\{\s*$")
@@ -215,21 +215,21 @@ def chequear_mecanizada(violaciones):
     motores = [(n, v) for n, c, v in pares_bloque
                if c == "building_input_engines_add"]
     if len(motores) == 1 and motores[0][1] == float(ENGINES_MECH):
-        print("[OK] M687-a6 building_input_engines_add = %d intacto (%s:%d)"
+        print("[OK] orden-70 building_input_engines_add = %g (/2) (%s:%d)"
               % (ENGINES_MECH, rel, motores[0][0]))
     else:
         violaciones.append(
-            (rel, "M687-a6 building_input_engines_add esperado %d intacto, "
+            (rel, "orden-70 building_input_engines_add esperado %g (/2), "
                   "encontrado %s" % (ENGINES_MECH, motores)))
     trans = [(n, v) for n, c, v in pares_bloque
              if c == "building_output_transportation_add"]
     if len(trans) == 1 and trans[0][1] == float(TRANSPORT_MECH):
-        print("[OK] M687-a6 building_output_transportation_add = %g intacto "
+        print("[OK] orden-70 building_output_transportation_add = %g (x2) "
               "(%s:%d)" % (TRANSPORT_MECH, rel, trans[0][0]))
     else:
         violaciones.append(
-            (rel, "M687-a6 building_output_transportation_add esperado %g "
-                  "intacto, encontrado %s" % (TRANSPORT_MECH, trans)))
+            (rel, "orden-70 building_output_transportation_add esperado %g "
+                  "(x2), encontrado %s" % (TRANSPORT_MECH, trans)))
     return 0
 
 
